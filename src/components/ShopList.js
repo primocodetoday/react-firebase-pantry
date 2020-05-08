@@ -1,22 +1,19 @@
 ﻿import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CardTitle from './CardTitle';
 
 const Wrapper = styled.div`
-  flex-grow: 1;
   background-color: white;
   display: flex;
   flex-direction: column;
-  flex-basis: 250px;
-  color: #123c69;
-  margin: 15px 15px 15px 0;
+  flex-grow: 1;
+  color: #ac3b61;
+  margin: 15px 0px 15px 0;
   border-radius: 15px;
-  min-height: 200px;
+  flex-basis: 370px;
+  min-height: 250px;
   padding: 30px;
-
-  @media (max-width: 710px) {
-    margin: 10px 5px 10px 5px;
-  }
 `;
 
 const Line = styled.div`
@@ -25,14 +22,16 @@ const Line = styled.div`
   width: 100%;
 `;
 
-const Card = ({ title }) => {
+const ShopList = (props) => {
   return (
     <Wrapper>
-      <CardTitle>{title}</CardTitle>
+      <CardTitle>ShopList</CardTitle>
       <Line />
       <p>List</p>
     </Wrapper>
   );
 };
 
-export default Card;
+ShopList.propTypes = {};
+
+export default ShopList;

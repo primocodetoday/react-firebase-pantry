@@ -2,12 +2,11 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Header from '../components/Header';
-import GlobalStyles from '../theme/globalStyle';
+import GlobalStyles from '../theme/GlobalStyle';
 import Main from '../components/Main';
 
-Root.propTypes = {};
-
 const Wrapper = styled.div`
+  padding: 10px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -23,7 +22,11 @@ function Root() {
     <Wrapper>
       <GlobalStyles />
       <Header />
-      <section>Infos</section>
+      <section>
+        Hey. This is my Pantry App…..I did it to practice React..... Click the
+        new item to add. Click an item to change. The shopping list is
+        automatic, but you can manually add an item
+      </section>
       <Main />
     </Wrapper>
   );
