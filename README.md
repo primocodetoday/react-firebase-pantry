@@ -56,6 +56,6 @@
 
 ### Live 📍
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a3b172d0-edc6-4cb9-81b7-d5f2a02e85b8/deploy-status)](https://app.netlify.com/sites/confident-shannon-643e3e/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a3b172d0-edc6-4cb9-81b7-d5f2a02e85b8/deploy-status)](https://confident-shannon-643e3e.netlify.app/)
 
 ### License 🔱
