@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Header from '../components/Header';
-import GlobalStyles from '../theme/GlobalStyle';
+import GlobalStyles from '../theme/GlobalStyles';
 import Main from '../components/Main';
 
 const Wrapper = styled.div`
