@@ -1,9 +1,9 @@
 ﻿import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Logo from '../atoms/Logo';
 
-import apple from '../assets/images/apple.svg';
-import Button from './Button';
+import apple from '../../assets/images/apple.svg';
+import Button from '../atoms/Button';
 
 const Wrapper = styled.div`
   display: grid;
@@ -17,19 +17,7 @@ const Wrapper = styled.div`
   padding: 0 20px 0 20px;
 `;
 
-const Logo = styled.p`
-  margin: 0 0 0 20px;
-  text-align: left;
-  font-family: 'Dancing Script', cursive;
-  font-size: 45px;
-
-  span {
-    color: #ac3b61;
-    font-size: 63px;
-  }
-`;
-
-const Header = (props) => {
+const Header = () => {
   return (
     <Wrapper>
       <img src={apple} alt="logo" />
@@ -40,7 +28,5 @@ const Header = (props) => {
     </Wrapper>
   );
 };
-
-Header.propTypes = {};
 
 export default Header;

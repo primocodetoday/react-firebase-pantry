@@ -1,7 +1,6 @@
 ﻿import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import CardTitle from './CardTitle';
+import Title from '../atoms/Title';
 
 const Wrapper = styled.div`
   background-color: white;
@@ -22,16 +21,14 @@ const Line = styled.div`
   width: 100%;
 `;
 
-const ShopList = (props) => {
+const Basket = () => {
   return (
     <Wrapper>
-      <CardTitle>ShopList</CardTitle>
+      <Title>ShopList</Title>
       <Line />
       <p>List</p>
     </Wrapper>
   );
 };
 
-ShopList.propTypes = {};
-
-export default ShopList;
+export default Basket;

@@ -1,8 +1,9 @@
 ﻿import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.h1`
-  color: #ac3b61;
+  color: ${({ theme }) => theme.secondary};
   font-size: 25px;
   font-weight: 700;
   margin-top: 0;
@@ -11,8 +12,12 @@ const Wrapper = styled.h1`
   text-align: right;
 `;
 
-function CardTitle({ children }) {
+const Title = ({ children }) => {
   return <Wrapper>{children}</Wrapper>;
-}
+};
 
-export default CardTitle;
+Title.propTypes = {
+  children: PropTypes.string.isRequired,
+};
+
+export default Title;

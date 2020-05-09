@@ -1,8 +1,7 @@
 ﻿import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Card from './Card';
-import ShopList from './ShopList';
+import PantryCard from '../components/organisms/PantryCard';
+import Basket from '../components/organisms/Basket';
 
 const Wrapper = styled.section`
   width: 100%;
@@ -23,24 +22,24 @@ const WrapperRight = styled.div`
   flex-grow: 1;
 `;
 
-function Main() {
+const Main = () => {
   return (
     <Wrapper>
       <WrapperLeft>
-        <Card title="Fruits & Vegs" />
-        <Card title="Chemicals" />
-        <Card title="Meats & Fishes" />
-        <Card title="Grains & Nuts" />
-        <Card title="Dairy Foods" />
-        <Card title="Drinks" />
+        <p>Serch</p>
+        <p>Info bar</p>
+        <PantryCard category="Fruits & Vegs" />
+        <PantryCard category="Chemicals" />
+        <PantryCard category="Meats & Fishes" />
+        <PantryCard category="Grains & Nuts" />
+        <PantryCard category="Dairy Foods" />
+        <PantryCard category="Drinks" />
       </WrapperLeft>
       <WrapperRight>
-        <ShopList />
+        <Basket />
       </WrapperRight>
     </Wrapper>
   );
-}
-
-Main.propTypes = {};
+};
 
 export default Main;

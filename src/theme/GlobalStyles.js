@@ -11,6 +11,8 @@ const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
   ;
 }
+
+// happy rems below
   html {
     font-size: 62.5%;
   }

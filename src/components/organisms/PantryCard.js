@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import styled from 'styled-components';
-import CardTitle from './CardTitle';
+import PropTypes from 'prop-types';
+import Title from '../atoms/Title';
 
 const Wrapper = styled.div`
   flex-grow: 1;
@@ -25,14 +26,18 @@ const Line = styled.div`
   width: 100%;
 `;
 
-const Card = ({ title }) => {
+const PantryCard = ({ category }) => {
   return (
     <Wrapper>
-      <CardTitle>{title}</CardTitle>
+      <Title>{category}</Title>
       <Line />
       <p>List</p>
     </Wrapper>
   );
 };
 
-export default Card;
+PantryCard.propTypes = {
+  category: PropTypes.string.isRequired,
+};
+
+export default PantryCard;
