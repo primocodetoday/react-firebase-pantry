@@ -1,18 +1,15 @@
 ﻿import React from 'react';
 import styled from 'styled-components';
 import Logo from '../atoms/Logo';
-
-import apple from '../../assets/images/apple.svg';
 import Button from '../atoms/Button';
+import ButtonIcon from '../atoms/ButtonIcon';
+import { home, basket, settings } from '../../assets/icons';
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 50px 1fr 162px;
-  align-items: center;
   background-color: white;
   color: #123c69;
-  width: 100%;
-  height: 95px;
+  width: 139px;
+  height: 95vh;
   border-radius: 15px;
   padding: 0 20px 0 20px;
 `;
@@ -20,11 +17,13 @@ const Wrapper = styled.div`
 const Header = () => {
   return (
     <Wrapper>
-      <img src={apple} alt="logo" />
       <Logo>
         <span>P</span>antry
       </Logo>
-      <Button>add Item</Button>
+      <ButtonIcon icon={home} />
+      <ButtonIcon icon={basket} />
+      <ButtonIcon icon={settings} />
+      <Button>+</Button>
     </Wrapper>
   );
 };

@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   flex-basis: 250px;
   color: #123c69;
   margin: 15px 15px 15px 0;
-  border-radius: 15px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   min-height: 200px;
   padding: 30px;
 
@@ -29,7 +29,7 @@ const Line = styled.div`
 const PantryCard = ({ category }) => {
   return (
     <Wrapper>
-      <Title>{category}</Title>
+      <Title card>{category}</Title>
       <Line />
       <p>List</p>
     </Wrapper>

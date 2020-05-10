@@ -2,32 +2,24 @@
 import styled from 'styled-components';
 import PantryCard from '../components/organisms/PantryCard';
 import Basket from '../components/organisms/Basket';
+import Input from '../components/atoms/Input';
 
-const Wrapper = styled.section`
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
+const Wrapper = styled.section``;
 
-const WrapperLeft = styled.div`
-  flex-grow: 1;
-  flex-basis: 74%;
-  display: flex;
-  flex-wrap: wrap;
-`;
+const WrapperLeft = styled.div``;
 
-const WrapperRight = styled.div`
-  flex-basis: 26%;
-  flex-grow: 1;
-`;
+const WrapperRight = styled.div``;
 
 const Main = () => {
   return (
     <Wrapper>
       <WrapperLeft>
-        <p>Serch</p>
-        <p>Info bar</p>
+        <Input search />
+        <section>
+          Hey. This is my Pantry App…..I did it to practice React..... Click the
+          new item to add. Click an item to change. The shopping list is
+          automatic, but you can manually add an item
+        </section>
         <PantryCard category="Fruits & Vegs" />
         <PantryCard category="Chemicals" />
         <PantryCard category="Meats & Fishes" />
