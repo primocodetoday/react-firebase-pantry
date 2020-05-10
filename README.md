@@ -1,14 +1,14 @@
-<h1 align="center">
-<br>
+<!-- <h1 align="center"> -->
+<!-- <br> -->
 <!-- <p align="center">
 <img src="https://i.imgur.com/mH3UlQB.jpg"  alt="Logo">
 </p> -->
 
-</h1>
+<!-- </h1> -->
 
 <h2 align="center">Pantry App</h2>
 
-<h3 align="center">This repository is used for exercises in React</h3>
+<h3 align="center">Codes day and night :wink:</h3>
 
 <!-- <p align="center">
   <a >
@@ -24,10 +24,10 @@
 
 ### Tech/framework used 🔧
 
-| Tech                                                             |
-| ---------------------------------------------------------------- |
-| [Create React App](https://github.com/facebook/create-react-app) |
-| [styled components](https://styled-components.com/)              |
+|  Tech  | Create React App                       |
+| :----: | -------------------------------------- |
+| Styles | Styled Components, Theming, Flex, Grid |
+|  Code  | ES6, Hooks, PropTypes, Linter(airbnb)  |
 
 <!-- ## Screenshots 📺
 
@@ -47,7 +47,7 @@
 
 ### Installation 💾 -->
 
-### Available scripts
+### Scripts
 
 | Command         | Description            |
 | --------------- | ---------------------- |
@@ -56,6 +56,6 @@
 
 ### Live 📍
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a3b172d0-edc6-4cb9-81b7-d5f2a02e85b8/deploy-status)](https://confident-shannon-643e3e.netlify.app/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a3b172d0-edc6-4cb9-81b7-d5f2a02e85b8/deploy-status)](https://confident-shannon-643e3e.netlify.app)
 
-### License 🔱
+<!-- ### License 🔱 -->

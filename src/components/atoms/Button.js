@@ -1,12 +1,11 @@
 ﻿import styled, { css } from 'styled-components';
 
 const Button = styled.button`
-  background-color: #ac3b61;
-  width: 162px;
-  height: 51px;
-  font-size: 20px;
+  background-color: ${({ theme }) => theme.secondary};
+  padding: 5px;
+  font-size: 30px;
   color: white;
-  border-radius: 10px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   font-family: 'Montserrat', sans-serif;
   border: none;
 
