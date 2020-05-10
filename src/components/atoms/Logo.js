@@ -5,7 +5,7 @@ const Wrapper = styled.p`
   color: ${({ theme }) => theme.primary};
   font-family: 'Dancing Script', cursive;
   font-size: 42px;
-  margin: 0;
+  margin-top: 7px;
 
   span {
     color: ${({ theme }) => theme.secondary};

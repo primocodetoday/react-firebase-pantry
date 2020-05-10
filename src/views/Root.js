@@ -1,9 +1,12 @@
 ﻿import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
-import Sidebar from '../components/organisms/Sidebar';
 import GlobalStyles from '../theme/GlobalStyles';
-import Main from '../templates/Main';
+import Pantry from './Pantry';
+import ShopList from './ShopList';
+import Settings from './Settings';
 import { theme } from '../theme/mainTheme';
+import UserPage from '../templates/UserPage';
 
 const Wrapper = styled.div`
   padding: 10px;
@@ -16,16 +19,23 @@ const Wrapper = styled.div`
 
 function Root() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyles />
       <ThemeProvider theme={theme}>
         <Wrapper>
-          <Sidebar />
-          <Main />
+          <UserPage>
+            <Switch>
+              <Route exact path="/" component={Pantry} />
+              <Route path="/shoplist" component={ShopList} />
+              <Route path="/settings" component={Settings} />
+            </Switch>
+          </UserPage>
         </Wrapper>
       </ThemeProvider>
-    </>
+    </BrowserRouter>
   );
 }
 
 export default Root;
+
+// 1. Sidebar tylko na zalogowaniu

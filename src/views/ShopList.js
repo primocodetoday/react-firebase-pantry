@@ -1,5 +1,5 @@
 ﻿import React from 'react';
 
-const ShopList = () => <div>Prototype</div>;
+const ShopList = () => <div>ShopList</div>;
 
 export default ShopList;

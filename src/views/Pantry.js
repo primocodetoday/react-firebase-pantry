@@ -62,7 +62,7 @@ const cardList = categoryIcons.map((item) => (
   <PantryCard key={item.category} icon={item.icon} category={item.category} />
 ));
 
-const Main = () => {
+const Pantry = () => {
   return (
     <Wrapper>
       <Input search />
@@ -75,4 +75,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Pantry;

@@ -32,12 +32,13 @@ const CardIcon = styled.div`
   position: absolute;
   top: 22px;
   left: 32px;
-  width: 80px;
-  height: 60px;
+  width: 55px;
+  height: 70px;
+
   background-image: url(${({ icon }) => icon});
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-size: 80%;
+  background-size: contain;
 `;
 
 const PantryCard = ({ category, icon }) => {
