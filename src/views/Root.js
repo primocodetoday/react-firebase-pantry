@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import Header from '../components/organisms/Header';
+import Sidebar from '../components/organisms/Sidebar';
 import GlobalStyles from '../theme/GlobalStyles';
 import Main from '../templates/Main';
 import { theme } from '../theme/mainTheme';
@@ -20,7 +20,7 @@ function Root() {
       <GlobalStyles />
       <ThemeProvider theme={theme}>
         <Wrapper>
-          <Header />
+          <Sidebar />
           <Main />
         </Wrapper>
       </ThemeProvider>

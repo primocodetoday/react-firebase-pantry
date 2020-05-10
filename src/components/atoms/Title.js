@@ -1,4 +1,4 @@
-﻿import styled, { css } from 'styled-components';
+﻿import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Title = styled.h1`
@@ -8,13 +8,6 @@ const Title = styled.h1`
   margin-top: 0;
   margin-bottom: 18px;
   margin-right: 10px;
-  text-align: right;
-
-  ${({ card }) =>
-    card &&
-    css`
-      font-size: ${({ theme }) => theme.fontSize.big};
-    `}
 `;
 
 Title.propTypes = {
