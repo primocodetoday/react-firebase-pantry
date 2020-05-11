@@ -1,31 +1,43 @@
-﻿import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-import Sidebar from '../components/organisms/Sidebar';
-import GlobalStyles from '../theme/GlobalStyles';
-import Main from '../templates/Main';
-import { theme } from '../theme/mainTheme';
-
-const Wrapper = styled.div`
-  padding: 10px;
-  margin: 0 auto;
-  display: flex;
-  background-color: #123c69;
-  color: white;
-  min-height: 100vh;
-`;
+﻿import React, { useState } from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import PantryPage from './PantryPage';
+import ShopListPage from './ShopListPage';
+import SettingsPage from './SettingsPage';
+import MainTemplate from '../templates/MainTemplate';
+import { store } from '../store';
+import ItemPage from './ItemPage';
+import { routes } from '../routes/index';
 
 function Root() {
+  // eslint-disable-next-line no-unused-vars
+  const [pantry, setPantry] = useState(store);
+
   return (
-    <>
-      <GlobalStyles />
-      <ThemeProvider theme={theme}>
-        <Wrapper>
-          <Sidebar />
-          <Main />
-        </Wrapper>
-      </ThemeProvider>
-    </>
+    <BrowserRouter>
+      <MainTemplate>
+        <Switch>
+          <Route
+            exact
+            path={routes.home}
+            render={() => <Redirect to="/pantry" />}
+          />
+          <Route
+            exact
+            path={routes.pantry}
+            component={() => <PantryPage store={pantry} />}
+          />
+          <Route
+            path={routes.pantryitem}
+            component={() => <ItemPage store={pantry} />}
+          />
+          <Route path={routes.shoplist} component={ShopListPage} />
+          <Route path={routes.settings} component={SettingsPage} />
+        </Switch>
+      </MainTemplate>
+    </BrowserRouter>
   );
 }
 
 export default Root;
+
+// 1. Sidebar tylko na zalogowaniu

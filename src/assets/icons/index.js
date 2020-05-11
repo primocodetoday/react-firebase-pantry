@@ -10,6 +10,7 @@ import drinks from './drinks.svg';
 import fruits from './fruits.svg';
 import grains from './grains.svg';
 import meats from './meats.svg';
+import logout from './logout.svg';
 
 export {
   basket,
@@ -24,4 +25,5 @@ export {
   fruits,
   grains,
   meats,
+  logout,
 };

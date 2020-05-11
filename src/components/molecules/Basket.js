@@ -2,12 +2,12 @@
 import styled from 'styled-components';
 import Title from '../atoms/Title';
 
-const Wrapper = styled.div`
+const StyledWrapper = styled.div`
   background-color: white;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  color: #ac3b61;
+  color: ${({ theme }) => theme.secondary};
   margin: 15px 0px 15px 0;
   border-radius: 15px;
   flex-basis: 370px;
@@ -16,18 +16,18 @@ const Wrapper = styled.div`
 `;
 
 const Line = styled.div`
-  background-color: #123c69;
+  background-color: ${({ theme }) => theme.primary};
   height: 1px;
   width: 100%;
 `;
 
 const Basket = () => {
   return (
-    <Wrapper>
+    <StyledWrapper>
       <Title>ShopList</Title>
       <Line />
       <p>List</p>
-    </Wrapper>
+    </StyledWrapper>
   );
 };
 

@@ -24,7 +24,7 @@
 
 ### Tech/framework used 🔧
 
-|  Tech  | Create React App                       |
+|  Tech  | Create React App, Router               |
 | :----: | -------------------------------------- |
 | Styles | Styled Components, Theming, Flex, Grid |
 |  Code  | ES6, Hooks, PropTypes, Linter(airbnb)  |
