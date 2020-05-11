@@ -8,11 +8,9 @@ const Wrapper = styled.div`
   background-color: white;
   color: ${({ theme }) => theme.primary};
   border-radius: ${({ theme }) => theme.borderRadius};
-  flex-basis: 400px;
+  flex-basis: 350px;
   min-height: 250px;
   padding: 37px 30px;
-  margin-bottom: 25px;
-  margin-right: 52px;
   flex-grow: 1;
 `;
 

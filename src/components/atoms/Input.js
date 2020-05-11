@@ -22,9 +22,6 @@ const Input = styled.input`
       background-size: 20px;
       background-position: 10px 50%;
       background-repeat: no-repeat;
-
-      ::placeholder {
-      }
     `};
 `;
 
