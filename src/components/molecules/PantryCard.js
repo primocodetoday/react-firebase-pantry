@@ -2,8 +2,9 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Title from '../atoms/Title';
+import CardList from './CardList';
 
-const Wrapper = styled.div`
+const StyledWrapper = styled.div`
   position: relative;
   background-color: white;
   color: ${({ theme }) => theme.primary};
@@ -14,21 +15,21 @@ const Wrapper = styled.div`
   flex-grow: 1;
 `;
 
-const TitleCard = styled(Title)`
+const StyledTitle = styled(Title)`
   text-align: right;
   font-size: ${({ theme }) => theme.fontSize.big};
   margin-bottom: 25px;
 `;
 
-const Line = styled.div`
-  background-color: #123c69;
+const StyledLine = styled.div`
+  background-color: ${({ theme }) => theme.primary};
   height: 1px;
   width: 100%;
 `;
 
 const CardIcon = styled.div`
   position: absolute;
-  top: 22px;
+  top: 15px;
   left: 32px;
   width: 55px;
   height: 70px;
@@ -39,20 +40,21 @@ const CardIcon = styled.div`
   background-size: contain;
 `;
 
-const PantryCard = ({ category, icon }) => {
+const PantryCard = ({ category, icon, content }) => {
   return (
-    <Wrapper>
+    <StyledWrapper>
       <CardIcon icon={icon} />
-      <TitleCard>{category}</TitleCard>
-      <Line />
-      <p>List</p>
-    </Wrapper>
+      <StyledTitle>{category}</StyledTitle>
+      <StyledLine />
+      <CardList content={content} />
+    </StyledWrapper>
   );
 };
 
 PantryCard.propTypes = {
   category: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
+  content: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default PantryCard;

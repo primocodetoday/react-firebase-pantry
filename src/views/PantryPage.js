@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import PantryCard from '../components/molecules/PantryCard';
 import Input from '../components/atoms/Input';
 import Title from '../components/atoms/Title';
+import UserTemplate from '../templates/UserTemplate';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -13,6 +14,15 @@ const StyledWrapper = styled.div`
   flex-wrap: wrap;
   width: 100%;
   padding-right: 70px;
+
+  @media (max-width: 1355px) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  @media (max-width: 960px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 `;
 
 const StyledHeader = styled.div`
@@ -25,7 +35,7 @@ const StyledTitle = styled(Title)`
   margin-top: 17px;
 `;
 
-const StyledCardsGridWrapper = styled.div`
+const StyledGridWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
@@ -38,7 +48,7 @@ const StyledCardsGridWrapper = styled.div`
   }
 `;
 
-const Pantry = ({ store }) => {
+const PantryPage = ({ store }) => {
   const cardList = store.map(
     (item) =>
       item.list.length && (
@@ -52,25 +62,23 @@ const Pantry = ({ store }) => {
   );
 
   return (
-    <StyledWrapper>
-      <StyledHeader>
-        <Input search placeholder="search" />
-        <section>
-          <StyledTitle>Pantry</StyledTitle>
-          <p>Products</p>
-        </section>
-      </StyledHeader>
-      <StyledCardsGridWrapper>{cardList}</StyledCardsGridWrapper>
-    </StyledWrapper>
+    <UserTemplate>
+      <StyledWrapper>
+        <StyledHeader>
+          <Input search placeholder="search" />
+          <section>
+            <StyledTitle>Pantry</StyledTitle>
+            <p>Products</p>
+          </section>
+        </StyledHeader>
+        <StyledGridWrapper>{cardList}</StyledGridWrapper>
+      </StyledWrapper>
+    </UserTemplate>
   );
 };
 
-Pantry.propTypes = {
-  store: PropTypes.arrayOf(
-    PropTypes.shape({
-      category: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+PantryPage.propTypes = {
+  store: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default Pantry;
+export default PantryPage;

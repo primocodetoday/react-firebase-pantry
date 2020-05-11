@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 import GlobalStyles from '../theme/GlobalStyles';
 import { theme } from '../theme/mainTheme';
 
-const Main = ({ children }) => (
+const MainTemplate = ({ children }) => (
   <>
     <GlobalStyles />
     <ThemeProvider theme={theme}>{children}</ThemeProvider>
   </>
 );
 
-Main.propTypes = {
+MainTemplate.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export default Main;
+export default MainTemplate;

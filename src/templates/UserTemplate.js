@@ -7,20 +7,20 @@ const UserWrapper = styled.div`
   padding: 10px;
   margin: 0 auto;
   display: flex;
-  background-color: ${({ theme }) => theme.primary}};
+  background-color: ${({ theme }) => theme.primary};
   color: white;
   min-height: 100vh;
 `;
 
-const UserPage = ({ children }) => (
+const UserTemplate = ({ children }) => (
   <UserWrapper>
     <Sidebar />
     {children}
   </UserWrapper>
 );
 
-UserPage.propTypes = {
-  children: PropTypes.element.isRequired,
+UserTemplate.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.node]).isRequired,
 };
 
-export default UserPage;
+export default UserTemplate;

@@ -53,8 +53,7 @@ const Sidebar = () => {
       <div>
         <ButtonIcon
           as={NavLink}
-          to="/"
-          exact
+          to="/pantry"
           activeicon={homeActive}
           icon={home}
           activeclass="active"
