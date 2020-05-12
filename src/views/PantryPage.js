@@ -25,7 +25,7 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.header`
   margin-bottom: 30px;
 `;
 
