@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import UserTemplate from './UserTemplate';
 import {
@@ -79,14 +80,17 @@ const StyledApplyIcon = styled(ButtonIcon)`
   background-size: 65%;
 `;
 
-const ItemTemplate = ({ id, category, name, removeItem }) => {
+const ItemTemplate = ({ removeItem, id, items, redirect }) => {
+  const itemContent = items.filter((item) => item.id === id);
+  const { name, category } = itemContent;
+
   return (
     <>
       <UserTemplate>
         <StyledWrapper>
           <StyledItemSection>
-            <StyledTitle>Carrots</StyledTitle>
-            <StyledCategory>category: Fruits & Vegs</StyledCategory>
+            <StyledTitle>{name}</StyledTitle>
+            <StyledCategory>category: {category}</StyledCategory>
             Stock
             <Fieldset settings legend="settings">
               <StyledSettings>
@@ -104,7 +108,13 @@ const ItemTemplate = ({ id, category, name, removeItem }) => {
             </Fieldset>
             <StyledDelete>
               <Paragraph size="1.6rem">delete item</Paragraph>
-              <ButtonIcon icon={deleteIcon} onClick={() => removeItem(3)} />
+              <ButtonIcon
+                icon={deleteIcon}
+                onClick={() => {
+                  redirect();
+                  removeItem(id);
+                }}
+              />
             </StyledDelete>
           </StyledItemSection>
           <StyledInfo>Foto</StyledInfo>
@@ -114,8 +124,30 @@ const ItemTemplate = ({ id, category, name, removeItem }) => {
   );
 };
 
+ItemTemplate.propTypes = {
+  redirect: PropTypes.func.isRequired,
+  removeItem: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      category: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      stock: PropTypes.number.isRequired,
+      unit: PropTypes.string.isRequired,
+      maxStock: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
+
 const mapDispatchToProps = (dispatch) => ({
   removeItem: (id) => dispatch(removeItemAction(id)),
 });
 
-export default connect(null, mapDispatchToProps)(ItemTemplate);
+// props: arg => dispatch(action(arg))
+
+const mapStateToProps = (state) => {
+  return { items: state };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemTemplate);

@@ -20,7 +20,7 @@ const Wrapper = styled.header`
   grid-template-rows: 100px 1fr 90px;
   background-color: white;
   color: ${({ theme }) => theme.primary};
-  width: 120px;
+  width: 110px;
   height: 96vh;
   border-radius: 15px;
 `;

@@ -95,7 +95,7 @@ const PantryPage = ({ items }) => {
   );
 };
 
-const mapStatetoProps = (state) => {
+const mapStateToProps = (state) => {
   return { items: state };
 };
 
@@ -112,4 +112,4 @@ PantryPage.propTypes = {
   ).isRequired,
 };
 
-export default connect(mapStatetoProps)(PantryPage);
+export default connect(mapStateToProps)(PantryPage);
