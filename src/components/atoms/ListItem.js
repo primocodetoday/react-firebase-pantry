@@ -10,6 +10,7 @@ const StyledWrapper = styled.li`
   grid-template-columns: 1fr 50px;
   margin: 5px 0;
   cursor: pointer;
+  color: ${(theme) => theme.primary};
 `;
 
 const ListItem = ({ name, stock, id }) => {

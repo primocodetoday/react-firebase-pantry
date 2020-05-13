@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import PantryCard from '../components/molecules/PantryCard';
@@ -48,8 +49,8 @@ const StyledGridWrapper = styled.div`
   }
 `;
 
-const PantryPage = ({ store }) => {
-  const cardList = store.map(
+const PantryPage = ({ items }) => {
+  const cardList = items.map(
     (item) =>
       item.list.length && (
         <PantryCard
@@ -77,8 +78,26 @@ const PantryPage = ({ store }) => {
   );
 };
 
-PantryPage.propTypes = {
-  store: PropTypes.arrayOf(PropTypes.object).isRequired,
+const mapStatetoProps = (state) => {
+  return { items: state };
 };
 
-export default PantryPage;
+PantryPage.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      category: PropTypes.string.isRequired,
+      icon: PropTypes.string.isRequired,
+      list: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number.isRequired,
+          name: PropTypes.string.isRequired,
+          stock: PropTypes.number.isRequired,
+          unit: PropTypes.string.isRequired,
+          maxStock: PropTypes.number.isRequired,
+        }),
+      ),
+    }),
+  ).isRequired,
+};
+
+export default connect(mapStatetoProps)(PantryPage);

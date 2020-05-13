@@ -5,9 +5,9 @@
   grains,
   meats,
   chemicals,
-} from './assets/icons';
+} from '../assets/icons';
 
-export const store = [
+export const initialStore = [
   {
     category: 'Fruits & Vegs',
     icon: fruits,

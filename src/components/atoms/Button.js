@@ -7,7 +7,7 @@ const Button = styled.button`
   color: white;
   border-radius: ${({ theme }) => theme.borderRadius};
   font-family: 'Montserrat', sans-serif;
-  border: none;
+  border: 2px solid white;
 
   ${({ secondary }) =>
     secondary &&

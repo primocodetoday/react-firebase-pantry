@@ -5,9 +5,7 @@
     "jest": true,
     "browser": true
   },
-  "globals": {
-    "document": true
-  },
+  "globals": {},
   "rules": {
     "import/prefer-default-export": 0,
     "react/jsx-filename-extension": [

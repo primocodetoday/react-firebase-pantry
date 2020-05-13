@@ -9,7 +9,7 @@ const StyledWrapper = styled.fieldset`
   padding: 33px;
 
   legend {
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 0 10px;
     margin-left: 15px;
   }
@@ -29,10 +29,14 @@ const Fieldset = ({ legend, children, settings }) => (
   </StyledWrapper>
 );
 
+Fieldset.defaultProps = {
+  settings: false,
+};
+
 Fieldset.propTypes = {
   legend: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
-  settings: PropTypes.node.isRequired,
+  settings: PropTypes.bool,
 };
 
 export default Fieldset;
