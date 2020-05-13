@@ -6,6 +6,14 @@ import PantryCard from '../components/molecules/PantryCard';
 import Input from '../components/atoms/Input';
 import Title from '../components/atoms/Title';
 import UserTemplate from '../templates/UserTemplate';
+import {
+  fruits,
+  dairy,
+  drinks,
+  grains,
+  meats,
+  chemicals,
+} from '../assets/icons';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -49,19 +57,21 @@ const StyledGridWrapper = styled.div`
   }
 `;
 
-const PantryPage = ({ items }) => {
-  const cardList = items.map(
-    (item) =>
-      item.list.length && (
-        <PantryCard
-          key={item.category}
-          icon={item.icon}
-          category={item.category}
-          content={item.list}
-        />
-      ),
-  );
+const showItems = (array, category, icon) => {
+  const newArray = array.filter((item) => item.category === category);
+  if (newArray.length)
+    return (
+      <PantryCard
+        key={category}
+        icon={icon}
+        content={newArray}
+        category={category}
+      />
+    );
+  return null;
+};
 
+const PantryPage = ({ items }) => {
   return (
     <UserTemplate>
       <StyledWrapper>
@@ -72,7 +82,14 @@ const PantryPage = ({ items }) => {
             <p>Products</p>
           </section>
         </StyledHeader>
-        <StyledGridWrapper>{cardList}</StyledGridWrapper>
+        <StyledGridWrapper>
+          {showItems(items, 'Fruits & Vegs', fruits)}
+          {showItems(items, 'Chemicals', chemicals)}
+          {showItems(items, 'Meats & Fishes', meats)}
+          {showItems(items, 'Grains & Nuts', grains)}
+          {showItems(items, 'Dairy Foods', dairy)}
+          {showItems(items, 'Drinks', drinks)}
+        </StyledGridWrapper>
       </StyledWrapper>
     </UserTemplate>
   );
@@ -85,17 +102,12 @@ const mapStatetoProps = (state) => {
 PantryPage.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.number.isRequired,
       category: PropTypes.string.isRequired,
-      icon: PropTypes.string.isRequired,
-      list: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.number.isRequired,
-          name: PropTypes.string.isRequired,
-          stock: PropTypes.number.isRequired,
-          unit: PropTypes.string.isRequired,
-          maxStock: PropTypes.number.isRequired,
-        }),
-      ),
+      name: PropTypes.string.isRequired,
+      stock: PropTypes.number.isRequired,
+      unit: PropTypes.string.isRequired,
+      maxStock: PropTypes.number.isRequired,
     }),
   ).isRequired,
 };
