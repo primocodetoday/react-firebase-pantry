@@ -6,7 +6,7 @@ const StyledWrapper = styled.fieldset`
   position: relative;
   border-radius: ${({ theme }) => theme.borderRadius};
   color: white;
-  padding: 33px;
+  padding: 25px;
 
   legend {
     font-size: 1.5rem;
@@ -18,7 +18,6 @@ const StyledWrapper = styled.fieldset`
     settings &&
     css`
       height: 323px;
-      max-width: 466px;
     `};
 `;
 

@@ -6,7 +6,7 @@ const Input = styled.input`
   padding: 10px 10px;
   border-radius: ${({ theme }) => theme.borderRadius};
   border: none;
-  color: ${({ theme }) => theme.primaryLight};
+  color: ${({ theme }) => theme.secondary};
 
   ${({ search }) =>
     search &&
@@ -27,13 +27,10 @@ const Input = styled.input`
   ${({ settings }) =>
     settings &&
     css`
-      text-align: right;
-      text-transform: uppercase;
+      text-align: center;
       color: ${({ theme }) => theme.secondary};
-      font-size: 1.2rem;
+      font-size: 1.8rem;
       font-weight: 600;
-      width: 96px;
-      height: 40px;
     `};
 `;
 
