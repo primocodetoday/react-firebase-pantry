@@ -17,18 +17,18 @@ const Wrapper = styled.header`
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
-  grid-template-rows: 120px 1fr 90px;
+  grid-template-rows: 100px 1fr 90px;
   background-color: white;
   color: ${({ theme }) => theme.primary};
-  width: 139px;
-  height: 98vh;
+  width: 110px;
+  height: 96vh;
   border-radius: 15px;
 `;
 
-const ButtonIcon = styled.button`
+const MenuIcon = styled.button`
   display: block;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   background-image: url(${({ icon }) => icon});
   background-repeat: no-repeat;
   color: white;
@@ -51,21 +51,21 @@ const Sidebar = () => {
         <span>P</span>antry
       </Logo>
       <div>
-        <ButtonIcon
+        <MenuIcon
           as={NavLink}
           to="/pantry"
           activeicon={homeActive}
           icon={home}
           activeclass="active"
         />
-        <ButtonIcon
+        <MenuIcon
           as={NavLink}
           to="/shoplist"
           activeicon={basketActive}
           icon={basket}
           activeclass="active"
         />
-        <ButtonIcon
+        <MenuIcon
           as={NavLink}
           to="/settings"
           activeicon={settingsActive}
@@ -73,7 +73,7 @@ const Sidebar = () => {
           activeclass="active"
         />
       </div>
-      <ButtonIcon as={NavLink} to="/" icon={logout} />
+      <MenuIcon as={NavLink} to="/logout" icon={logout} />
     </Wrapper>
   );
 };

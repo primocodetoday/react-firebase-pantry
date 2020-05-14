@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Title from '../atoms/Title';
-import CardList from './CardList';
+import CardList from '../molecules/CardList';
 
 const StyledWrapper = styled.div`
   position: relative;
@@ -11,14 +11,19 @@ const StyledWrapper = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius};
   flex-basis: 350px;
   min-height: 250px;
-  padding: 37px 30px;
+  padding: 27px 25px;
+  max-width: 420px;
   flex-grow: 1;
+
+  @media (max-width: 960px) {
+    max-width: 100%;
+  }
 `;
 
 const StyledTitle = styled(Title)`
   text-align: right;
   font-size: ${({ theme }) => theme.fontSize.big};
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 `;
 
 const StyledLine = styled.div`
@@ -29,10 +34,10 @@ const StyledLine = styled.div`
 
 const CardIcon = styled.div`
   position: absolute;
-  top: 15px;
-  left: 32px;
-  width: 55px;
-  height: 70px;
+  top: 12px;
+  left: 27px;
+  width: 50px;
+  height: 65px;
 
   background-image: url(${({ icon }) => icon});
   background-repeat: no-repeat;
@@ -44,7 +49,7 @@ const PantryCard = ({ category, icon, content }) => {
   return (
     <StyledWrapper>
       <CardIcon icon={icon} />
-      <StyledTitle>{category}</StyledTitle>
+      <StyledTitle card>{category}</StyledTitle>
       <StyledLine />
       <CardList content={content} />
     </StyledWrapper>

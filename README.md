@@ -24,10 +24,10 @@
 
 ### Tech/framework used 🔧
 
-|  Tech  | Create React App, Router               |
-| :----: | -------------------------------------- |
+| Tech   | Create React App, Router, Redux        |
+| ------ | -------------------------------------- |
 | Styles | Styled Components, Theming, Flex, Grid |
-|  Code  | ES6, Hooks, PropTypes, Linter(airbnb)  |
+| Code   | ES6, Hooks, PropTypes, Linter(airbnb)  |
 
 <!-- ## Screenshots 📺
 

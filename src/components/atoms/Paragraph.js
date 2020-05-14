@@ -1,10 +1,10 @@
 ﻿import styled from 'styled-components';
 
 const Paragraph = styled.p`
-  color: ${({ theme }) => theme.primary};
+  display: inline;
   margin: 0;
   padding: 0;
-  font-size: 1.6rem;
+  font-size: ${(props) => props.size};
 `;
 
 export default Paragraph;

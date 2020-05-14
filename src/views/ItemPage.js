@@ -1,11 +1,29 @@
-﻿import React from 'react';
-// import { routes } from '../routes';
+﻿import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import ItemTemplate from '../templates/ItemTemplate';
+import UserTemplate from '../templates/UserTemplate';
 
-const ItemPage = () => (
-  <ItemTemplate>
-    <p>Hello</p>
-  </ItemTemplate>
-);
+const ItemPage = ({ match }) => {
+  const [itemId, setItemId] = useState(0);
 
-export default ItemPage;
+  // wyciąganie id z adresu
+  useEffect(() => {
+    const currentId = Number(match.params.id);
+    setItemId(currentId);
+  }, [itemId, match.params.id]);
+
+  return (
+    <UserTemplate>
+      <ItemTemplate id={itemId}>
+        <p>Hello</p>
+      </ItemTemplate>
+    </UserTemplate>
+  );
+};
+
+ItemPage.propTypes = {
+  match: PropTypes.objectOf(PropTypes.any).isRequired,
+};
+
+export default withRouter(ItemPage);

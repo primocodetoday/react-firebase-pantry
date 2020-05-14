@@ -1,10 +1,19 @@
 ﻿import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import PantryCard from '../components/molecules/PantryCard';
+import PantryCard from '../components/organisms/PantryCard';
 import Input from '../components/atoms/Input';
 import Title from '../components/atoms/Title';
 import UserTemplate from '../templates/UserTemplate';
+import {
+  fruits,
+  dairy,
+  drinks,
+  grains,
+  meats,
+  chemicals,
+} from '../assets/icons';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -15,7 +24,7 @@ const StyledWrapper = styled.div`
   width: 100%;
   padding-right: 70px;
 
-  @media (max-width: 1355px) {
+  @media (max-width: 1200px) {
     padding-left: 50px;
     padding-right: 50px;
   }
@@ -25,7 +34,7 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.header`
   margin-bottom: 30px;
 `;
 
@@ -40,7 +49,7 @@ const StyledGridWrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
 
-  @media (max-width: 1355px) {
+  @media (max-width: 1200px) {
     grid-template-columns: repeat(2, 1fr);
   }
   @media (max-width: 960px) {
@@ -48,19 +57,21 @@ const StyledGridWrapper = styled.div`
   }
 `;
 
-const PantryPage = ({ store }) => {
-  const cardList = store.map(
-    (item) =>
-      item.list.length && (
-        <PantryCard
-          key={item.category}
-          icon={item.icon}
-          category={item.category}
-          content={item.list}
-        />
-      ),
-  );
+const showItems = (array, category, icon) => {
+  const filteredArray = array.filter((item) => item.category === category);
+  if (filteredArray.length)
+    return (
+      <PantryCard
+        key={category}
+        icon={icon}
+        content={filteredArray}
+        category={category}
+      />
+    );
+  return null;
+};
 
+const PantryPage = ({ items }) => {
   return (
     <UserTemplate>
       <StyledWrapper>
@@ -71,14 +82,34 @@ const PantryPage = ({ store }) => {
             <p>Products</p>
           </section>
         </StyledHeader>
-        <StyledGridWrapper>{cardList}</StyledGridWrapper>
+        <StyledGridWrapper>
+          {showItems(items, 'Fruits & Vegs', fruits)}
+          {showItems(items, 'Chemicals', chemicals)}
+          {showItems(items, 'Meats & Fishes', meats)}
+          {showItems(items, 'Grains & Nuts', grains)}
+          {showItems(items, 'Dairy Foods', dairy)}
+          {showItems(items, 'Drinks', drinks)}
+        </StyledGridWrapper>
       </StyledWrapper>
     </UserTemplate>
   );
 };
 
-PantryPage.propTypes = {
-  store: PropTypes.arrayOf(PropTypes.object).isRequired,
+const mapStateToProps = (state) => {
+  return { items: state };
 };
 
-export default PantryPage;
+PantryPage.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      category: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      stock: PropTypes.number.isRequired,
+      unit: PropTypes.string.isRequired,
+      maxStock: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
+};
+
+export default connect(mapStateToProps)(PantryPage);

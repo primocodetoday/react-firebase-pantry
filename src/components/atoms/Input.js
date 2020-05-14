@@ -23,6 +23,18 @@ const Input = styled.input`
       background-position: 10px 50%;
       background-repeat: no-repeat;
     `};
+
+  ${({ settings }) =>
+    settings &&
+    css`
+      text-align: right;
+      text-transform: uppercase;
+      color: ${({ theme }) => theme.secondary};
+      font-size: 1.2rem;
+      font-weight: 600;
+      width: 96px;
+      height: 40px;
+    `};
 `;
 
 export default Input;
