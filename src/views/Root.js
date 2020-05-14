@@ -8,6 +8,7 @@ import MainTemplate from '../templates/MainTemplate';
 import store from '../store/index';
 import ItemPage from './ItemPage';
 import { routes } from '../routes/index';
+import NewPage from './NewPage';
 
 function Root() {
   // eslint-disable-next-line no-unused-vars
@@ -30,6 +31,7 @@ function Root() {
             />
             <Route path={routes.pantryitem} component={() => <ItemPage />} />
             <Route path={routes.shoplist} component={ShopListPage} />
+            <Route path={routes.new} component={NewPage} />
             <Route path={routes.settings} component={SettingsPage} />
           </Switch>
         </MainTemplate>

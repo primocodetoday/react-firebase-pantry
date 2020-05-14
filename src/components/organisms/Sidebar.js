@@ -73,7 +73,7 @@ const Sidebar = () => {
           activeclass="active"
         />
       </div>
-      <MenuIcon as={NavLink} to="/" icon={logout} />
+      <MenuIcon as={NavLink} to="/logout" icon={logout} />
     </Wrapper>
   );
 };

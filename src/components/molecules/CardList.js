@@ -8,11 +8,12 @@ const StyledWrapper = styled.ul`
   flex-direction: column;
   width: 100%;
   padding-left: 0 !important;
+  margin: 6px 0;
 `;
 
 const CardList = ({ content }) => {
-  const list = content.map(({ id, name, stock }) => (
-    <ListItem key={id} id={id} name={name} stock={stock} />
+  const list = content.map(({ id, name, stock, unit }) => (
+    <ListItem key={id} id={id} name={name} stock={stock} unit={unit} />
   ));
 
   return <StyledWrapper>{list}</StyledWrapper>;

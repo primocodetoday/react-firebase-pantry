@@ -4,5 +4,6 @@
   pantryitem: '/pantry/:id',
   shoplist: '/shoplist',
   settings: '/settings',
+  new: '/new',
   login: '/login',
 };

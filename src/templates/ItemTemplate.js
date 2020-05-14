@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import UserTemplate from './UserTemplate';
+import { withRouter } from 'react-router-dom';
 import {
   Title,
   Paragraph,
@@ -44,7 +44,6 @@ const StyledItemSection = styled.section`
 
 const StyledTitle = styled(Title)`
   font-size: 3rem;
-  color: white;
   margin-bottom: 16px;
 `;
 
@@ -80,52 +79,51 @@ const StyledApplyIcon = styled(ButtonIcon)`
   background-size: 65%;
 `;
 
-const ItemTemplate = ({ removeItem, id, items, redirect }) => {
-  const itemContent = items.filter((item) => item.id === id);
+const ItemTemplate = ({ removeItem, id, items, history }) => {
+  // filtrowanie items według id
+  const [itemContent] = items.filter((item) => item.id === id);
   const { name, category } = itemContent;
 
+  const handleRedirect = () => history.push('/');
+
   return (
-    <>
-      <UserTemplate>
-        <StyledWrapper>
-          <StyledItemSection>
-            <StyledTitle>{name}</StyledTitle>
-            <StyledCategory>category: {category}</StyledCategory>
-            Stock
-            <Fieldset settings legend="settings">
-              <StyledSettings>
-                <label htmlFor="id">Maximum:</label>
-                <Input id="max" settings />
-                <label htmlFor="min">Minimum:</label>
-                <Input id="min" settings />
-                <label htmlFor="units">Units:</label>
-                <Input type="switch" id="units" settings />
-                <StyledDelete>
-                  <Paragraph size="1.6rem">apply</Paragraph>
-                  <StyledApplyIcon icon={applyIcon} />
-                </StyledDelete>
-              </StyledSettings>
-            </Fieldset>
+    <StyledWrapper>
+      <StyledItemSection>
+        <StyledTitle>{name}</StyledTitle>
+        <StyledCategory>category: {category}</StyledCategory>
+        Stock
+        <Fieldset settings legend="settings">
+          <StyledSettings>
+            <label htmlFor="id">Maximum:</label>
+            <Input id="max" settings />
+            <label htmlFor="min">Minimum:</label>
+            <Input id="min" settings />
+            <label htmlFor="units">Units:</label>
+            <Input type="switch" id="units" settings />
             <StyledDelete>
-              <Paragraph size="1.6rem">delete item</Paragraph>
-              <ButtonIcon
-                icon={deleteIcon}
-                onClick={() => {
-                  redirect();
-                  removeItem(id);
-                }}
-              />
+              <Paragraph size="1.6rem">apply</Paragraph>
+              <StyledApplyIcon icon={applyIcon} />
             </StyledDelete>
-          </StyledItemSection>
-          <StyledInfo>Foto</StyledInfo>
-        </StyledWrapper>
-      </UserTemplate>
-    </>
+          </StyledSettings>
+        </Fieldset>
+        <StyledDelete>
+          <Paragraph size="1.6rem">delete item</Paragraph>
+          <ButtonIcon
+            icon={deleteIcon}
+            onClick={() => {
+              removeItem(id);
+              handleRedirect();
+            }}
+          />
+        </StyledDelete>
+      </StyledItemSection>
+      <StyledInfo>Foto</StyledInfo>
+    </StyledWrapper>
   );
 };
 
 ItemTemplate.propTypes = {
-  redirect: PropTypes.func.isRequired,
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
   removeItem: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   items: PropTypes.arrayOf(
@@ -144,10 +142,11 @@ const mapDispatchToProps = (dispatch) => ({
   removeItem: (id) => dispatch(removeItemAction(id)),
 });
 
-// props: arg => dispatch(action(arg))
-
 const mapStateToProps = (state) => {
   return { items: state };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ItemTemplate);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(withRouter(ItemTemplate));

@@ -2,28 +2,28 @@
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import ItemTemplate from '../templates/ItemTemplate';
+import UserTemplate from '../templates/UserTemplate';
 
-const ItemPage = ({ location, history }) => {
-  const [itemId, setItemId] = useState(1);
+const ItemPage = ({ match }) => {
+  const [itemId, setItemId] = useState(0);
 
-  const handleRedirect = () => history.push('/');
-
+  // wyciąganie id z adresu
   useEffect(() => {
-    const { pathname } = location;
-    const currentId = Number(pathname.match(/\d+/g));
+    const currentId = Number(match.params.id);
     setItemId(currentId);
-  }, [location]);
+  }, [itemId, match.params.id]);
 
   return (
-    <ItemTemplate id={itemId} redirect={handleRedirect}>
-      <p>Hello</p>
-    </ItemTemplate>
+    <UserTemplate>
+      <ItemTemplate id={itemId}>
+        <p>Hello</p>
+      </ItemTemplate>
+    </UserTemplate>
   );
 };
 
 ItemPage.propTypes = {
-  location: PropTypes.objectOf(PropTypes.any).isRequired,
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
+  match: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default withRouter(ItemPage);

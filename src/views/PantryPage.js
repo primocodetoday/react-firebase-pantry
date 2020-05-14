@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import PantryCard from '../components/molecules/PantryCard';
+import PantryCard from '../components/organisms/PantryCard';
 import Input from '../components/atoms/Input';
 import Title from '../components/atoms/Title';
 import UserTemplate from '../templates/UserTemplate';
@@ -24,7 +24,7 @@ const StyledWrapper = styled.div`
   width: 100%;
   padding-right: 70px;
 
-  @media (max-width: 1355px) {
+  @media (max-width: 1200px) {
     padding-left: 50px;
     padding-right: 50px;
   }
@@ -49,7 +49,7 @@ const StyledGridWrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
 
-  @media (max-width: 1355px) {
+  @media (max-width: 1200px) {
     grid-template-columns: repeat(2, 1fr);
   }
   @media (max-width: 960px) {
@@ -58,13 +58,13 @@ const StyledGridWrapper = styled.div`
 `;
 
 const showItems = (array, category, icon) => {
-  const newArray = array.filter((item) => item.category === category);
-  if (newArray.length)
+  const filteredArray = array.filter((item) => item.category === category);
+  if (filteredArray.length)
     return (
       <PantryCard
         key={category}
         icon={icon}
-        content={newArray}
+        content={filteredArray}
         category={category}
       />
     );

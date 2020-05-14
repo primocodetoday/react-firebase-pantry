@@ -1,5 +1,13 @@
 ﻿export const initialStore = [
   {
+    id: 0,
+    category: 'Loading',
+    name: 'Loading',
+    stock: 0,
+    unit: 'Loading',
+    maxStock: 0,
+  },
+  {
     id: 1,
     category: 'Fruits & Vegs',
     name: 'Carrots',
