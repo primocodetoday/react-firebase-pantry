@@ -8,6 +8,19 @@ const rootReducer = (state = initialState, action) => {
       return [...state, action.payload.item];
     case 'REMOVE_ITEM':
       return [...state.filter((item) => item.id !== action.payload.id)];
+    case 'CHANGE_SETTINGS': {
+      return state.map((item) => {
+        if (item.id === action.payload.id)
+          return {
+            ...item,
+            maxStock: action.payload.maxStock,
+            minStock: action.payload.minStock,
+            unit: action.payload.unit,
+          };
+        return item;
+      });
+    }
+
     default:
       return state;
   }

@@ -17,3 +17,15 @@ export const addItem = (itemContent) => {
     },
   };
 };
+
+export const changeItemSettings = (id, maxStock, minStock, unit) => {
+  return {
+    type: 'CHANGE_SETTINGS',
+    payload: {
+      id,
+      maxStock,
+      minStock,
+      unit,
+    },
+  };
+};

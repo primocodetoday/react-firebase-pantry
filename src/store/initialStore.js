@@ -6,6 +6,7 @@
     stock: 0,
     unit: 'Loading',
     maxStock: 0,
+    minStock: 0,
   },
   {
     id: 1,
@@ -14,6 +15,7 @@
     stock: 1.5,
     unit: 'kg',
     maxStock: 2,
+    minStock: 1,
   },
   {
     id: 2,
@@ -22,6 +24,7 @@
     stock: 3,
     unit: 'kg',
     maxStock: 5,
+    minStock: 1,
   },
   {
     id: 3,
@@ -30,6 +33,7 @@
     stock: 0.5,
     unit: 'kg',
     maxStock: 2,
+    minStock: 1,
   },
   {
     id: 4,
@@ -38,6 +42,7 @@
     stock: 1,
     unit: 'pcs',
     maxStock: 2,
+    minStock: 1,
   },
   {
     id: 5,
@@ -46,6 +51,7 @@
     stock: 0.7,
     unit: 'liter',
     maxStock: 2,
+    minStock: 1,
   },
   {
     id: 6,
@@ -54,6 +60,7 @@
     stock: 1.5,
     unit: 'kg',
     maxStock: 2,
+    minStock: 1,
   },
   {
     id: 7,
@@ -62,6 +69,7 @@
     stock: 1,
     unit: 'kg',
     maxStock: 5,
+    minStock: 1,
   },
   {
     id: 8,
@@ -70,6 +78,7 @@
     stock: 0.5,
     unit: 'kg',
     maxStock: 1,
+    minStock: 1,
   },
   {
     id: 9,
@@ -78,6 +87,7 @@
     stock: 1,
     unit: 'kg',
     maxStock: 2,
+    minStock: 1,
   },
   {
     id: 10,
@@ -86,6 +96,7 @@
     stock: 1,
     unit: 'kg',
     maxStock: 2,
+    minStock: 1,
   },
   {
     id: 11,
@@ -94,6 +105,7 @@
     stock: 4,
     unit: 'pcs',
     maxStock: 10,
+    minStock: 1,
   },
 
   {
@@ -103,6 +115,7 @@
     stock: 2,
     unit: 'pcs',
     maxStock: 5,
+    minStock: 1,
   },
   {
     id: 13,
@@ -111,5 +124,6 @@
     stock: 1,
     unit: 'pcs',
     maxStock: 2,
+    minStock: 1,
   },
 ];

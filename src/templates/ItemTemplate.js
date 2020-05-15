@@ -10,7 +10,7 @@ import {
   Input,
   ButtonIcon,
 } from '../components/atoms';
-import { removeItem as removeItemAction } from '../actions';
+import { removeItem as removeItemAction, changeItemSettings } from '../actions';
 
 import deleteIcon from '../assets/icons/delete.svg';
 import applyIcon from '../assets/icons/apply.svg';
@@ -78,13 +78,13 @@ const StyledApplyIcon = styled(ButtonIcon)`
   background-size: 65%;
 `;
 
-const ItemTemplate = ({ removeItem, id, item, history }) => {
-  const { name, category, unit, maxStock } = item;
+const ItemTemplate = ({ removeItem, id, item, history, changeItem }) => {
+  const { name, category, unit, maxStock, minStock } = item;
 
   const [formState, setFormState] = useState({
-    stock: '',
     unit: '',
     maxStock: '',
+    minStock: '',
   });
 
   const handleSettingsChange = (e) => {
@@ -115,10 +115,14 @@ const ItemTemplate = ({ removeItem, id, item, history }) => {
             onChange={handleSettingsChange}
           />
           <label htmlFor="minStock">Minimum:</label>
-          <Input id="minStock" settings onChange={handleSettingsChange} />
+          <Input
+            id="minStock"
+            settings
+            onChange={handleSettingsChange}
+            placeholder={minStock}
+          />
           <label htmlFor="unit">Units:</label>
           <Input
-            type="switch"
             id="unit"
             settings
             placeholder={unit}
@@ -127,7 +131,17 @@ const ItemTemplate = ({ removeItem, id, item, history }) => {
           />
           <StyledApply>
             <Paragraph size="1.6rem">apply</Paragraph>
-            <StyledApplyIcon type="submit" icon={applyIcon} />
+            <StyledApplyIcon
+              onClick={() =>
+                changeItem(
+                  id,
+                  formState.maxStock,
+                  formState.minStock,
+                  formState.unit,
+                )
+              }
+              icon={applyIcon}
+            />
           </StyledApply>
         </StyledSettings>
       </Fieldset>
@@ -150,10 +164,13 @@ ItemTemplate.propTypes = {
   removeItem: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   item: PropTypes.objectOf(PropTypes.any).isRequired,
+  changeItem: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   removeItem: (id) => dispatch(removeItemAction(id)),
+  changeItem: (id, maxStock, minStock, unit) =>
+    dispatch(changeItemSettings(id, maxStock, minStock, unit)),
 });
 
 export default connect(null, mapDispatchToProps)(withRouter(ItemTemplate));
