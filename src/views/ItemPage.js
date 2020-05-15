@@ -30,7 +30,7 @@ const ItemPage = ({ match, items }) => {
   const [itemId, setItemId] = useState(0);
 
   // filtrowanie items według id
-  const [itemContent] = items.filter((item) => item.id === itemId);
+  const [item] = items.filter((product) => product.id === itemId);
 
   // wyciąganie id z adresu
   useEffect(() => {
@@ -40,10 +40,14 @@ const ItemPage = ({ match, items }) => {
 
   return (
     <UserTemplate>
-      <StyledWrapper>
-        <ItemTemplate id={itemId} item={itemContent} />
-        <InfoTemplate item={itemContent} />
-      </StyledWrapper>
+      {item ? (
+        <StyledWrapper>
+          <ItemTemplate id={itemId} item={item} />
+          <InfoTemplate item={item} />
+        </StyledWrapper>
+      ) : (
+        <p>Fetching</p>
+      )}
     </UserTemplate>
   );
 };
@@ -54,9 +58,9 @@ ItemPage.propTypes = {
       id: PropTypes.number.isRequired,
       category: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      stock: PropTypes.number.isRequired,
+      stock: PropTypes.string.isRequired,
       unit: PropTypes.string.isRequired,
-      maxStock: PropTypes.number.isRequired,
+      maxStock: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
   match: PropTypes.objectOf(PropTypes.any).isRequired,

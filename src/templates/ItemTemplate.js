@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -82,9 +82,9 @@ const ItemTemplate = ({ removeItem, id, item, history, changeItem }) => {
   const { name, category, unit, maxStock, minStock } = item;
 
   const [formState, setFormState] = useState({
-    unit: '',
     maxStock: '',
     minStock: '',
+    unit: '',
   });
 
   const handleSettingsChange = (e) => {
@@ -93,6 +93,14 @@ const ItemTemplate = ({ removeItem, id, item, history, changeItem }) => {
       [e.target.id]: e.target.value,
     });
   };
+
+  useEffect(() => {
+    setFormState({
+      maxStock,
+      minStock,
+      unit,
+    });
+  }, [maxStock, minStock, unit]);
 
   const handleRedirect = () => history.push('/');
 
@@ -110,7 +118,6 @@ const ItemTemplate = ({ removeItem, id, item, history, changeItem }) => {
           <Input
             id="maxStock"
             settings
-            placeholder={maxStock}
             value={formState.maxStock}
             onChange={handleSettingsChange}
           />
@@ -119,13 +126,12 @@ const ItemTemplate = ({ removeItem, id, item, history, changeItem }) => {
             id="minStock"
             settings
             onChange={handleSettingsChange}
-            placeholder={minStock}
+            value={formState.minStock}
           />
           <label htmlFor="unit">Units:</label>
           <Input
             id="unit"
             settings
-            placeholder={unit}
             value={formState.unit}
             onChange={handleSettingsChange}
           />

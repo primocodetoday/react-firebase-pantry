@@ -13,8 +13,8 @@ const StyledWrapper = styled.section`
 `;
 
 const StyledImage = styled.img`
-  height: 250px;
-  width: auto;
+  height: auto;
+  max-width: 50%;
   border: 2px solid white;
   border-radius: ${({ theme }) => theme.borderRadius};
   margin-bottom: 50px;
