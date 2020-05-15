@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import PantryCard from '../components/organisms/PantryCard';
+import Card from '../components/organisms/Card';
 import Input from '../components/atoms/Input';
 import Title from '../components/atoms/Title';
 import UserTemplate from '../templates/UserTemplate';
@@ -61,7 +61,7 @@ const showItems = (array, category, icon) => {
   const filteredArray = array.filter((item) => item.category === category);
   if (filteredArray.length)
     return (
-      <PantryCard
+      <Card
         key={category}
         icon={icon}
         content={filteredArray}
@@ -105,9 +105,9 @@ PantryPage.propTypes = {
       id: PropTypes.number.isRequired,
       category: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      stock: PropTypes.number.isRequired,
+      stock: PropTypes.string.isRequired,
       unit: PropTypes.string.isRequired,
-      maxStock: PropTypes.number.isRequired,
+      maxStock: PropTypes.string.isRequired,
     }),
   ).isRequired,
 };

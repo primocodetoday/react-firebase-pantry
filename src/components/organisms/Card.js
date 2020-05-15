@@ -45,7 +45,7 @@ const CardIcon = styled.div`
   background-size: contain;
 `;
 
-const PantryCard = ({ category, icon, content }) => {
+const Card = ({ category, icon, content }) => {
   return (
     <StyledWrapper>
       <CardIcon icon={icon} />
@@ -56,10 +56,10 @@ const PantryCard = ({ category, icon, content }) => {
   );
 };
 
-PantryCard.propTypes = {
+Card.propTypes = {
   category: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
   content: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default PantryCard;
+export default Card;

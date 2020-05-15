@@ -1,7 +1,10 @@
 ﻿import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import UserTemplate from '../templates/UserTemplate';
 import { Title } from '../components/atoms';
+import { addItem } from '../actions';
 
 const StyledWrapper = styled.div`
   position: relative;
@@ -28,14 +31,34 @@ const StyledTitle = styled(Title)`
   margin-bottom: 16px;
 `;
 
-const NewPage = () => {
+const NewPage = ({ handleAddItem }) => {
   return (
     <UserTemplate>
       <StyledWrapper>
-        <StyledTitle>New Item</StyledTitle>
+        <StyledTitle
+          onClick={() =>
+            handleAddItem({
+              category: 'test',
+              name: 'test',
+              stock: 15,
+              unit: 'test',
+              maxStock: 30,
+            })
+          }
+        >
+          New Item
+        </StyledTitle>
       </StyledWrapper>
     </UserTemplate>
   );
 };
 
-export default NewPage;
+NewPage.propTypes = {
+  handleAddItem: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  handleAddItem: (item) => dispatch(addItem(item)),
+});
+
+export default connect(null, mapDispatchToProps)(NewPage);
