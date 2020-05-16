@@ -1,14 +1,10 @@
 ﻿import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import PantryPage from './PantryPage';
-import ShopListPage from './ShopListPage';
-import SettingsPage from './SettingsPage';
+import { PantryPage, ShopListPage, SettingsPage, ItemPage, NewPage } from '.';
 import MainTemplate from '../templates/MainTemplate';
 import store from '../store/index';
-import ItemPage from './ItemPage';
 import { routes } from '../routes/index';
-import NewPage from './NewPage';
 
 function Root() {
   // eslint-disable-next-line no-unused-vars

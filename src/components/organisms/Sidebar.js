@@ -10,6 +10,8 @@ import {
   homeActive,
   settingsActive,
   basketActive,
+  plus,
+  plusActive,
 } from '../../assets/icons';
 
 const Wrapper = styled.header`
@@ -56,6 +58,13 @@ const Sidebar = () => {
           to="/pantry"
           activeicon={homeActive}
           icon={home}
+          activeclass="active"
+        />
+        <MenuIcon
+          as={NavLink}
+          to="/new"
+          activeicon={plusActive}
+          icon={plus}
           activeclass="active"
         />
         <MenuIcon

@@ -6,6 +6,8 @@ import ListItem from './ListItem';
 import Logo from './Logo';
 import Paragraph from './Paragraph';
 import ButtonIcon from './ButtonIcon';
+import Select from './Select';
+import SubTitle from './SubTitle';
 
 export {
   Button,
@@ -16,4 +18,6 @@ export {
   Logo,
   Paragraph,
   ButtonIcon,
+  Select,
+  SubTitle,
 };

@@ -4,6 +4,7 @@ import searchIcon from '../../assets/icons/search.svg';
 const Input = styled.input`
   font-family: 'Montserrat', sans-serif;
   padding: 10px 10px;
+  font-size: ${({ theme }) => theme.fontSize.normal};
   border-radius: ${({ theme }) => theme.borderRadius};
   border: none;
   color: ${({ theme }) => theme.secondary};
@@ -14,7 +15,7 @@ const Input = styled.input`
       padding-left: 40px;
       text-transform: uppercase;
       color: ${({ theme }) => theme.secondary};
-      font-size: 1.2rem;
+      font-size: ${({ theme }) => theme.fontSize.small};
       font-weight: 600;
       width: 234px;
       height: 42px;
@@ -29,7 +30,6 @@ const Input = styled.input`
     css`
       text-align: center;
       color: ${({ theme }) => theme.secondary};
-      font-size: 1.8rem;
       font-weight: 600;
     `};
 `;

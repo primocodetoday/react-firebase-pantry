@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Card from '../components/organisms/Card';
 import Input from '../components/atoms/Input';
-import Title from '../components/atoms/Title';
+import Header from '../components/molecules/Header';
 import UserTemplate from '../templates/UserTemplate';
 import {
   fruits,
@@ -32,16 +32,6 @@ const StyledWrapper = styled.div`
     padding-left: 30px;
     padding-right: 30px;
   }
-`;
-
-const StyledHeader = styled.header`
-  margin-bottom: 30px;
-`;
-
-const StyledTitle = styled(Title)`
-  font-size: 2.5rem;
-  color: white;
-  margin-top: 17px;
 `;
 
 const StyledGridWrapper = styled.div`
@@ -75,13 +65,8 @@ const PantryPage = ({ items }) => {
   return (
     <UserTemplate>
       <StyledWrapper>
-        <StyledHeader>
-          <Input search placeholder="search" />
-          <section>
-            <StyledTitle>Pantry</StyledTitle>
-            <p>Products</p>
-          </section>
-        </StyledHeader>
+        <Input search placeholder="search" />
+        <Header titleText="Pantry" subTitleText="All Products" />
         <StyledGridWrapper>
           {showItems(items, 'Fruits & Vegs', fruits)}
           {showItems(items, 'Chemicals', chemicals)}

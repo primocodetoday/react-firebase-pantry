@@ -11,6 +11,8 @@ import fruits from './fruits.svg';
 import grains from './grains.svg';
 import meats from './meats.svg';
 import logout from './logout.svg';
+import plus from './plus.svg';
+import plusActive from './plusActive.svg';
 
 export {
   basket,
@@ -26,4 +28,6 @@ export {
   grains,
   meats,
   logout,
+  plus,
+  plusActive,
 };
