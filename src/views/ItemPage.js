@@ -29,20 +29,23 @@ const StyledWrapper = styled.div`
 const ItemPage = ({ match, items }) => {
   const [itemId, setItemId] = useState(0);
 
-  // filtrowanie items według id
+  // filter items by requested id
   const [item] = items.filter((product) => product.id === itemId);
 
-  // wyciąganie id z adresu
+  // current id from url
   useEffect(() => {
     const currentId = Number(match.params.id);
     setItemId(currentId);
-  }, [itemId, match.params.id]);
+  }, [match.params.id]);
+
+  // => ItemTemplete => Select
+  const unitsOptions = [...new Set(items.map((product) => product.unit))];
 
   return (
     <UserTemplate>
       {item ? (
         <StyledWrapper>
-          <ItemTemplate id={itemId} item={item} />
+          <ItemTemplate id={itemId} item={item} unitsOptions={unitsOptions} />
           <InfoTemplate item={item} />
         </StyledWrapper>
       ) : (
@@ -60,6 +63,7 @@ ItemPage.propTypes = {
       name: PropTypes.string.isRequired,
       stock: PropTypes.string.isRequired,
       unit: PropTypes.string.isRequired,
+      minStock: PropTypes.string.isRequired,
       maxStock: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,

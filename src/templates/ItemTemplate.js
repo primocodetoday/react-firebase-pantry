@@ -1,19 +1,21 @@
-﻿import React, { useState, useEffect } from 'react';
+﻿import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {
-  Title,
   Paragraph,
   Fieldset,
   Input,
   ButtonIcon,
+  Select,
 } from '../components/atoms';
 import { removeItem as removeItemAction, changeItemSettings } from '../actions';
-
+import Header from '../components/molecules/Header';
 import deleteIcon from '../assets/icons/delete.svg';
 import applyIcon from '../assets/icons/apply.svg';
+
+// component to refactor using some form library
 
 const StyledItem = styled.section`
   position: relative;
@@ -21,17 +23,6 @@ const StyledItem = styled.section`
   flex-direction: column;
   flex-grow: 1;
   padding: 0 25px;
-`;
-
-const StyledTitle = styled(Title)`
-  font-size: 3rem;
-  margin-bottom: 16px;
-`;
-
-const StyledCategory = styled(Paragraph)`
-  color: white;
-  margin-bottom: 30px;
-  font-weight: 600;
 `;
 
 const StyledSettings = styled.form`
@@ -78,13 +69,21 @@ const StyledApplyIcon = styled(ButtonIcon)`
   background-size: 65%;
 `;
 
-const ItemTemplate = ({ removeItem, id, item, history, changeItem }) => {
+const ItemTemplate = ({
+  removeItem,
+  id,
+  item,
+  history,
+  changeItem,
+  unitsOptions,
+}) => {
+  // this is from Redux
   const { name, category, unit, maxStock, minStock } = item;
 
   const [formState, setFormState] = useState({
-    maxStock: '',
-    minStock: '',
-    unit: '',
+    maxStock,
+    minStock,
+    unit,
   });
 
   const handleSettingsChange = (e) => {
@@ -94,20 +93,11 @@ const ItemTemplate = ({ removeItem, id, item, history, changeItem }) => {
     });
   };
 
-  useEffect(() => {
-    setFormState({
-      maxStock,
-      minStock,
-      unit,
-    });
-  }, [maxStock, minStock, unit]);
-
   const handleRedirect = () => history.push('/');
 
   return (
     <StyledItem>
-      <StyledTitle>{name}</StyledTitle>
-      <StyledCategory>category: {category}</StyledCategory>
+      <Header titleText={name} subTitleText={`category: ${category}`} />
       <StyledStock>
         <label htmlFor="stock">Stock</label>
         <Input id="stock" settings />
@@ -128,12 +118,13 @@ const ItemTemplate = ({ removeItem, id, item, history, changeItem }) => {
             onChange={handleSettingsChange}
             value={formState.minStock}
           />
-          <label htmlFor="unit">Units:</label>
-          <Input
+          <Select
+            label
             id="unit"
             settings
             value={formState.unit}
             onChange={handleSettingsChange}
+            options={unitsOptions}
           />
           <StyledApply>
             <Paragraph size="1.6rem">apply</Paragraph>
@@ -171,6 +162,7 @@ ItemTemplate.propTypes = {
   id: PropTypes.number.isRequired,
   item: PropTypes.objectOf(PropTypes.any).isRequired,
   changeItem: PropTypes.func.isRequired,
+  unitsOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
