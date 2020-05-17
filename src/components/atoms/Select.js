@@ -28,7 +28,7 @@ const Select = ({ options, value, id, label, onChange, ...props }) => {
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     >
-      <option value="" disabled selected>
+      <option value="" disabled>
         select option
       </option>
       {optionsList}

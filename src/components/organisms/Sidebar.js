@@ -14,7 +14,7 @@ import {
   plusActive,
 } from '../../assets/icons';
 
-const Wrapper = styled.header`
+const StyledWrapper = styled.header`
   flex-shrink: 0;
   display: grid;
   grid-template-columns: 1fr;
@@ -48,10 +48,8 @@ const MenuIcon = styled.button`
 
 const Sidebar = () => {
   return (
-    <Wrapper>
-      <Logo>
-        <span>P</span>antry
-      </Logo>
+    <StyledWrapper>
+      <Logo />
       <div>
         <MenuIcon
           as={NavLink}
@@ -83,7 +81,7 @@ const Sidebar = () => {
         />
       </div>
       <MenuIcon as={NavLink} to="/logout" icon={logout} />
-    </Wrapper>
+    </StyledWrapper>
   );
 };
 
