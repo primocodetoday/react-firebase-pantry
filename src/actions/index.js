@@ -6,7 +6,7 @@
 };
 
 export const addItem = (itemContent) => {
-  const getId = () => Math.floor(Math.random() * (9999 - 1 + 1)) + 1;
+  const getId = () => Math.floor(Math.random() * (99999 - 1 + 1)) + 1;
   return {
     type: 'ADD_ITEM',
     payload: {
