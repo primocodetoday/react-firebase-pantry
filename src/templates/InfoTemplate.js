@@ -8,7 +8,7 @@ const StyledWrapper = styled.section`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding: 0 25px;
+  padding: 17px 25px 0;
   flex-basis: 400px;
 `;
 

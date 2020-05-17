@@ -92,7 +92,8 @@ PantryPage.propTypes = {
       name: PropTypes.string.isRequired,
       stock: PropTypes.string.isRequired,
       unit: PropTypes.string.isRequired,
-      maxStock: PropTypes.string.isRequired,
+      maxStock: PropTypes.number.isRequired,
+      minStock: PropTypes.number.isRequired,
     }),
   ).isRequired,
 };

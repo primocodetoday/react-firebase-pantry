@@ -9,6 +9,16 @@ const Input = styled.input`
   border: none;
   color: ${({ theme }) => theme.secondary};
 
+  &[type='number']::-webkit-inner-spin-button,
+  &[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type='number'] {
+    -moz-appearance: textfield;
+  }
+
   ${({ search }) =>
     search &&
     css`

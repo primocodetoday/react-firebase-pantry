@@ -34,6 +34,10 @@ const StyledInput = styled(Input)`
   margin-bottom: 15px;
 `;
 
+const StyledSelect = styled(Select)`
+  margin-bottom: 15px;
+`;
+
 const NewPage = ({ handleAddItem, items }) => {
   const [formState, setFormState] = useState({
     name: '',
@@ -85,14 +89,14 @@ const NewPage = ({ handleAddItem, items }) => {
           onChange={handleFormChange}
           value={formState.minStock}
         />
-        <Select
+        <StyledSelect
           label
           options={categoryOptions}
           id="category"
           onChange={handleFormChange}
           value={formState.category}
         />
-        <Select
+        <StyledSelect
           label
           options={unitsOptions}
           id="units"
@@ -114,8 +118,8 @@ NewPage.propTypes = {
       name: PropTypes.string.isRequired,
       stock: PropTypes.string.isRequired,
       unit: PropTypes.string.isRequired,
-      minStock: PropTypes.string.isRequired,
-      maxStock: PropTypes.string.isRequired,
+      minStock: PropTypes.number.isRequired,
+      maxStock: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
 };

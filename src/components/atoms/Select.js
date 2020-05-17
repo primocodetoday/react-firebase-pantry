@@ -2,17 +2,6 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const StyledWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-`;
-
-const StyledLabel = styled.label`
-  color: white;
-`;
-
 const StyledSelect = styled.select`
   text-align: center;
   color: ${({ theme }) => theme.secondary};
@@ -30,31 +19,29 @@ const Select = ({ options, value, id, label, onChange, ...props }) => {
   ));
 
   return (
-    <StyledWrapper>
-      {label && <StyledLabel htmlFor={id}>{id}</StyledLabel>}
-      <StyledSelect
-        onChange={onChange}
-        name="pets"
-        id={id}
-        value={value}
-        // temporary solution below
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...props}
-      >
-        {optionsList}
-      </StyledSelect>
-    </StyledWrapper>
+    <StyledSelect
+      onChange={onChange}
+      name="pets"
+      id={id}
+      value={value}
+      // temporary solution below
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...props}
+    >
+      {optionsList}
+    </StyledSelect>
   );
 };
 
 Select.defaultProps = {
   label: false,
+  id: '',
 };
 
 Select.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   value: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   label: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
 };
