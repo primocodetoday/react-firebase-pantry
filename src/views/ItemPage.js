@@ -15,13 +15,10 @@ const StyledWrapper = styled.div`
   width: 100%;
   padding-right: 50px;
   justify-content: space-around;
-  @media (max-width: 1355px) {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-  @media (max-width: 960px) {
-    padding-left: 20px;
-    padding-right: 20px;
+
+  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
+    padding: 0;
+    width: 100%;
   }
 `;
 

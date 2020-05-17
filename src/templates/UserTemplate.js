@@ -13,7 +13,7 @@ const UserWrapper = styled.div`
   color: white;
   min-height: 100vh;
 
-  @media (max-width: 700px) {
+  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
     flex-direction: column;
   }
 `;
@@ -24,7 +24,7 @@ const UserTemplate = ({ children }) => {
 
   return (
     <UserWrapper>
-      {width > 700 ? <Sidebar /> : <Topbar />}
+      {width > 600 ? <Sidebar /> : <Topbar />}
       {children}
     </UserWrapper>
   );

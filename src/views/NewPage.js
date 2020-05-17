@@ -11,7 +11,6 @@ import Header from '../components/molecules/Header';
 
 const StyledWrapper = styled.div`
   height: 100vh;
-  width: 30vw;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -19,21 +18,15 @@ const StyledWrapper = styled.div`
   padding-right: 70px;
   justify-content: flex-start;
 
-  @media (max-width: 1355px) {
-    width: 40vw;
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-  @media (max-width: 700px) {
-    padding-left: 30px;
-    padding-right: 30px;
+  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
+    padding: 10px 10px 0;
     width: 100%;
   }
 `;
 
 const StyledForm = styled(Form)`
   display: grid;
-  grid-template-columns: 1fr 150px 80px;
+  grid-template-columns: 1fr 80px 150px;
   align-items: center;
   gap: 10px;
 
@@ -44,11 +37,12 @@ const StyledForm = styled(Form)`
   .grid-button {
     justify-self: end;
     align-self: center;
-    grid-column: 2/3;
+    grid-column: 3/4;
     margin-top: 20px;
   }
-  input {
+  .grid-input {
     text-align: center;
+    grid-column: 3/4;
   }
 `;
 
@@ -122,18 +116,21 @@ const NewPage = ({ handleAddItem, items, history }) => {
               <label className="grid-label" htmlFor="name">
                 Name:
               </label>
+              <ErrorMessage name="name" />
               <Input
+                className="grid-input"
                 type="text"
                 name="name"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.name}
               />
-              <ErrorMessage name="name" />
               <label className="grid-label" htmlFor="category">
                 Category:
               </label>
+              <ErrorMessage name="category" />
               <Select
+                className="grid-input"
                 label
                 options={categoryOptions}
                 name="category"
@@ -141,22 +138,24 @@ const NewPage = ({ handleAddItem, items, history }) => {
                 onBlur={handleBlur}
                 value={values.category}
               />
-              <ErrorMessage name="category" />
               <label className="grid-label" htmlFor="stock">
                 Stock:
               </label>
+              <ErrorMessage name="stock" />
               <Input
+                className="grid-input"
                 type="number"
                 name="stock"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.stock}
               />
-              <ErrorMessage name="stock" />
               <label className="grid-label" htmlFor="maxStock">
                 Max Stock:
               </label>
+              <ErrorMessage name="maxStock" />
               <Input
+                className="grid-input"
                 type="number"
                 name="maxStock"
                 placeholder="max"
@@ -164,11 +163,12 @@ const NewPage = ({ handleAddItem, items, history }) => {
                 onBlur={handleBlur}
                 value={values.maxStock}
               />
-              <ErrorMessage name="maxStock" />
               <label className="grid-label" htmlFor="minStock">
                 Min Stock:
               </label>
+              <ErrorMessage name="minStock" />
               <Input
+                className="grid-input"
                 type="number"
                 name="minStock"
                 placeholder="min"
@@ -176,11 +176,12 @@ const NewPage = ({ handleAddItem, items, history }) => {
                 onBlur={handleBlur}
                 value={values.minStock}
               />
-              <ErrorMessage name="minStock" />
               <label className="grid-label" htmlFor="unit">
                 Units:
               </label>
+              <ErrorMessage name="unit" />
               <Select
+                className="grid-input"
                 placeholder="chose unit"
                 label
                 options={unitsOptions}
@@ -189,7 +190,6 @@ const NewPage = ({ handleAddItem, items, history }) => {
                 onBlur={handleBlur}
                 value={values.unit}
               />
-              <ErrorMessage name="unit" />
               <Button
                 className="grid-button"
                 type="submit"

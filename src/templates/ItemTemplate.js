@@ -22,6 +22,11 @@ const StyledItem = styled.section`
   flex-direction: column;
   flex-grow: 1;
   padding: 0 25px;
+
+  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
+    padding: 10px 10px 0;
+    width: 100%;
+  }
 `;
 
 const StyledSettings = styled.form`

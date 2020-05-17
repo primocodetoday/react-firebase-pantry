@@ -10,6 +10,12 @@ const StyledWrapper = styled.section`
   flex-grow: 1;
   padding: 17px 25px 0;
   flex-basis: 400px;
+
+  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
+    padding: 10px 10px 0;
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 const StyledImage = styled.img`
@@ -18,6 +24,11 @@ const StyledImage = styled.img`
   border: 2px solid white;
   border-radius: ${({ theme }) => theme.borderRadius};
   margin-bottom: 50px;
+
+  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
+    margin: 0 auto 20px;
+    max-width: 80%;
+  }
 `;
 
 const InfoTemplate = ({ item }) => {
@@ -50,10 +61,10 @@ const InfoTemplate = ({ item }) => {
   return (
     <StyledWrapper>
       {data && !err ? (
-        <div>
+        <>
           <StyledImage src={data.photo} alt={name} />
           <Fieldset legend="info">{data.info}</Fieldset>
-        </div>
+        </>
       ) : (
         <p>Fetching data ...</p>
       )}
