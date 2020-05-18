@@ -20,7 +20,6 @@ const UserWrapper = styled.div`
 
 const UserTemplate = ({ children }) => {
   const { width } = useWindowWidth();
-  console.log(width);
 
   return (
     <UserWrapper>

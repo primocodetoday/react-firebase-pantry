@@ -11,6 +11,10 @@ const StyledWrapper = styled.li`
   margin: 5px 0;
   cursor: pointer;
   color: ${(theme) => theme.primary};
+
+  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
+    font-size: 2.3rem;
+  }
 `;
 
 const StyledStock = styled(Paragraph)`

@@ -25,6 +25,14 @@ const StyledWrapper = styled.header`
   width: 110px;
   height: 96vh;
   border-radius: 15px;
+
+  @media (orientation: landscape) {
+    height: 150vh;
+  }
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 const MenuIcon = styled.button`
@@ -49,7 +57,9 @@ const MenuIcon = styled.button`
 const Sidebar = () => {
   return (
     <StyledWrapper>
-      <Logo />
+      <NavLink to="/">
+        <Logo />
+      </NavLink>
       <div>
         <MenuIcon
           as={NavLink}

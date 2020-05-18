@@ -17,6 +17,7 @@ const StyledWrapper = styled.div`
 
   @media (max-width: 960px) {
     max-width: 100%;
+    min-height: 100px;
   }
 `;
 
