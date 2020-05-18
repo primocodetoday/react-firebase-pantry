@@ -1,5 +1,6 @@
-﻿import React, { useState } from 'react';
+﻿import React from 'react';
 import styled from 'styled-components';
+import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -15,25 +16,40 @@ import Header from '../components/molecules/Header';
 import deleteIcon from '../assets/icons/delete.svg';
 import applyIcon from '../assets/icons/apply.svg';
 
-// component to refactor using some form library
-
 const StyledItem = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   padding: 0 25px;
+
+  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
+    padding: 10px 10px 0;
+    width: 100%;
+  }
 `;
 
 const StyledSettings = styled.form`
   height: 100%;
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 50px;
-  gap: 20px;
+  grid-template-columns: 1fr 100px;
+  gap: 15px;
+  align-items: center;
 
-  label {
-    font-size: 2rem;
+  .grid-settings-6 {
+    grid-column: 2/3;
+    grid-row: 3/4;
+  }
+  .grid-settings-7 {
+    grid-column: 1/2;
+    grid-row: 4/5;
+    justify-self: end;
+  }
+  .grid-settings-8 {
+    grid-column: 2/3;
+    grid-row: 4/5;
+    justify-self: center;
   }
 `;
 const StyledStock = styled.div`
@@ -50,19 +66,12 @@ const StyledStock = styled.div`
   }
 `;
 
-const StyledApply = styled.div`
-  display: flex;
-  align-items: center;
-  grid-column: 1/3;
-  justify-self: end;
-  align-self: end;
-`;
 const StyledDelete = styled.div`
-  margin-top: auto;
+  margin-top: 30px;
   margin-bottom: 20px;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  align-self: flex-end;
 `;
 
 const StyledApplyIcon = styled(ButtonIcon)`
@@ -80,19 +89,6 @@ const ItemTemplate = ({
   // this is from Redux
   const { name, category, unit, maxStock, minStock } = item;
 
-  const [formState, setFormState] = useState({
-    maxStock,
-    minStock,
-    unit,
-  });
-
-  const handleSettingsChange = (e) => {
-    setFormState({
-      ...formState,
-      [e.target.id]: e.target.value,
-    });
-  };
-
   const handleRedirect = () => history.push('/');
 
   return (
@@ -103,47 +99,77 @@ const ItemTemplate = ({
         <Input id="stock" settings />
       </StyledStock>
       <Fieldset settings legend="settings">
-        <StyledSettings>
-          <label htmlFor="maxStock">Maximum:</label>
-          <Input
-            id="maxStock"
-            settings
-            value={formState.maxStock}
-            onChange={handleSettingsChange}
-          />
-          <label htmlFor="minStock">Minimum:</label>
-          <Input
-            id="minStock"
-            settings
-            onChange={handleSettingsChange}
-            value={formState.minStock}
-          />
-          <Select
-            label
-            id="unit"
-            settings
-            value={formState.unit}
-            onChange={handleSettingsChange}
-            options={unitsOptions}
-          />
-          <StyledApply>
-            <Paragraph size="1.6rem">apply</Paragraph>
-            <StyledApplyIcon
-              onClick={() =>
-                changeItem(
-                  id,
-                  formState.maxStock,
-                  formState.minStock,
-                  formState.unit,
-                )
-              }
-              icon={applyIcon}
-            />
-          </StyledApply>
-        </StyledSettings>
+        <Formik
+          initialValues={{ maxStock, minStock, unit }}
+          onSubmit={(values, { setSubmitting }) => {
+            changeItem(id, values.maxStock, values.minStock, values.unit);
+            setTimeout(() => {
+              setSubmitting(false);
+            }, 400);
+          }}
+        >
+          {({
+            values,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isSubmitting,
+          }) => (
+            <StyledSettings onSubmit={handleSubmit}>
+              <label className="grid-settings-1" htmlFor="maxStock">
+                Maximum:
+              </label>
+              <Input
+                className="grid-settings-2"
+                settings
+                type="number"
+                name="maxStock"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.maxStock}
+              />
+              <label className="grid-settings-3" htmlFor="minStock">
+                Minimum:
+              </label>
+              <Input
+                className="grid-settings-4"
+                settings
+                type="number"
+                name="minStock"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.minStock}
+              />
+              <label className="grid-settings-5" htmlFor="unit">
+                Units:
+              </label>
+              <Select
+                className="grid-settings-6"
+                label
+                name="unit"
+                settings
+                options={unitsOptions}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.unit}
+              />
+              <Paragraph className="grid-settings-7" size="1.6rem">
+                Apply
+              </Paragraph>
+              <StyledApplyIcon
+                className="grid-settings-8"
+                type="submit"
+                disabled={isSubmitting}
+                icon={applyIcon}
+              />
+            </StyledSettings>
+          )}
+        </Formik>
       </Fieldset>
       <StyledDelete>
-        <Paragraph size="1.6rem">delete item</Paragraph>
+        <Paragraph style={{ marginRight: '20px' }} size="1.6rem">
+          delete item
+        </Paragraph>
         <ButtonIcon
           icon={deleteIcon}
           onClick={() => {

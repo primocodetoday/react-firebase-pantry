@@ -6,6 +6,10 @@ import { Title, SubTitle } from '../atoms';
 const StyledWrapper = styled.header`
   width: 100%;
   margin: 25px 0;
+
+  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
+    text-align: center;
+  }
 `;
 
 const StyledTitle = styled(Title)`

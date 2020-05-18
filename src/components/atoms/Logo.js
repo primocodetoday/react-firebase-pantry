@@ -4,8 +4,9 @@ import styled from 'styled-components';
 const Wrapper = styled.p`
   color: ${({ theme }) => theme.primary};
   font-family: 'Dancing Script', cursive;
-  font-size: 3.7rem;
-  margin-top: 7px;
+  font-size: 3.5rem;
+  padding: 10px;
+  margin: 0;
 
   span {
     color: ${({ theme }) => theme.secondary};

@@ -18,19 +18,13 @@ import {
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 27px;
-  padding-left: 70px;
+  padding: 27px 70px 0 70px;
   flex-wrap: wrap;
   width: 100%;
-  padding-right: 70px;
 
-  @media (max-width: 1200px) {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-  @media (max-width: 960px) {
-    padding-left: 30px;
-    padding-right: 30px;
+  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
+    padding: 20px 10px 0;
+    align-items: center;
   }
 `;
 
@@ -39,11 +33,16 @@ const StyledGridWrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1350px) {
     grid-template-columns: repeat(2, 1fr);
   }
   @media (max-width: 960px) {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
+    padding: 0;
+    width: 100%;
   }
 `;
 
@@ -66,7 +65,10 @@ const PantryPage = ({ items }) => {
     <UserTemplate>
       <StyledWrapper>
         <Input search placeholder="search" />
-        <Header titleText="Pantry" subTitleText="All Products" />
+        <Header
+          titleText="Pantry"
+          subTitleText="Click product for change or info"
+        />
         <StyledGridWrapper>
           {showItems(items, 'Fruits & Vegs', fruits)}
           {showItems(items, 'Chemicals', chemicals)}
@@ -92,7 +94,8 @@ PantryPage.propTypes = {
       name: PropTypes.string.isRequired,
       stock: PropTypes.string.isRequired,
       unit: PropTypes.string.isRequired,
-      maxStock: PropTypes.string.isRequired,
+      maxStock: PropTypes.number.isRequired,
+      minStock: PropTypes.number.isRequired,
     }),
   ).isRequired,
 };

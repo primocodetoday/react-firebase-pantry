@@ -10,19 +10,15 @@ import InfoTemplate from '../templates/InfoTemplate';
 const StyledWrapper = styled.div`
   position: relative;
   display: flex;
-  padding-top: 27px;
   padding-left: 50px;
   flex-wrap: wrap;
   width: 100%;
   padding-right: 50px;
   justify-content: space-around;
-  @media (max-width: 1355px) {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-  @media (max-width: 960px) {
-    padding-left: 20px;
-    padding-right: 20px;
+
+  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
+    padding: 0;
+    width: 100%;
   }
 `;
 
@@ -63,8 +59,8 @@ ItemPage.propTypes = {
       name: PropTypes.string.isRequired,
       stock: PropTypes.string.isRequired,
       unit: PropTypes.string.isRequired,
-      minStock: PropTypes.string.isRequired,
-      maxStock: PropTypes.string.isRequired,
+      minStock: PropTypes.number.isRequired,
+      maxStock: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
   match: PropTypes.objectOf(PropTypes.any).isRequired,

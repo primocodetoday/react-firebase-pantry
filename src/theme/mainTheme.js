@@ -8,4 +8,7 @@
     normal: '1.6rem',
     big: '2.5rem',
   },
+  mediaBreaks: {
+    mobile: 600,
+  },
 };
