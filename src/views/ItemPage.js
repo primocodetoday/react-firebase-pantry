@@ -57,7 +57,7 @@ ItemPage.propTypes = {
       id: PropTypes.number.isRequired,
       category: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      stock: PropTypes.string.isRequired,
+      stock: PropTypes.number.isRequired,
       unit: PropTypes.string.isRequired,
       minStock: PropTypes.number.isRequired,
       maxStock: PropTypes.number.isRequired,

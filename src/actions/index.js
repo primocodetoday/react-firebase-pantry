@@ -29,3 +29,16 @@ export const changeItemSettings = (id, maxStock, minStock, unit) => {
     },
   };
 };
+
+export const addStockAction = (id) => {
+  return {
+    type: 'ADD_STOCK',
+    payload: { id },
+  };
+};
+export const subStockAction = (id) => {
+  return {
+    type: 'SUB_STOCK',
+    payload: { id },
+  };
+};

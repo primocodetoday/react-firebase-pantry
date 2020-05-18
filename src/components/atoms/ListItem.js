@@ -42,7 +42,7 @@ const ListItem = ({ name, stock, id, unit }) => {
 
 ListItem.propTypes = {
   name: PropTypes.string.isRequired,
-  stock: PropTypes.string.isRequired,
+  stock: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
   unit: PropTypes.string.isRequired,
 };
