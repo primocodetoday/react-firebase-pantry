@@ -20,6 +20,26 @@ const rootReducer = (state = initialState, action) => {
         return item;
       });
     }
+    case 'ADD_STOCK': {
+      return state.map((item) => {
+        if (item.id === action.payload.id)
+          return {
+            ...item,
+            stock: item.stock + 1,
+          };
+        return item;
+      });
+    }
+    case 'SUB_STOCK': {
+      return state.map((item) => {
+        if (item.id === action.payload.id)
+          return {
+            ...item,
+            stock: item.stock - 1,
+          };
+        return item;
+      });
+    }
 
     default:
       return state;

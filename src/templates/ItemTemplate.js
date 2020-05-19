@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
@@ -11,12 +11,16 @@ import {
   ButtonIcon,
   Select,
 } from '../components/atoms';
-import { removeItem as removeItemAction, changeItemSettings } from '../actions';
+import {
+  removeItem as removeItemAction,
+  changeItemSettings,
+  addStockAction,
+  subStockAction,
+} from '../actions';
 import Header from '../components/molecules/Header';
-import deleteIcon from '../assets/icons/delete.svg';
-import applyIcon from '../assets/icons/apply.svg';
+import { deleteIcon, applyIcon, plusIcon, minusIcon } from '../assets/icons';
 
-const StyledItem = styled.section`
+const ItemWrapper = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -36,6 +40,11 @@ const StyledSettings = styled.form`
   grid-template-columns: 1fr 100px;
   gap: 15px;
   align-items: center;
+  font-size: 2.2rem;
+
+  input {
+    font-size: 2rem;
+  }
 
   .grid-settings-6 {
     grid-column: 2/3;
@@ -52,9 +61,10 @@ const StyledSettings = styled.form`
     justify-self: center;
   }
 `;
+
 const StyledStock = styled.div`
   display: grid;
-  grid-template-columns: 1fr 96px 50px;
+  grid-template-columns: 1fr 80px 80px;
   gap: 27px;
   margin-bottom: 30px;
 
@@ -62,7 +72,7 @@ const StyledStock = styled.div`
     font-size: 3rem;
   }
   input {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 `;
 
@@ -78,6 +88,23 @@ const StyledApplyIcon = styled(ButtonIcon)`
   background-size: 65%;
 `;
 
+const ChangeStockWrapper = styled.div`
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+`;
+
+const ButtonAdd = styled(ButtonIcon)`
+  border-radius: 15px 0 0 15px;
+  height: 100%;
+  background-size: 65%;
+`;
+const ButtonSub = styled(ButtonIcon)`
+  border-radius: 0 15px 15px 0;
+  height: 100%;
+  background-size: 65%;
+`;
+
 const ItemTemplate = ({
   removeItem,
   id,
@@ -85,18 +112,30 @@ const ItemTemplate = ({
   history,
   changeItem,
   unitsOptions,
+  addStock,
+  subStock,
 }) => {
   // this is from Redux
-  const { name, category, unit, maxStock, minStock } = item;
+  const { name, category, unit, maxStock, minStock, stock } = item;
 
   const handleRedirect = () => history.push('/');
 
+  const [stockState, setNewStock] = useState();
+
+  useEffect(() => {
+    setNewStock(stock);
+  }, [stock]);
+
   return (
-    <StyledItem>
+    <ItemWrapper>
       <Header titleText={name} subTitleText={`category: ${category}`} />
       <StyledStock>
         <label htmlFor="stock">Stock</label>
-        <Input id="stock" settings />
+        <Input id="stock" defaultValue={stockState} settings />
+        <ChangeStockWrapper>
+          <ButtonAdd icon={plusIcon} onClick={() => addStock(id)} />
+          <ButtonSub icon={minusIcon} onClick={() => subStock(id)} />
+        </ChangeStockWrapper>
       </StyledStock>
       <Fieldset settings legend="settings">
         <Formik
@@ -178,7 +217,7 @@ const ItemTemplate = ({
           }}
         />
       </StyledDelete>
-    </StyledItem>
+    </ItemWrapper>
   );
 };
 
@@ -188,6 +227,8 @@ ItemTemplate.propTypes = {
   id: PropTypes.number.isRequired,
   item: PropTypes.objectOf(PropTypes.any).isRequired,
   changeItem: PropTypes.func.isRequired,
+  addStock: PropTypes.func.isRequired,
+  subStock: PropTypes.func.isRequired,
   unitsOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
@@ -195,6 +236,8 @@ const mapDispatchToProps = (dispatch) => ({
   removeItem: (id) => dispatch(removeItemAction(id)),
   changeItem: (id, maxStock, minStock, unit) =>
     dispatch(changeItemSettings(id, maxStock, minStock, unit)),
+  addStock: (id) => dispatch(addStockAction(id)),
+  subStock: (id) => dispatch(subStockAction(id)),
 });
 
 export default connect(null, mapDispatchToProps)(withRouter(ItemTemplate));

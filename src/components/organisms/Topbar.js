@@ -67,12 +67,12 @@ const BurgerWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #0d2743;
     padding: 1rem;
   }
   .bm-item {
     margin: 15px 0;
     display: inline-block;
+    color: ${({ theme }) => theme.primary};
   }
   .bm-overlay {
     top: 0;

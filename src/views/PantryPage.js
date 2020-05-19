@@ -14,19 +14,7 @@ import {
   meats,
   chemicals,
 } from '../assets/icons';
-
-const StyledWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 27px 70px 0 70px;
-  flex-wrap: wrap;
-  width: 100%;
-
-  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
-    padding: 20px 10px 0;
-    align-items: center;
-  }
-`;
+import SectionWrapper from '../templates/SectionWrapper';
 
 const StyledGridWrapper = styled.div`
   display: grid;
@@ -63,7 +51,7 @@ const showItems = (array, category, icon) => {
 const PantryPage = ({ items }) => {
   return (
     <UserTemplate>
-      <StyledWrapper>
+      <SectionWrapper column>
         <Input search placeholder="search" />
         <Header
           titleText="Pantry"
@@ -77,7 +65,7 @@ const PantryPage = ({ items }) => {
           {showItems(items, 'Dairy Foods', dairy)}
           {showItems(items, 'Drinks', drinks)}
         </StyledGridWrapper>
-      </StyledWrapper>
+      </SectionWrapper>
     </UserTemplate>
   );
 };
@@ -92,7 +80,7 @@ PantryPage.propTypes = {
       id: PropTypes.number.isRequired,
       category: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      stock: PropTypes.string.isRequired,
+      stock: PropTypes.number.isRequired,
       unit: PropTypes.string.isRequired,
       maxStock: PropTypes.number.isRequired,
       minStock: PropTypes.number.isRequired,
