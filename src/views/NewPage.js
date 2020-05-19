@@ -8,20 +8,10 @@ import UserTemplate from '../templates/UserTemplate';
 import { Input, Select, Button } from '../components/atoms';
 import { addItem } from '../actions';
 import Header from '../components/molecules/Header';
+import SectionWrapper from '../templates/SectionWrapper';
 
-const StyledWrapper = styled.div`
-  height: 100vh;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding-left: 70px;
-  padding-right: 70px;
-  justify-content: flex-start;
-
-  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
-    padding: 10px 10px 0;
-    width: 100%;
-  }
+const StyledWrapper = styled(SectionWrapper)`
+  width: auto;
 `;
 
 const StyledForm = styled(Form)`
@@ -54,7 +44,7 @@ const NewPage = ({ handleAddItem, items, history }) => {
 
   return (
     <UserTemplate>
-      <StyledWrapper>
+      <StyledWrapper column>
         <Header
           titleText="New Item"
           subTitleText="Fill out the form to add a new item"

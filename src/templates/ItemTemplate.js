@@ -20,7 +20,7 @@ import {
 import Header from '../components/molecules/Header';
 import { deleteIcon, applyIcon, plusIcon, minusIcon } from '../assets/icons';
 
-const StyledItem = styled.section`
+const ItemWrapper = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -127,7 +127,7 @@ const ItemTemplate = ({
   }, [stock]);
 
   return (
-    <StyledItem>
+    <ItemWrapper>
       <Header titleText={name} subTitleText={`category: ${category}`} />
       <StyledStock>
         <label htmlFor="stock">Stock</label>
@@ -217,7 +217,7 @@ const ItemTemplate = ({
           }}
         />
       </StyledDelete>
-    </StyledItem>
+    </ItemWrapper>
   );
 };
 

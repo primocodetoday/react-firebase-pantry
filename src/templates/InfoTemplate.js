@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Fieldset } from '../components/atoms';
 
-const StyledWrapper = styled.section`
+const InfoWrapper = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding: 17px 25px 0;
+  padding: 25px 25px 0;
   flex-basis: 400px;
 
   @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
@@ -59,7 +59,7 @@ const InfoTemplate = ({ item }) => {
   }, [name]);
 
   return (
-    <StyledWrapper>
+    <InfoWrapper>
       {data && !err ? (
         <>
           <StyledImage src={data.photo} alt={name} />
@@ -68,7 +68,7 @@ const InfoTemplate = ({ item }) => {
       ) : (
         <p>Fetching data ...</p>
       )}
-    </StyledWrapper>
+    </InfoWrapper>
   );
 };
 

@@ -1,26 +1,11 @@
 ﻿import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ItemTemplate from '../templates/ItemTemplate';
 import UserTemplate from '../templates/UserTemplate';
 import InfoTemplate from '../templates/InfoTemplate';
-
-const StyledWrapper = styled.div`
-  position: relative;
-  display: flex;
-  padding-left: 50px;
-  flex-wrap: wrap;
-  width: 100%;
-  padding-right: 50px;
-  justify-content: space-around;
-
-  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
-    padding: 0;
-    width: 100%;
-  }
-`;
+import SectionWrapper from '../templates/SectionWrapper';
 
 const ItemPage = ({ match, items }) => {
   const [itemId, setItemId] = useState(0);
@@ -40,10 +25,10 @@ const ItemPage = ({ match, items }) => {
   return (
     <UserTemplate>
       {item ? (
-        <StyledWrapper>
+        <SectionWrapper wrap="true">
           <ItemTemplate id={itemId} item={item} unitsOptions={unitsOptions} />
           <InfoTemplate item={item} />
-        </StyledWrapper>
+        </SectionWrapper>
       ) : (
         <p>Fetching</p>
       )}
