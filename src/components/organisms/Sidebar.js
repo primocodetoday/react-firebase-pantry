@@ -13,6 +13,7 @@ import {
   newItem,
   newItemActive,
 } from '../../assets/icons';
+import { routes } from '../../routes';
 
 const StyledWrapper = styled.header`
   flex-shrink: 0;
@@ -26,7 +27,7 @@ const StyledWrapper = styled.header`
   height: 96vh;
   border-radius: 15px;
 
-  @media (orientation: landscape) {
+  @media (max-height: 500px) {
     height: 150vh;
   }
 
@@ -57,40 +58,40 @@ const MenuIcon = styled.button`
 const Sidebar = () => {
   return (
     <StyledWrapper>
-      <NavLink to="/">
+      <NavLink to={routes.home}>
         <Logo />
       </NavLink>
       <div>
         <MenuIcon
           as={NavLink}
-          to="/pantry"
+          to={routes.pantry}
           activeicon={homeActive}
           icon={home}
           activeclass="active"
         />
         <MenuIcon
           as={NavLink}
-          to="/new"
+          to={routes.new}
           activeicon={newItemActive}
           icon={newItem}
           activeclass="active"
         />
         <MenuIcon
           as={NavLink}
-          to="/shoplist"
+          to={routes.shoplist}
           activeicon={basketActive}
           icon={basket}
           activeclass="active"
         />
         <MenuIcon
           as={NavLink}
-          to="/settings"
+          to={routes.settings}
           activeicon={settingsActive}
           icon={settings}
           activeclass="active"
         />
       </div>
-      <MenuIcon as={NavLink} to="/logout" icon={logout} />
+      <MenuIcon as={NavLink} to={routes.signIn} icon={logout} />
     </StyledWrapper>
   );
 };

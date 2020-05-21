@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import styled from 'styled-components';
 import Logo from '../atoms/Logo';
+import { routes } from '../../routes';
 
 const Wrapper = styled.header`
   display: flex;
@@ -89,19 +90,19 @@ const Topbar = () => {
       </NavLink>
       <BurgerWrapper>
         <Menu right>
-          <NavLink to="/pantry" activeclass="active">
+          <NavLink to={routes.pantry} activeclass="active">
             Main
           </NavLink>
-          <NavLink to="/new" activeclass="active">
+          <NavLink to={routes.new} activeclass="active">
             New Item
           </NavLink>
-          <NavLink to="/shoplist" activeclass="active">
+          <NavLink to={routes.shoplist} activeclass="active">
             Shoplist
           </NavLink>
-          <NavLink to="/settings" activeclass="active">
+          <NavLink to={routes.settings} activeclass="active">
             Settings
           </NavLink>
-          <NavLink to="/logout">Logout</NavLink>
+          <NavLink to={routes.signIn}>Logout</NavLink>
         </Menu>
       </BurgerWrapper>
     </Wrapper>

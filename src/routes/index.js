@@ -5,5 +5,5 @@
   shoplist: '/shoplist',
   settings: '/settings',
   new: '/new',
-  login: '/login',
+  signIn: '/signin',
 };

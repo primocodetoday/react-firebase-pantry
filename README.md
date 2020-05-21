@@ -8,7 +8,8 @@
 
 <h2 align="center">Pantry App</h2>
 
-<h3 align="center">Codes day and night :wink:</h3>
+<h3 align="center">
+A simple application to manage your pantry.</h3>
 
 <!-- <p align="center">
   <a >
@@ -26,7 +27,8 @@
 
 | Main Tech | React                                  |
 | --------- | -------------------------------------- |
-| Addons    | Router, Redux, Formik                  |
+| Addons    | Router, Redux, Thunk, Formik           |
+| Backend   | Firebase                               |
 | Styles    | Styled Components, Theming, Flex, Grid |
 | Code      | ES6, Hooks, PropTypes, Linter(airbnb)  |
 

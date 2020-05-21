@@ -8,6 +8,7 @@ const Input = styled.input`
   border-radius: ${({ theme }) => theme.borderRadius};
   border: none;
   color: ${({ theme }) => theme.secondary};
+  text-align: center;
 
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {
@@ -33,6 +34,7 @@ const Input = styled.input`
       background-size: 20px;
       background-position: 10px 50%;
       background-repeat: no-repeat;
+      text-align: left;
     `};
 
   ${({ settings }) =>

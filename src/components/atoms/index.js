@@ -8,6 +8,7 @@ import Paragraph from './Paragraph';
 import ButtonIcon from './ButtonIcon';
 import Select from './Select';
 import SubTitle from './SubTitle';
+import SignInCard from './SignInCard';
 
 export {
   Button,
@@ -20,4 +21,5 @@ export {
   ButtonIcon,
   Select,
   SubTitle,
+  SignInCard,
 };
