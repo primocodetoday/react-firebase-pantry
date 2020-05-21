@@ -1,8 +1,8 @@
 ﻿import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Sidebar from '../components/organisms/Sidebar';
-import Topbar from '../components/organisms/Topbar';
+import Sidebar from '../components/organisms/Navbars/Sidebar';
+import Topbar from '../components/organisms/Navbars/Topbar';
 import { useWindowWidth } from '../hooks';
 
 const UserWrapper = styled.div`

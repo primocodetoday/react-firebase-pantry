@@ -2,8 +2,8 @@
 import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import styled from 'styled-components';
-import Logo from '../atoms/Logo';
-import { routes } from '../../routes';
+import Logo from '../../atoms/Logo';
+import { menuItems } from './menuItems';
 
 const Wrapper = styled.header`
   display: flex;
@@ -90,19 +90,11 @@ const Topbar = () => {
       </NavLink>
       <BurgerWrapper>
         <Menu right>
-          <NavLink to={routes.pantry} activeclass="active">
-            Main
-          </NavLink>
-          <NavLink to={routes.new} activeclass="active">
-            New Item
-          </NavLink>
-          <NavLink to={routes.shoplist} activeclass="active">
-            Shoplist
-          </NavLink>
-          <NavLink to={routes.settings} activeclass="active">
-            Settings
-          </NavLink>
-          <NavLink to={routes.signIn}>Logout</NavLink>
+          {menuItems.map((item) => (
+            <NavLink to={item.route} activeclass="active">
+              {item.name}
+            </NavLink>
+          ))}
         </Menu>
       </BurgerWrapper>
     </Wrapper>
