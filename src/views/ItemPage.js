@@ -19,7 +19,7 @@ const ItemPage = ({ match, items }) => {
     setItemId(currentId);
   }, [match.params.id]);
 
-  // => ItemTemplete => Select
+  // passing to => ItemTemplete => Select Input
   const unitsOptions = [...new Set(items.map((product) => product.unit))];
 
   return (
@@ -52,7 +52,7 @@ ItemPage.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  return { items: state };
+  return { items: state.pantry };
 };
 
 export default connect(mapStateToProps)(withRouter(ItemPage));

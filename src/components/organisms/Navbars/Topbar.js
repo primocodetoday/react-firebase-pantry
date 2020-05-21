@@ -91,7 +91,7 @@ const Topbar = () => {
       <BurgerWrapper>
         <Menu right>
           {menuItems.map((item) => (
-            <NavLink to={item.route} activeclass="active">
+            <NavLink to={item.route} key={item.name} activeclass="active">
               {item.name}
             </NavLink>
           ))}

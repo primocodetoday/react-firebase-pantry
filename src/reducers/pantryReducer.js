@@ -2,7 +2,7 @@
 
 const initialState = [...initialStore];
 
-const rootReducer = (state = initialState, action) => {
+const pantryReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_ITEM':
       return [...state, action.payload.item];
@@ -46,4 +46,4 @@ const rootReducer = (state = initialState, action) => {
   }
 };
 
-export default rootReducer;
+export default pantryReducer;

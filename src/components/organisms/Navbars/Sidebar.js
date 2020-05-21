@@ -58,6 +58,7 @@ const Sidebar = () => {
       </NavLink>
       {menuItems.map((item) => (
         <MenuIcon
+          key={item.name}
           as={NavLink}
           to={item.route}
           icon={item.icon}

@@ -216,7 +216,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => {
-  return { items: state };
+  return { items: state.pantry };
 };
 
 export default connect(

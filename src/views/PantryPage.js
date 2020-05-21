@@ -71,7 +71,7 @@ const PantryPage = ({ items }) => {
 };
 
 const mapStateToProps = (state) => {
-  return { items: state };
+  return { items: state.pantry };
 };
 
 PantryPage.propTypes = {
