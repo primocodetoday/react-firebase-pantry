@@ -7,14 +7,27 @@
 
 export const addItem = (itemContent) => {
   const getId = () => Math.floor(Math.random() * (99999 - 1 + 1)) + 1;
-  return {
-    type: 'ADD_ITEM',
-    payload: {
-      item: {
-        id: getId(),
-        ...itemContent,
-      },
-    },
+  // eslint-disable-next-line no-unused-vars
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    // async here
+    const firestore = getFirestore();
+    firestore
+      .collection('pantry')
+      .add({ ...itemContent })
+      .then(() => {
+        dispatch({
+          type: 'ADD_ITEM',
+          payload: {
+            item: {
+              id: getId(),
+              ...itemContent,
+            },
+          },
+        });
+      })
+      .catch((err) => {
+        dispatch({ type: 'ADD_ITEM_ERROR', err });
+      });
   };
 };
 

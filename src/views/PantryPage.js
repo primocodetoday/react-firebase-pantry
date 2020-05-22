@@ -2,8 +2,9 @@
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 import Card from '../components/organisms/Card';
-import Input from '../components/atoms/Input';
 import Header from '../components/molecules/Header';
 import UserTemplate from '../templates/UserTemplate';
 import {
@@ -15,6 +16,7 @@ import {
   chemicals,
 } from '../assets/icons';
 import SectionWrapper from '../templates/SectionWrapper';
+import { Paragraph, Input } from '../components/atoms';
 
 const StyledGridWrapper = styled.div`
   display: grid;
@@ -33,22 +35,35 @@ const StyledGridWrapper = styled.div`
     width: 100%;
   }
 `;
+// this will be  move to state
+const iconsList = [
+  { file: fruits, name: 'Fruits & Vegs' },
+  { file: dairy, name: 'Dairy Foods' },
+  { file: drinks, name: 'Drinks' },
+  { file: grains, name: 'Grains & Nuts' },
+  { file: meats, name: 'Meats & Fishes' },
+  { file: chemicals, name: 'Chemicals' },
+];
 
-const showItems = (array, category, icon) => {
-  const filteredArray = array.filter((item) => item.category === category);
-  if (filteredArray.length)
+// combine state and icons
+const showPantry = (array, icons) => {
+  const categories = [...new Set(array.map((item) => item.category))];
+  const cardItems = categories.map((category) => {
+    const filteredArray = array.filter((item) => item.category === category);
+    const filteredIcon = icons.filter((icon) => icon.name === category);
     return (
       <Card
         key={category}
-        icon={icon}
+        icon={filteredIcon[0].file}
         content={filteredArray}
         category={category}
       />
     );
-  return null;
+  });
+  return cardItems;
 };
 
-const PantryPage = ({ items }) => {
+const PantryPage = ({ pantry }) => {
   return (
     <UserTemplate>
       <SectionWrapper column>
@@ -58,12 +73,11 @@ const PantryPage = ({ items }) => {
           subTitleText="Click product for change or info"
         />
         <StyledGridWrapper>
-          {showItems(items, 'Fruits & Vegs', fruits)}
-          {showItems(items, 'Chemicals', chemicals)}
-          {showItems(items, 'Meats & Fishes', meats)}
-          {showItems(items, 'Grains & Nuts', grains)}
-          {showItems(items, 'Dairy Foods', dairy)}
-          {showItems(items, 'Drinks', drinks)}
+          {pantry ? (
+            showPantry(pantry, iconsList)
+          ) : (
+            <Paragraph>Fetching data...</Paragraph>
+          )}
         </StyledGridWrapper>
       </SectionWrapper>
     </UserTemplate>
@@ -71,13 +85,13 @@ const PantryPage = ({ items }) => {
 };
 
 const mapStateToProps = (state) => {
-  return { items: state.pantry };
+  return { pantry: state.firestore.ordered.pantry };
 };
 
 PantryPage.propTypes = {
-  items: PropTypes.arrayOf(
+  pantry: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       stock: PropTypes.number.isRequired,
@@ -88,4 +102,11 @@ PantryPage.propTypes = {
   ).isRequired,
 };
 
-export default connect(mapStateToProps)(PantryPage);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    {
+      collection: 'pantry',
+    },
+  ]),
+)(PantryPage);

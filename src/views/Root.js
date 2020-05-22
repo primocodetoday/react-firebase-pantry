@@ -1,6 +1,7 @@
-﻿import React, { useState } from 'react';
+﻿import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import {
   PantryPage,
   ShopListPage,
@@ -10,32 +11,32 @@ import {
   SignIn,
 } from '.';
 import MainTemplate from '../templates/MainTemplate';
-import store from '../store/index';
+import { store, rrfProps } from '../store/index';
 import { routes } from '../routes/index';
 
 function Root() {
-  // eslint-disable-next-line no-unused-vars
-  const [pantry, setPantry] = useState(store);
-
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <MainTemplate>
-          <Switch>
-            <Route
-              exact
-              path={routes.home}
-              render={() => <Redirect to="/pantry" />}
-            />
-            <Route exact path={routes.pantry} component={PantryPage} />
-            <Route path={routes.pantryitem} component={ItemPage} />
-            <Route path={routes.shoplist} component={ShopListPage} />
-            <Route path={routes.new} component={NewPage} />
-            <Route path={routes.settings} component={SettingsPage} />
-            <Route path={routes.signIn} component={SignIn} />
-          </Switch>
-        </MainTemplate>
-      </BrowserRouter>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      <ReactReduxFirebaseProvider {...rrfProps}>
+        <BrowserRouter>
+          <MainTemplate>
+            <Switch>
+              <Route
+                exact
+                path={routes.home}
+                render={() => <Redirect to="/pantry" />}
+              />
+              <Route exact path={routes.pantry} component={PantryPage} />
+              <Route path={routes.pantryitem} component={ItemPage} />
+              <Route path={routes.shoplist} component={ShopListPage} />
+              <Route path={routes.new} component={NewPage} />
+              <Route path={routes.settings} component={SettingsPage} />
+              <Route path={routes.signIn} component={SignIn} />
+            </Switch>
+          </MainTemplate>
+        </BrowserRouter>
+      </ReactReduxFirebaseProvider>
     </Provider>
   );
 }

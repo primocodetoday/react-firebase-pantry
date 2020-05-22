@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Paragraph from './Paragraph';
+import Paragraph from '../atoms/Paragraph';
 
 const StyledWrapper = styled.li`
   width: 100%;
@@ -41,9 +41,9 @@ const ListItem = ({ name, stock, id, unit }) => {
 };
 
 ListItem.propTypes = {
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   stock: PropTypes.number.isRequired,
-  id: PropTypes.number.isRequired,
   unit: PropTypes.string.isRequired,
 };
 

@@ -6,6 +6,8 @@ const pantryReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_ITEM':
       return [...state, action.payload.item];
+    case 'ADD_ITEM_ERROR':
+      return state;
     case 'REMOVE_ITEM':
       return [...state.filter((item) => item.id !== action.payload.id)];
     case 'CHANGE_SETTINGS': {
