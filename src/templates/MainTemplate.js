@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import GlobalStyles from '../theme/GlobalStyles';
 import { theme } from '../theme/mainTheme';
@@ -17,4 +18,9 @@ MainTemplate.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export default MainTemplate;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {};
+};
+
+export default connect(mapStateToProps)(MainTemplate);

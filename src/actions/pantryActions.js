@@ -9,7 +9,6 @@ export const addItem = (itemContent) => {
   const getId = () => Math.floor(Math.random() * (99999 - 1 + 1)) + 1;
   // eslint-disable-next-line no-unused-vars
   return (dispatch, getState, { getFirebase, getFirestore }) => {
-    // async here
     const firestore = getFirestore();
     firestore
       .collection('pantry')

@@ -1,9 +1,11 @@
 ﻿import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Logo from '../../atoms/Logo';
 import { routes } from '../../../routes';
 import { menuItems } from './menuItems';
+import { logout } from '../../../assets/icons';
 
 const StyledWrapper = styled.header`
   flex-shrink: 0;
@@ -50,7 +52,7 @@ const MenuIcon = styled.button`
   }
 `;
 
-const Sidebar = () => {
+const Sidebar = ({ signOut }) => {
   return (
     <StyledWrapper>
       <NavLink to={routes.home}>
@@ -66,8 +68,13 @@ const Sidebar = () => {
           activeclass="active"
         />
       ))}
+      <MenuIcon key="logout" onClick={signOut} icon={logout} />
     </StyledWrapper>
   );
+};
+
+Sidebar.propTypes = {
+  signOut: PropTypes.func.isRequired,
 };
 
 export default Sidebar;

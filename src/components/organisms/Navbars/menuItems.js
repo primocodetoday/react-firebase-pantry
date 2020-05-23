@@ -3,7 +3,6 @@ import {
   home,
   basket,
   settings,
-  logout,
   homeActive,
   settingsActive,
   basketActive,
@@ -35,11 +34,5 @@ export const menuItems = [
     route: routes.settings,
     icon: settings,
     activeIcon: settingsActive,
-  },
-  {
-    name: 'Logout',
-    route: routes.signIn,
-    icon: logout,
-    activeIcon: logout,
   },
 ];

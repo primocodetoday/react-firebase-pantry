@@ -3,7 +3,6 @@
 const SignInCard = styled.div`
   padding: 20px;
   background-color: white;
-  height: 350px;
   width: 450px;
   border-radius: ${({ theme }) => theme.borderRadius};
   position: absolute;

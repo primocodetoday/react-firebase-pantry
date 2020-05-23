@@ -6,7 +6,7 @@ import { Formik, Form, ErrorMessage } from 'formik';
 import { withRouter } from 'react-router-dom';
 import UserTemplate from '../templates/UserTemplate';
 import { Input, Select, Button } from '../components/atoms';
-import { addItem } from '../actions';
+import { addItem } from '../actions/pantryActions';
 import Header from '../components/molecules/Header';
 import SectionWrapper from '../templates/SectionWrapper';
 

@@ -1,7 +1,10 @@
 ﻿import React, { useState } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Logo, Paragraph, Input, Button } from '../components/atoms';
 import SignInCard from '../components/molecules/SignInCard';
+import { signIn as signInAction } from '../actions/authActions';
 
 const StyledForm = styled.form`
   background-color: ${({ theme }) => theme.primary};
@@ -20,8 +23,8 @@ const StyledItemBar = styled.div`
   background-color: ${({ theme }) => theme.secondary};
 `;
 
-const SignIn = () => {
-  const [formState, setFormState] = useState({ login: '', password: '' });
+const SignIn = ({ signIn, authError }) => {
+  const [formState, setFormState] = useState({ email: '', password: '' });
 
   const handleChange = (e) => {
     setFormState({
@@ -32,7 +35,7 @@ const SignIn = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formState);
+    signIn(formState);
   };
 
   return (
@@ -41,7 +44,7 @@ const SignIn = () => {
         <Logo big />
         <Paragraph>Menage your pantry</Paragraph>
         <StyledInput
-          name="login"
+          name="email"
           type="email"
           placeholder="login"
           value={formState.login}
@@ -57,9 +60,31 @@ const SignIn = () => {
         />
         <StyledItemBar />
         <Button type="submit">Sign In</Button>
+        {authError ? <Paragraph>{authError}</Paragraph> : null}
       </SignInCard>
     </StyledForm>
   );
 };
 
-export default SignIn;
+SignIn.defaultProps = {
+  authError: '',
+};
+
+SignIn.propTypes = {
+  signIn: PropTypes.func.isRequired,
+  authError: PropTypes.string,
+};
+
+const mapStateToProps = (state) => {
+  return {
+    authError: state.auth.authError,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signIn: (creds) => dispatch(signInAction(creds)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

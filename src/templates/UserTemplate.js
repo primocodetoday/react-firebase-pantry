@@ -1,9 +1,11 @@
 ﻿import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import Sidebar from '../components/organisms/Navbars/Sidebar';
 import Topbar from '../components/organisms/Navbars/Topbar';
 import { useWindowWidth } from '../hooks';
+import { signOut as signOutAction } from '../actions/authActions';
 
 const UserWrapper = styled.div`
   padding: 10px;
@@ -18,12 +20,16 @@ const UserWrapper = styled.div`
   }
 `;
 
-const UserTemplate = ({ children }) => {
+const UserTemplate = ({ children, signOut }) => {
   const { width } = useWindowWidth();
 
   return (
     <UserWrapper>
-      {width > 600 ? <Sidebar /> : <Topbar />}
+      {width > 600 ? (
+        <Sidebar signOut={signOut} />
+      ) : (
+        <Topbar signOut={signOut} />
+      )}
       {children}
     </UserWrapper>
   );
@@ -31,6 +37,11 @@ const UserTemplate = ({ children }) => {
 
 UserTemplate.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.node]).isRequired,
+  signOut: PropTypes.func.isRequired,
 };
 
-export default UserTemplate;
+const mapDispatchToProps = (dispatch) => ({
+  signOut: () => dispatch(signOutAction()),
+});
+
+export default connect(null, mapDispatchToProps)(UserTemplate);

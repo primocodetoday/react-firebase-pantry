@@ -2,8 +2,10 @@
 import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Logo from '../../atoms/Logo';
 import { menuItems } from './menuItems';
+import { Paragraph } from '../../atoms';
 
 const Wrapper = styled.header`
   display: flex;
@@ -74,6 +76,11 @@ const BurgerWrapper = styled.div`
     margin: 15px 0;
     display: inline-block;
     color: ${({ theme }) => theme.primary};
+
+    &:last-child {
+      margin-top: auto;
+      cursor: pointer;
+    }
   }
   .bm-overlay {
     top: 0;
@@ -82,7 +89,7 @@ const BurgerWrapper = styled.div`
   }
 `;
 
-const Topbar = () => {
+const Topbar = ({ signOut }) => {
   return (
     <Wrapper>
       <NavLink to="/">
@@ -95,10 +102,15 @@ const Topbar = () => {
               {item.name}
             </NavLink>
           ))}
+          <Paragraph onClick={signOut}>Logout</Paragraph>
         </Menu>
       </BurgerWrapper>
     </Wrapper>
   );
+};
+
+Topbar.propTypes = {
+  signOut: PropTypes.func.isRequired,
 };
 
 export default Topbar;

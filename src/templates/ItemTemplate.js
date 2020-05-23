@@ -16,7 +16,7 @@ import {
   changeItemSettings,
   addStockAction,
   subStockAction,
-} from '../actions';
+} from '../actions/pantryActions';
 import Header from '../components/molecules/Header';
 import { deleteIcon, applyIcon, plusIcon, minusIcon } from '../assets/icons';
 

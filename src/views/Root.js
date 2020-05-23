@@ -22,6 +22,7 @@ function Root() {
         <BrowserRouter>
           <MainTemplate>
             <Switch>
+              <Route path={routes.signIn} component={SignIn} />
               <Route
                 exact
                 path={routes.home}
@@ -32,7 +33,6 @@ function Root() {
               <Route path={routes.shoplist} component={ShopListPage} />
               <Route path={routes.new} component={NewPage} />
               <Route path={routes.settings} component={SettingsPage} />
-              <Route path={routes.signIn} component={SignIn} />
             </Switch>
           </MainTemplate>
         </BrowserRouter>
