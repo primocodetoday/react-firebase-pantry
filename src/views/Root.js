@@ -14,6 +14,7 @@ import {
 import MainTemplate from '../templates/MainTemplate';
 import { store, rrfProps } from '../store/index';
 import { routes } from '../routes/index';
+import PrivateRoute from '../helpers/PrivateRoute';
 
 const AuthIsLoaded = ({ children }) => {
   const auth = useSelector((state) => state.firebase.auth);
@@ -30,16 +31,20 @@ const Root = () => {
           <BrowserRouter>
             <MainTemplate>
               <Switch>
-                <Route
+                <PrivateRoute
                   exact
                   path={routes.home}
                   render={() => <Redirect to="/pantry" />}
                 />
-                <Route exact path={routes.pantry} component={PantryPage} />
-                <Route path={routes.pantryitem} component={ItemPage} />
-                <Route path={routes.shoplist} component={ShopListPage} />
-                <Route path={routes.new} component={NewPage} />
-                <Route path={routes.settings} component={SettingsPage} />
+                <PrivateRoute
+                  exact
+                  path={routes.pantry}
+                  component={PantryPage}
+                />
+                <PrivateRoute path={routes.pantryitem} component={ItemPage} />
+                <PrivateRoute path={routes.shoplist} component={ShopListPage} />
+                <PrivateRoute path={routes.new} component={NewPage} />
+                <PrivateRoute path={routes.settings} component={SettingsPage} />
                 <Route path={routes.signIn} component={SignIn} />
               </Switch>
             </MainTemplate>

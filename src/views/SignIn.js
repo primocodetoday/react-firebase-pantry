@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -23,7 +23,7 @@ const StyledItemBar = styled.div`
   background-color: ${({ theme }) => theme.secondary};
 `;
 
-const SignIn = ({ signIn, authError }) => {
+const SignIn = ({ signIn, authError, auth, history }) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
 
   const handleChange = (e) => {
@@ -33,7 +33,13 @@ const SignIn = ({ signIn, authError }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleRedirect = () => history.push('/pantry');
+
+  useEffect(() => {
+    if (!auth.isEmpty) handleRedirect();
+  });
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     signIn(formState);
   };
@@ -73,11 +79,14 @@ SignIn.defaultProps = {
 SignIn.propTypes = {
   signIn: PropTypes.func.isRequired,
   authError: PropTypes.string,
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
+  auth: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 const mapStateToProps = (state) => {
   return {
     authError: state.auth.authError,
+    auth: state.firebase.auth,
   };
 };
 
