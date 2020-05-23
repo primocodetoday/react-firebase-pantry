@@ -1,33 +1,49 @@
 ﻿import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 import ItemTemplate from '../templates/ItemTemplate';
 import UserTemplate from '../templates/UserTemplate';
 import InfoTemplate from '../templates/InfoTemplate';
 import SectionWrapper from '../templates/SectionWrapper';
 
-const ItemPage = ({ match, items }) => {
+const ItemPage = ({ match, pantry }) => {
   const [itemId, setItemId] = useState(0);
 
-  // filter items by requested id
-  const [item] = items.filter((product) => product.id === itemId);
+  const filterIdById = (arr, id) => {
+    const [item] = arr.filter((product) => product.id === id);
+    return item ? item.id : null;
+  };
+
+  const filterItemById = (arr, id) => {
+    const [item] = arr.filter((product) => product.id === id);
+    return item || null;
+  };
 
   // current id from url
   useEffect(() => {
-    const currentId = Number(match.params.id);
+    const currentId = match.params.id;
     setItemId(currentId);
   }, [match.params.id]);
 
   // passing to => ItemTemplete => Select Input
-  const unitsOptions = [...new Set(items.map((product) => product.unit))];
+  const extractUnits = (arr) => {
+    const units = [...new Set(arr.map((product) => product.unit))];
+    return units || null;
+  };
 
   return (
     <UserTemplate>
-      {item ? (
+      {pantry ? (
         <SectionWrapper wrap="true">
-          <ItemTemplate id={itemId} item={item} unitsOptions={unitsOptions} />
-          <InfoTemplate item={item} />
+          <ItemTemplate
+            id={filterIdById(pantry, itemId)}
+            item={filterItemById(pantry, itemId)}
+            unitsOptions={extractUnits(pantry)}
+          />
+          <InfoTemplate item={filterItemById(pantry, itemId)} />
         </SectionWrapper>
       ) : (
         <p>Fetching</p>
@@ -37,9 +53,9 @@ const ItemPage = ({ match, items }) => {
 };
 
 ItemPage.propTypes = {
-  items: PropTypes.arrayOf(
+  pantry: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       stock: PropTypes.number.isRequired,
@@ -52,7 +68,18 @@ ItemPage.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  return { items: state.pantry };
+  const pantryState = state.firestore.ordered.pantry;
+  const pantry = pantryState || null;
+  return {
+    pantry,
+  };
 };
 
-export default connect(mapStateToProps)(withRouter(ItemPage));
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    {
+      collection: 'pantry',
+    },
+  ]),
+)(withRouter(ItemPage));

@@ -12,11 +12,14 @@ const StyledSelect = styled.select`
 `;
 
 const Select = ({ options, value, id, label, onChange, ...props }) => {
-  const optionsList = options.map((item) => (
-    <option key={item} value={item}>
-      {item}
-    </option>
-  ));
+  const optionsList = (opt) => {
+    const opst = opt.map((item) => (
+      <option key={item} value={item}>
+        {item}
+      </option>
+    ));
+    return opst || null;
+  };
 
   return (
     <StyledSelect
@@ -31,7 +34,7 @@ const Select = ({ options, value, id, label, onChange, ...props }) => {
       <option value="" disabled>
         select option
       </option>
-      {optionsList}
+      {optionsList(options)}
     </StyledSelect>
   );
 };
