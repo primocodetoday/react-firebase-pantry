@@ -9,7 +9,7 @@ import {
   Fieldset,
   Input,
   ButtonIcon,
-  Select,
+  // Select,
 } from '../components/atoms';
 import {
   removeItem as removeItemAction,
@@ -106,12 +106,12 @@ const ButtonSub = styled(ButtonIcon)`
 `;
 
 const ItemTemplate = ({
-  removeItem,
   id,
+  removeItem,
   item,
   history,
   changeItem,
-  unitsOptions,
+  // unitsOptions,
   addStock,
   subStock,
 }) => {
@@ -182,6 +182,7 @@ const ItemTemplate = ({
               <label className="grid-settings-5" htmlFor="unit">
                 Units:
               </label>
+              {/* 
               <Select
                 className="grid-settings-6"
                 label
@@ -192,6 +193,7 @@ const ItemTemplate = ({
                 onBlur={handleBlur}
                 value={values.unit}
               />
+              */}
               <Paragraph className="grid-settings-7" size="1.6rem">
                 Apply
               </Paragraph>
@@ -224,12 +226,12 @@ const ItemTemplate = ({
 ItemTemplate.propTypes = {
   history: PropTypes.objectOf(PropTypes.any).isRequired,
   removeItem: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   item: PropTypes.objectOf(PropTypes.any).isRequired,
   changeItem: PropTypes.func.isRequired,
   addStock: PropTypes.func.isRequired,
   subStock: PropTypes.func.isRequired,
-  unitsOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
+  // unitsOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
