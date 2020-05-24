@@ -6,7 +6,6 @@ const Wrapper = styled.p`
   color: ${({ theme }) => theme.primary};
   font-family: 'Dancing Script', cursive;
   font-size: 3.5rem;
-  padding: 10px;
   margin: 0;
 
   ${({ big }) =>

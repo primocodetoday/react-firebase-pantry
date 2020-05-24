@@ -1,7 +1,8 @@
-﻿import styled from 'styled-components';
+﻿import styled, { css } from 'styled-components';
 
-const SignInCard = styled.div`
+const SignCard = styled.div`
   padding: 20px;
+  color: ${({ theme }) => theme.primary};
   background-color: white;
   width: 450px;
   border-radius: ${({ theme }) => theme.borderRadius};
@@ -12,11 +13,24 @@ const SignInCard = styled.div`
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-template-rows: 100px 40px 1fr 5px 1fr 5px 80px;
+  gap: 10px;
+
+  p:first-child {
+    margin-bottom: 10px;
+  }
+  p:nth-child(2) {
+    margin-bottom: 10px;
+  }
 
   @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
     width: 90vw;
   }
+
+  ${({ signup }) =>
+    signup &&
+    css`
+      background-color: grey;
+    `}
 `;
 
-export default SignInCard;
+export default SignCard;

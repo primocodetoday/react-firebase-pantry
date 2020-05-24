@@ -4,7 +4,7 @@ import PantryPage from './PantryPage';
 import SettingsPage from './SettingsPage';
 import ShopListPage from './ShopListPage';
 import SignIn from './SignIn';
-import LoadingScreen from './LoadingScreen';
+import SignUp from './SignUp';
 
 export {
   ItemPage,
@@ -13,5 +13,5 @@ export {
   SettingsPage,
   ShopListPage,
   SignIn,
-  LoadingScreen,
+  SignUp,
 };

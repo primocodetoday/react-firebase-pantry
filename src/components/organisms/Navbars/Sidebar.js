@@ -12,7 +12,7 @@ const StyledWrapper = styled.header`
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
-  grid-template-rows: 100px repeat(4, 70px) 1fr;
+  grid-template-rows: 85px repeat(4, 70px) 1fr;
   background-color: white;
   color: ${({ theme }) => theme.primary};
   width: 110px;

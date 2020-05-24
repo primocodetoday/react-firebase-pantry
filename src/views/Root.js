@@ -9,11 +9,12 @@ import {
   ItemPage,
   NewPage,
   SignIn,
-  LoadingScreen,
+  SignUp,
 } from '.';
 import MainTemplate from '../templates/MainTemplate';
 import { store, rrfProps } from '../store/index';
 import { routes } from '../routes/index';
+import LoadingScreen from '../helpers/LoadingScreen';
 import PrivateRoute from '../helpers/PrivateRoute';
 
 const AuthIsLoaded = ({ children }) => {
@@ -31,7 +32,7 @@ const Root = () => {
           <BrowserRouter>
             <MainTemplate>
               <Switch>
-                <PrivateRoute
+                <Route
                   exact
                   path={routes.home}
                   render={() => <Redirect to="/pantry" />}
@@ -46,6 +47,7 @@ const Root = () => {
                 <PrivateRoute path={routes.new} component={NewPage} />
                 <PrivateRoute path={routes.settings} component={SettingsPage} />
                 <Route path={routes.signIn} component={SignIn} />
+                <Route path={routes.signUp} component={SignUp} />
               </Switch>
             </MainTemplate>
           </BrowserRouter>
@@ -56,5 +58,3 @@ const Root = () => {
 };
 
 export default Root;
-
-// 1. Sidebar tylko na zalogowaniu

@@ -40,8 +40,6 @@ const NewPage = ({ handleAddItem, items, history }) => {
   const categoryOptions = [...new Set(items.map((item) => item.category))];
   const unitsOptions = [...new Set(items.map((item) => item.unit))];
 
-  const handleRedirect = (route) => history.push(route);
-
   return (
     <UserTemplate>
       <StyledWrapper column>
@@ -63,7 +61,7 @@ const NewPage = ({ handleAddItem, items, history }) => {
               setSubmitting(false);
             }, 400);
             handleAddItem(values);
-            handleRedirect('/');
+            history.push('/');
           }}
           validate={(values) => {
             const errors = {};

@@ -118,8 +118,6 @@ const ItemTemplate = ({
   // this is from Redux
   const { name, category, unit, maxStock, minStock, stock } = item;
 
-  const handleRedirect = () => history.push('/');
-
   const [stockState, setNewStock] = useState();
 
   useEffect(() => {
@@ -215,7 +213,7 @@ const ItemTemplate = ({
           icon={deleteIcon}
           onClick={() => {
             removeItem(id);
-            handleRedirect();
+            history.push('/');
           }}
         />
       </StyledDelete>

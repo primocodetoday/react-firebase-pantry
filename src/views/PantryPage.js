@@ -88,6 +88,10 @@ const mapStateToProps = (state) => {
   return { pantry: state.firestore.ordered.pantry };
 };
 
+PantryPage.defaultProps = {
+  pantry: [],
+};
+
 PantryPage.propTypes = {
   pantry: PropTypes.arrayOf(
     PropTypes.shape({
@@ -99,7 +103,7 @@ PantryPage.propTypes = {
       maxStock: PropTypes.number.isRequired,
       minStock: PropTypes.number.isRequired,
     }),
-  ).isRequired,
+  ),
 };
 
 export default compose(

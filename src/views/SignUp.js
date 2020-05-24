@@ -1,17 +1,15 @@
 ﻿import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Logo, Paragraph, Input, Button } from '../components/atoms';
 import SignCard from '../components/molecules/SignCard';
-import { signIn as signInAction } from '../actions/authActions';
+import { signUp as signUpAction } from '../actions/authActions';
 
 const StyledForm = styled.form`
   background-color: ${({ theme }) => theme.primary};
   height: 100vh;
   margin: 0 auto;
-  text-align: center;
 `;
 
 const StyledInput = styled(Input)`
@@ -25,21 +23,13 @@ const StyledItemBar = styled.div`
   background-color: ${({ theme }) => theme.secondary};
 `;
 
-const ButtonWrapper = styled.div`
-  display: flex;
-`;
-
-const SignButton = styled(Button)`
-  font-size: 2rem;
-  text-decoration: none;
-
-  &:first-child {
-    margin-right: 20px;
-  }
-`;
-
-const SignIn = ({ signIn, authError, auth, history }) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+const SignUp = ({ signUp, authError, auth, history }) => {
+  const [formState, setFormState] = useState({
+    email: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+  });
 
   const handleChange = (e) => {
     setFormState({
@@ -54,14 +44,15 @@ const SignIn = ({ signIn, authError, auth, history }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signIn(formState);
+    signUp(formState);
   };
 
   return (
     <StyledForm onSubmit={handleSubmit}>
       <SignCard>
         <Logo big />
-        <Paragraph>Menage your pantry</Paragraph>
+        <Paragraph>Create an account to manage your own pantry</Paragraph>
+
         <StyledInput
           name="email"
           type="email"
@@ -77,27 +68,35 @@ const SignIn = ({ signIn, authError, auth, history }) => {
           value={formState.password}
           onChange={handleChange}
         />
+        <StyledInput
+          name="firstName"
+          type="text"
+          placeholder="firstname"
+          value={formState.firstname}
+          onChange={handleChange}
+        />
         <StyledItemBar />
-        <ButtonWrapper>
-          <SignButton as={Link} to="/signup">
-            Create
-          </SignButton>
-          <SignButton type="submit">Sign In</SignButton>
-        </ButtonWrapper>
-
+        <StyledInput
+          name="lastName"
+          type="text"
+          placeholder="lastname"
+          value={formState.lastname}
+          onChange={handleChange}
+        />
+        <Button type="submit">Sign Up</Button>
         {authError ? <Paragraph>{authError}</Paragraph> : null}
       </SignCard>
     </StyledForm>
   );
 };
 
-SignIn.defaultProps = {
+SignUp.defaultProps = {
   authError: '',
 };
 
-SignIn.propTypes = {
-  signIn: PropTypes.func.isRequired,
+SignUp.propTypes = {
   authError: PropTypes.string,
+  signUp: PropTypes.func.isRequired,
   history: PropTypes.objectOf(PropTypes.any).isRequired,
   auth: PropTypes.objectOf(PropTypes.any).isRequired,
 };
@@ -111,8 +110,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signIn: (creds) => dispatch(signInAction(creds)),
+    signUp: (newUser) => dispatch(signUpAction(newUser)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

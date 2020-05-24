@@ -1,8 +1,6 @@
 ﻿import { initialStore } from '../store/initialStore';
 
-const initialState = [...initialStore];
-
-const pantryReducer = (state = initialState, action) => {
+const pantryReducer = (state = initialStore, action) => {
   switch (action.type) {
     case 'ADD_ITEM':
       return [...state, action.payload.item];
