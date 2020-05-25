@@ -13,9 +13,9 @@ import {
 } from '../components/atoms';
 import {
   removeItem as removeItemAction,
-  changeItemSettings,
-  addStockAction,
-  subStockAction,
+  changeItem as changeItemAction,
+  addStock as addStockAction,
+  subStock as subStockAction,
 } from '../actions/pantryActions';
 import Header from '../components/molecules/Header';
 import { deleteIcon, applyIcon, plusIcon, minusIcon } from '../assets/icons';
@@ -237,7 +237,7 @@ ItemTemplate.propTypes = {
 const mapDispatchToProps = (dispatch) => ({
   removeItem: (id) => dispatch(removeItemAction(id)),
   changeItem: (id, maxStock, minStock, unit) =>
-    dispatch(changeItemSettings(id, maxStock, minStock, unit)),
+    dispatch(changeItemAction(id, maxStock, minStock, unit)),
   addStock: (id) => dispatch(addStockAction(id)),
   subStock: (id) => dispatch(subStockAction(id)),
 });

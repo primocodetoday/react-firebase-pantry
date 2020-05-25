@@ -8,7 +8,9 @@ const pantryReducer = (state = initialStore, action) => {
       return state;
     case 'REMOVE_ITEM':
       return [...state.filter((item) => item.id !== action.payload.id)];
-    case 'CHANGE_SETTINGS': {
+    case 'REMOVE_ITEM_ERROR':
+      return state;
+    case 'CHANGE_ITEM': {
       return state.map((item) => {
         if (item.id === action.payload.id)
           return {
@@ -19,6 +21,9 @@ const pantryReducer = (state = initialStore, action) => {
           };
         return item;
       });
+    }
+    case 'CHANGE_ITEM_ERROR': {
+      return state;
     }
     case 'ADD_STOCK': {
       return state.map((item) => {

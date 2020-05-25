@@ -1,1 +1,1 @@
-﻿export const initialStore = {};
+﻿export const initialStore = { pantry: [] };

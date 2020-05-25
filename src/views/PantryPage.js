@@ -48,6 +48,7 @@ const iconsList = [
 // combine state and icons
 const showPantry = (array, icons) => {
   const categories = [...new Set(array.map((item) => item.category))];
+
   const cardItems = categories.map((category) => {
     const filteredArray = array.filter((item) => item.category === category);
     const filteredIcon = icons.filter((icon) => icon.name === category);

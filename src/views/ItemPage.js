@@ -48,6 +48,7 @@ const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params;
   const { pantry } = state.firestore.data;
   const item = pantry ? pantry[id] : null;
+  // extracting Select options
   const { settings } = state.firestore.ordered;
   const units = settings ? settings[0].units : null;
 
