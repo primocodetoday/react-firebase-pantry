@@ -2,8 +2,10 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { Formik, Form, ErrorMessage } from 'formik';
 import { withRouter } from 'react-router-dom';
+import { firestoreConnect } from 'react-redux-firebase';
 import UserTemplate from '../templates/UserTemplate';
 import { Input, Select, Button } from '../components/atoms';
 import { addItem } from '../actions/pantryActions';
@@ -36,10 +38,7 @@ const StyledForm = styled(Form)`
   }
 `;
 
-const NewPage = ({ handleAddItem, items, history }) => {
-  const categoryOptions = [...new Set(items.map((item) => item.category))];
-  const unitsOptions = [...new Set(items.map((item) => item.unit))];
-
+const NewPage = ({ handleAddItem, history, units, categories }) => {
   return (
     <UserTemplate>
       <StyledWrapper column>
@@ -119,8 +118,7 @@ const NewPage = ({ handleAddItem, items, history }) => {
               <ErrorMessage name="category" />
               <Select
                 className="grid-input"
-                label
-                options={categoryOptions}
+                options={categories}
                 name="category"
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -171,8 +169,7 @@ const NewPage = ({ handleAddItem, items, history }) => {
               <Select
                 className="grid-input"
                 placeholder="chose unit"
-                label
-                options={unitsOptions}
+                options={units}
                 name="unit"
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -195,18 +192,9 @@ const NewPage = ({ handleAddItem, items, history }) => {
 
 NewPage.propTypes = {
   handleAddItem: PropTypes.func.isRequired,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      category: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      stock: PropTypes.number.isRequired,
-      unit: PropTypes.string.isRequired,
-      minStock: PropTypes.number.isRequired,
-      maxStock: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
   history: PropTypes.objectOf(PropTypes.any).isRequired,
+  units: PropTypes.arrayOf(PropTypes.any).isRequired,
+  categories: PropTypes.arrayOf(PropTypes.any).isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -214,10 +202,21 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => {
-  return { items: state.pantry };
+  const { settings } = state.firestore.ordered;
+  const units = settings ? settings[0].units : null;
+  const categories = settings ? settings[1].categories : null;
+
+  return {
+    units,
+    categories,
+  };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  firestoreConnect([
+    {
+      collection: 'settings',
+    },
+  ]),
 )(withRouter(NewPage));

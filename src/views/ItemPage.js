@@ -9,14 +9,14 @@ import UserTemplate from '../templates/UserTemplate';
 import InfoTemplate from '../templates/InfoTemplate';
 import SectionWrapper from '../templates/SectionWrapper';
 
-const ItemPage = ({ match, item }) => {
+const ItemPage = ({ match, item, units }) => {
   const { id } = match.params;
 
   return (
     <UserTemplate>
       {item ? (
         <SectionWrapper wrap="true">
-          <ItemTemplate item={item} id={id} />
+          <ItemTemplate item={item} id={id} units={units} />
           <InfoTemplate item={item} />
         </SectionWrapper>
       ) : (
@@ -24,6 +24,10 @@ const ItemPage = ({ match, item }) => {
       )}
     </UserTemplate>
   );
+};
+
+ItemPage.defaultProps = {
+  item: '',
 };
 
 ItemPage.propTypes = {
@@ -34,16 +38,21 @@ ItemPage.propTypes = {
     unit: PropTypes.string.isRequired,
     minStock: PropTypes.number.isRequired,
     maxStock: PropTypes.number.isRequired,
-  }).isRequired,
+  }),
   match: PropTypes.objectOf(PropTypes.any).isRequired,
+  units: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params;
   const { pantry } = state.firestore.data;
   const item = pantry ? pantry[id] : null;
+  const { settings } = state.firestore.ordered;
+  const units = settings ? settings[0].units : null;
+
   return {
     item,
+    units,
   };
 };
 
@@ -52,6 +61,9 @@ export default compose(
   firestoreConnect([
     {
       collection: 'pantry',
+    },
+    {
+      collection: 'settings',
     },
   ]),
 )(ItemPage);
