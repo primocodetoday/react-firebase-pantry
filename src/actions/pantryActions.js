@@ -69,14 +69,45 @@ export const changeItem = (id, maxStock, minStock, unit) => {
 };
 
 export const addStock = (id) => {
-  return {
-    type: 'ADD_STOCK',
-    payload: { id },
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    const firebase = getFirebase();
+    firestore
+      .collection('pantry')
+      .doc(id)
+      .update({ stock: firebase.firestore.FieldValue.increment(1) })
+      .then(() => {
+        dispatch({
+          type: 'ADD_STOCK',
+          payload: {
+            id,
+          },
+        });
+      })
+      .catch((err) => {
+        dispatch({ type: 'ADD_STOCK_ERROR', err });
+      });
   };
 };
+
 export const subStock = (id) => {
-  return {
-    type: 'SUB_STOCK',
-    payload: { id },
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    const firebase = getFirebase();
+    firestore
+      .collection('pantry')
+      .doc(id)
+      .update({ stock: firebase.firestore.FieldValue.increment(-1) })
+      .then(() => {
+        dispatch({
+          type: 'SUB_STOCK',
+          payload: {
+            id,
+          },
+        });
+      })
+      .catch((err) => {
+        dispatch({ type: 'SUB_STOCK_ERROR', err });
+      });
   };
 };

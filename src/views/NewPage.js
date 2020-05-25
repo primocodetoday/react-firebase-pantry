@@ -190,11 +190,16 @@ const NewPage = ({ handleAddItem, history, units, categories }) => {
   );
 };
 
+NewPage.defaultProps = {
+  units: [],
+  categories: [],
+};
+
 NewPage.propTypes = {
   handleAddItem: PropTypes.func.isRequired,
   history: PropTypes.objectOf(PropTypes.any).isRequired,
-  units: PropTypes.arrayOf(PropTypes.any).isRequired,
-  categories: PropTypes.arrayOf(PropTypes.any).isRequired,
+  units: PropTypes.arrayOf(PropTypes.any),
+  categories: PropTypes.arrayOf(PropTypes.any),
 };
 
 const mapDispatchToProps = (dispatch) => ({
