@@ -68,6 +68,7 @@ const SignUp = ({ signUp, authError, auth, history }) => {
           value={formState.password}
           onChange={handleChange}
         />
+        <StyledItemBar />
         <StyledInput
           name="firstName"
           type="text"

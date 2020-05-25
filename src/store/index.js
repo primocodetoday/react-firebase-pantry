@@ -24,9 +24,14 @@ export const store = createStore(
 );
 /* eslint-enable */
 
+const rrfConfig = {
+  userProfile: 'users',
+  useFirestoreForProfile: true,
+};
+
 export const rrfProps = {
   firebase,
-  config: fbConfig,
+  config: rrfConfig,
   dispatch: store.dispatch,
   createFirestoreInstance,
 };
