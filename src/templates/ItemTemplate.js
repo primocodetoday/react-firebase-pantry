@@ -13,10 +13,10 @@ import {
 } from '../components/atoms';
 import {
   removeItem as removeItemAction,
-  changeItemSettings,
-  addStockAction,
-  subStockAction,
-} from '../actions';
+  changeItem as changeItemAction,
+  addStock as addStockAction,
+  subStock as subStockAction,
+} from '../actions/pantryActions';
 import Header from '../components/molecules/Header';
 import { deleteIcon, applyIcon, plusIcon, minusIcon } from '../assets/icons';
 
@@ -106,19 +106,18 @@ const ButtonSub = styled(ButtonIcon)`
 `;
 
 const ItemTemplate = ({
-  removeItem,
   id,
+  removeItem,
   item,
   history,
   changeItem,
-  unitsOptions,
+  // unitsOptions,
   addStock,
   subStock,
+  units,
 }) => {
   // this is from Redux
   const { name, category, unit, maxStock, minStock, stock } = item;
-
-  const handleRedirect = () => history.push('/');
 
   const [stockState, setNewStock] = useState();
 
@@ -184,10 +183,9 @@ const ItemTemplate = ({
               </label>
               <Select
                 className="grid-settings-6"
-                label
                 name="unit"
                 settings
-                options={unitsOptions}
+                options={units}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.unit}
@@ -213,7 +211,7 @@ const ItemTemplate = ({
           icon={deleteIcon}
           onClick={() => {
             removeItem(id);
-            handleRedirect();
+            history.push('/');
           }}
         />
       </StyledDelete>
@@ -221,21 +219,25 @@ const ItemTemplate = ({
   );
 };
 
+ItemTemplate.defaultProps = {
+  units: '',
+};
+
 ItemTemplate.propTypes = {
   history: PropTypes.objectOf(PropTypes.any).isRequired,
   removeItem: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   item: PropTypes.objectOf(PropTypes.any).isRequired,
   changeItem: PropTypes.func.isRequired,
   addStock: PropTypes.func.isRequired,
   subStock: PropTypes.func.isRequired,
-  unitsOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
+  units: PropTypes.arrayOf(PropTypes.string),
 };
 
 const mapDispatchToProps = (dispatch) => ({
   removeItem: (id) => dispatch(removeItemAction(id)),
   changeItem: (id, maxStock, minStock, unit) =>
-    dispatch(changeItemSettings(id, maxStock, minStock, unit)),
+    dispatch(changeItemAction(id, maxStock, minStock, unit)),
   addStock: (id) => dispatch(addStockAction(id)),
   subStock: (id) => dispatch(subStockAction(id)),
 });

@@ -1,58 +1,71 @@
-﻿import React, { useState, useEffect } from 'react';
+﻿import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
+import { Paragraph } from '../components/atoms/index';
 import ItemTemplate from '../templates/ItemTemplate';
 import UserTemplate from '../templates/UserTemplate';
 import InfoTemplate from '../templates/InfoTemplate';
 import SectionWrapper from '../templates/SectionWrapper';
 
-const ItemPage = ({ match, items }) => {
-  const [itemId, setItemId] = useState(0);
-
-  // filter items by requested id
-  const [item] = items.filter((product) => product.id === itemId);
-
-  // current id from url
-  useEffect(() => {
-    const currentId = Number(match.params.id);
-    setItemId(currentId);
-  }, [match.params.id]);
-
-  // => ItemTemplete => Select
-  const unitsOptions = [...new Set(items.map((product) => product.unit))];
+const ItemPage = ({ match, item, units }) => {
+  const { id } = match.params;
 
   return (
     <UserTemplate>
       {item ? (
         <SectionWrapper wrap="true">
-          <ItemTemplate id={itemId} item={item} unitsOptions={unitsOptions} />
+          <ItemTemplate item={item} id={id} units={units} />
           <InfoTemplate item={item} />
         </SectionWrapper>
       ) : (
-        <p>Fetching</p>
+        <Paragraph>Fetching data...</Paragraph>
       )}
     </UserTemplate>
   );
 };
 
+ItemPage.defaultProps = {
+  item: '',
+  units: '',
+};
+
 ItemPage.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      category: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      stock: PropTypes.number.isRequired,
-      unit: PropTypes.string.isRequired,
-      minStock: PropTypes.number.isRequired,
-      maxStock: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
+  item: PropTypes.shape({
+    category: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    stock: PropTypes.number.isRequired,
+    unit: PropTypes.string.isRequired,
+    minStock: PropTypes.number.isRequired,
+    maxStock: PropTypes.number.isRequired,
+  }),
   match: PropTypes.objectOf(PropTypes.any).isRequired,
+  units: PropTypes.arrayOf(PropTypes.string),
 };
 
-const mapStateToProps = (state) => {
-  return { items: state };
+const mapStateToProps = (state, ownProps) => {
+  const { id } = ownProps.match.params;
+  const { pantry } = state.firestore.data;
+  const item = pantry ? pantry[id] : null;
+  // extracting Select options
+  const { settings } = state.firestore.ordered;
+  const units = settings ? settings[0].units : null;
+
+  return {
+    item,
+    units,
+  };
 };
 
-export default connect(mapStateToProps)(withRouter(ItemPage));
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    {
+      collection: 'pantry',
+    },
+    {
+      collection: 'settings',
+    },
+  ]),
+)(ItemPage);

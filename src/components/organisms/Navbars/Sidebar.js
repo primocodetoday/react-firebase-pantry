@@ -1,32 +1,26 @@
 ﻿import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import Logo from '../atoms/Logo';
-import {
-  home,
-  basket,
-  settings,
-  logout,
-  homeActive,
-  settingsActive,
-  basketActive,
-  newItem,
-  newItemActive,
-} from '../../assets/icons';
+import PropTypes from 'prop-types';
+import Logo from '../../atoms/Logo';
+import { routes } from '../../../routes';
+import { menuItems } from './menuItems';
+import { logout } from '../../../assets/icons';
 
 const StyledWrapper = styled.header`
   flex-shrink: 0;
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
-  grid-template-rows: 100px 1fr 90px;
+  grid-template-rows: 85px repeat(4, 70px) 1fr;
   background-color: white;
   color: ${({ theme }) => theme.primary};
   width: 110px;
   height: 96vh;
   border-radius: 15px;
+  align-items: center;
 
-  @media (orientation: landscape) {
+  @media (max-height: 500px) {
     height: 150vh;
   }
 
@@ -47,52 +41,40 @@ const MenuIcon = styled.button`
   background-color: white;
   background-size: contain;
   cursor: pointer;
-  margin-bottom: 30px;
 
   &.active {
     background-image: url(${({ activeicon }) => activeicon});
   }
+
+  &:last-child {
+    align-self: end;
+    margin-bottom: 30px;
+  }
 `;
 
-const Sidebar = () => {
+const Sidebar = ({ signOut }) => {
   return (
     <StyledWrapper>
-      <NavLink to="/">
+      <NavLink to={routes.home}>
         <Logo />
       </NavLink>
-      <div>
+      {menuItems.map((item) => (
         <MenuIcon
+          key={item.name}
           as={NavLink}
-          to="/pantry"
-          activeicon={homeActive}
-          icon={home}
+          to={item.route}
+          icon={item.icon}
+          activeicon={item.activeIcon}
           activeclass="active"
         />
-        <MenuIcon
-          as={NavLink}
-          to="/new"
-          activeicon={newItemActive}
-          icon={newItem}
-          activeclass="active"
-        />
-        <MenuIcon
-          as={NavLink}
-          to="/shoplist"
-          activeicon={basketActive}
-          icon={basket}
-          activeclass="active"
-        />
-        <MenuIcon
-          as={NavLink}
-          to="/settings"
-          activeicon={settingsActive}
-          icon={settings}
-          activeclass="active"
-        />
-      </div>
-      <MenuIcon as={NavLink} to="/logout" icon={logout} />
+      ))}
+      <MenuIcon key="logout" onClick={signOut} icon={logout} />
     </StyledWrapper>
   );
+};
+
+Sidebar.propTypes = {
+  signOut: PropTypes.func.isRequired,
 };
 
 export default Sidebar;

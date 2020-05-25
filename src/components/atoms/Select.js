@@ -11,19 +11,22 @@ const StyledSelect = styled.select`
   border: none;
 `;
 
-const Select = ({ options, value, id, label, onChange, ...props }) => {
-  const optionsList = options.map((item) => (
-    <option key={item} value={item}>
-      {item}
-    </option>
-  ));
+const Select = ({ options, ...props }) => {
+  const optionsList = (opt) => {
+    const opst = opt.map((item) => (
+      <option key={item} value={item}>
+        {item}
+      </option>
+    ));
+    return opst || null;
+  };
+
+  if (!options) {
+    return <p>Loading</p>;
+  }
 
   return (
     <StyledSelect
-      onChange={onChange}
-      name="pets"
-      id={id}
-      value={value}
       // temporary solution below
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
@@ -31,22 +34,17 @@ const Select = ({ options, value, id, label, onChange, ...props }) => {
       <option value="" disabled>
         select option
       </option>
-      {optionsList}
+      {optionsList(options)}
     </StyledSelect>
   );
 };
 
 Select.defaultProps = {
-  label: false,
-  id: '',
+  options: null,
 };
 
 Select.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  value: PropTypes.string.isRequired,
-  id: PropTypes.string,
-  label: PropTypes.bool,
-  onChange: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default Select;

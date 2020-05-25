@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import ListItem from '../atoms/ListItem';
+import ListItem from './ListItem';
 
 const StyledWrapper = styled.ul`
   display: flex;

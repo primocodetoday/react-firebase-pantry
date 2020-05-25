@@ -1,41 +1,60 @@
-﻿import React, { useState } from 'react';
+﻿import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { PantryPage, ShopListPage, SettingsPage, ItemPage, NewPage } from '.';
+import { Provider, useSelector } from 'react-redux';
+import { ReactReduxFirebaseProvider, isLoaded } from 'react-redux-firebase';
+import {
+  PantryPage,
+  ShopListPage,
+  SettingsPage,
+  ItemPage,
+  NewPage,
+  SignIn,
+  SignUp,
+} from '.';
 import MainTemplate from '../templates/MainTemplate';
-import store from '../store/index';
+import { store, rrfProps } from '../store/index';
 import { routes } from '../routes/index';
+import LoadingScreen from '../helpers/LoadingScreen';
+import PrivateRoute from '../helpers/PrivateRoute';
 
-function Root() {
-  // eslint-disable-next-line no-unused-vars
-  const [pantry, setPantry] = useState(store);
+const AuthIsLoaded = ({ children }) => {
+  const auth = useSelector((state) => state.firebase.auth);
+  if (!isLoaded(auth)) return <LoadingScreen />;
+  return children;
+};
 
+const Root = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <MainTemplate>
-          <Switch>
-            <Route
-              exact
-              path={routes.home}
-              render={() => <Redirect to="/pantry" />}
-            />
-            <Route
-              exact
-              path={routes.pantry}
-              component={() => <PantryPage />}
-            />
-            <Route path={routes.pantryitem} component={() => <ItemPage />} />
-            <Route path={routes.shoplist} component={ShopListPage} />
-            <Route path={routes.new} component={NewPage} />
-            <Route path={routes.settings} component={SettingsPage} />
-          </Switch>
-        </MainTemplate>
-      </BrowserRouter>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      <ReactReduxFirebaseProvider {...rrfProps}>
+        <AuthIsLoaded>
+          <BrowserRouter>
+            <MainTemplate>
+              <Switch>
+                <Route
+                  exact
+                  path={routes.home}
+                  render={() => <Redirect to="/pantry" />}
+                />
+                <PrivateRoute
+                  exact
+                  path={routes.pantry}
+                  component={PantryPage}
+                />
+                <PrivateRoute path={routes.pantryitem} component={ItemPage} />
+                <PrivateRoute path={routes.shoplist} component={ShopListPage} />
+                <PrivateRoute path={routes.new} component={NewPage} />
+                <PrivateRoute path={routes.settings} component={SettingsPage} />
+                <Route path={routes.signIn} component={SignIn} />
+                <Route path={routes.signUp} component={SignUp} />
+              </Switch>
+            </MainTemplate>
+          </BrowserRouter>
+        </AuthIsLoaded>
+      </ReactReduxFirebaseProvider>
     </Provider>
   );
-}
+};
 
 export default Root;
-
-// 1. Sidebar tylko na zalogowaniu
