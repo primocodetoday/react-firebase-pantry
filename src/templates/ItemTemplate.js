@@ -219,6 +219,10 @@ const ItemTemplate = ({
   );
 };
 
+ItemTemplate.defaultProps = {
+  units: '',
+};
+
 ItemTemplate.propTypes = {
   history: PropTypes.objectOf(PropTypes.any).isRequired,
   removeItem: PropTypes.func.isRequired,
@@ -227,7 +231,7 @@ ItemTemplate.propTypes = {
   changeItem: PropTypes.func.isRequired,
   addStock: PropTypes.func.isRequired,
   subStock: PropTypes.func.isRequired,
-  units: PropTypes.arrayOf(PropTypes.string).isRequired,
+  units: PropTypes.arrayOf(PropTypes.string),
 };
 
 const mapDispatchToProps = (dispatch) => ({

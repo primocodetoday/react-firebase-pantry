@@ -28,6 +28,7 @@ const ItemPage = ({ match, item, units }) => {
 
 ItemPage.defaultProps = {
   item: '',
+  units: '',
 };
 
 ItemPage.propTypes = {
@@ -40,7 +41,7 @@ ItemPage.propTypes = {
     maxStock: PropTypes.number.isRequired,
   }),
   match: PropTypes.objectOf(PropTypes.any).isRequired,
-  units: PropTypes.arrayOf(PropTypes.string).isRequired,
+  units: PropTypes.arrayOf(PropTypes.string),
 };
 
 const mapStateToProps = (state, ownProps) => {
