@@ -59,6 +59,6 @@ A simple application to manage your pantry.</h3>
 
 ### Live 📍
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a3b172d0-edc6-4cb9-81b7-d5f2a02e85b8/deploy-status)](https://confident-shannon-643e3e.netlify.app)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a3b172d0-edc6-4cb9-81b7-d5f2a02e85b8/deploy-status)](https://pantry-app-react.netlify.app)
 
 <!-- ### License 🔱 -->
