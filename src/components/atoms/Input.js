@@ -24,7 +24,6 @@ const Input = styled.input`
     search &&
     css`
       padding-left: 40px;
-      text-transform: uppercase;
       color: ${({ theme }) => theme.secondary};
       font-size: ${({ theme }) => theme.fontSize.small};
       font-weight: 600;

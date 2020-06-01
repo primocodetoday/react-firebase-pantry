@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -46,17 +46,23 @@ const iconsList = [
 ];
 
 // combine state and icons
-const showPantry = (array, icons) => {
-  const categories = [...new Set(array.map((item) => item.category))];
+const showPantry = (array, icons, filter) => {
+  const filteredArray = array.filter((item) =>
+    item.name.toLowerCase().includes(filter),
+  );
+
+  const categories = [...new Set(filteredArray.map((item) => item.category))];
 
   const cardItems = categories.map((category) => {
-    const filteredArray = array.filter((item) => item.category === category);
-    const filteredIcon = icons.filter((icon) => icon.name === category);
+    const itemsByCategory = filteredArray.filter(
+      (item) => item.category === category,
+    );
+    const categoryIcon = icons.filter((icon) => icon.name === category);
     return (
       <Card
         key={category}
-        icon={filteredIcon[0].file}
-        content={filteredArray}
+        icon={categoryIcon[0].file}
+        content={itemsByCategory}
         category={category}
       />
     );
@@ -65,17 +71,30 @@ const showPantry = (array, icons) => {
 };
 
 const PantryPage = ({ pantry }) => {
+  const [searchState, setSearchState] = useState('');
+
+  const handleSearch = (e) => {
+    setSearchState(e.target.value.toLowerCase());
+  };
+
   return (
     <UserTemplate>
       <SectionWrapper column>
-        <Input search placeholder="search" />
+        <Input
+          type="text"
+          search
+          placeholder="SEARCH"
+          name="search"
+          value={searchState}
+          onChange={handleSearch}
+        />
         <Header
           titleText="Pantry"
           subTitleText="Click product for change or info"
         />
         <StyledGridWrapper>
           {pantry ? (
-            showPantry(pantry, iconsList)
+            showPantry(pantry, iconsList, searchState)
           ) : (
             <Paragraph>Fetching data...</Paragraph>
           )}
