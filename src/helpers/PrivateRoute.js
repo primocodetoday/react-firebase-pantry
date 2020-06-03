@@ -14,7 +14,7 @@ const PrivateRoute = ({ component: Component, auth, ...rest }) => (
 );
 
 PrivateRoute.propTypes = {
-  component: PropTypes.objectOf(PropTypes.any).isRequired,
+  component: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
   auth: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
