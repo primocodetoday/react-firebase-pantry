@@ -46,10 +46,6 @@ A simple application to manage your pantry.</h3>
     <img src="https://i.imgur.com/GdpYIfT.png" alt="Screenshot">
 </p>
 
-### Code Example/Issues 🔍
-
-### Installation 💾 -->
-
 ### Scripts
 
 | Command         | Description            |
