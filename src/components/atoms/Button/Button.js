@@ -2,7 +2,7 @@
 
 const Button = styled.button`
   background-color: ${({ theme }) => theme.secondary};
-  padding: 5px;
+  padding: 9px 15px;
   font-size: ${({ theme }) => theme.fontSize.big};
   color: white;
   border-radius: ${({ theme }) => theme.borderRadius};

@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Paragraph from '../atoms/Paragraph';
+import Paragraph from '../atoms/Paragraph/Paragraph';
 
 const StyledWrapper = styled.li`
   width: 100%;
@@ -27,7 +27,6 @@ const ListItem = ({ name, stock, id, unit }) => {
 
   const handleItemClick = () => setRedirect({ redirect: true });
 
-  // przekierowanie na stronę przedmiotu
   if (isRedirect.redirect) {
     return <Redirect to={`/pantry/${id}`} />;
   }

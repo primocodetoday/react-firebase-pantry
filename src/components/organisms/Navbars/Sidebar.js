@@ -2,7 +2,7 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Logo from '../../atoms/Logo';
+import Logo from '../../atoms/Logo/Logo';
 import { routes } from '../../../routes';
 import { menuItems } from './menuItems';
 import { logout } from '../../../assets/icons';

@@ -1,17 +1,9 @@
 ﻿import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Wrapper } from './styled/StyledSelect';
 
-const StyledSelect = styled.select`
-  text-align: center;
-  color: ${({ theme }) => theme.secondary};
-  font-size: 1.6rem;
-  padding: 10px 10px;
-  border-radius: ${({ theme }) => theme.borderRadius};
-  border: none;
-`;
-
-const Select = ({ options, ...props }) => {
+// TODO refactor this
+const Select = ({ options, ...restProps }) => {
   const optionsList = (opt) => {
     const opst = opt.map((item) => (
       <option key={item} value={item}>
@@ -26,16 +18,12 @@ const Select = ({ options, ...props }) => {
   }
 
   return (
-    <StyledSelect
-      // temporary solution below
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...props}
-    >
+    <Wrapper {...restProps}>
       <option value="" disabled>
         select option
       </option>
       {optionsList(options)}
-    </StyledSelect>
+    </Wrapper>
   );
 };
 

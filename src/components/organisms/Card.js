@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Title from '../atoms/Title';
+import Title from '../atoms/Title/Title';
 import CardList from '../molecules/CardList';
 
 const StyledWrapper = styled.div`

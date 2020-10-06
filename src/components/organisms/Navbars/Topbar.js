@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Logo from '../../atoms/Logo';
+import Logo from '../../atoms/Logo/Logo';
 import { menuItems } from './menuItems';
 import { Paragraph } from '../../atoms';
 
