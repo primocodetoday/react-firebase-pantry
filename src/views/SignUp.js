@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Logo, Paragraph, Input, Button } from '../components/atoms';
-import SignCard from '../components/molecules/SignCard';
+import SignCard from '../components/atoms/SignCard/SignCard';
 import { signUp as signUpAction } from '../actions/authActions';
 
 const StyledForm = styled.form`

@@ -1,13 +1,6 @@
-﻿import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { slide as Menu } from 'react-burger-menu';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import Logo from '../../atoms/Logo';
-import { menuItems } from './menuItems';
-import { Paragraph } from '../../atoms';
+﻿import styled from 'styled-components';
 
-const Wrapper = styled.header`
+export const Wrapper = styled.header`
   display: flex;
   align-items: center;
   background-color: white;
@@ -24,13 +17,9 @@ const Wrapper = styled.header`
   a:visited {
     color: ${({ theme }) => theme.primary};
   }
-
-  .active {
-    color: ${({ theme }) => theme.secondary} !important;
-  }
 `;
 
-const BurgerWrapper = styled.div`
+export const BurgerWrapper = styled.div`
   .bm-burger-button {
     position: absolute;
     width: 36px;
@@ -87,30 +76,8 @@ const BurgerWrapper = styled.div`
     left: 0;
     background: rgba(0, 0, 0, 0.3);
   }
+
+  .active {
+    color: ${({ theme }) => theme.secondary} !important;
+  }
 `;
-
-const Topbar = ({ signOut }) => {
-  return (
-    <Wrapper>
-      <NavLink to="/">
-        <Logo />
-      </NavLink>
-      <BurgerWrapper>
-        <Menu right>
-          {menuItems.map((item) => (
-            <NavLink to={item.route} key={item.name} activeclass="active">
-              {item.name}
-            </NavLink>
-          ))}
-          <Paragraph onClick={signOut}>Logout</Paragraph>
-        </Menu>
-      </BurgerWrapper>
-    </Wrapper>
-  );
-};
-
-Topbar.propTypes = {
-  signOut: PropTypes.func.isRequired,
-};
-
-export default Topbar;

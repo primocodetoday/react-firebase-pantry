@@ -1,21 +1,10 @@
-﻿import Button from './Button';
-import Title from './Title';
-import Fieldset from './Fieldset';
-import Input from './Input';
-import Logo from './Logo';
-import Paragraph from './Paragraph';
-import ButtonIcon from './ButtonIcon';
-import Select from './Select';
-import SubTitle from './SubTitle';
-
-export {
-  Button,
-  Title,
-  Fieldset,
-  Input,
-  Logo,
-  Paragraph,
-  ButtonIcon,
-  Select,
-  SubTitle,
-};
+﻿export { default as Button } from './Button/Button';
+export { default as ButtonIcon } from './ButtonIcon/ButtonIcon';
+export { default as Fieldset } from './Fieldset/Fieldset';
+export { default as Input } from './Input/Input';
+export { default as Logo } from './Logo/Logo';
+export { default as Paragraph } from './Paragraph/Paragraph';
+export { default as Select } from './Select/Select';
+export { default as SubTitle } from './SubTitle/SubTitle';
+export { default as Title } from './Title/Title';
+export { default as SignCard } from './SignCard/SignCard';

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Logo, Paragraph, Input, Button } from '../components/atoms';
-import SignCard from '../components/molecules/SignCard';
+import SignCard from '../components/atoms/SignCard/SignCard';
 import { signIn as signInAction } from '../actions/authActions';
 
 const StyledForm = styled.form`
