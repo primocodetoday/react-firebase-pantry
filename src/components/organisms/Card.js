@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Title from '../atoms/Title/Title';
-import CardList from '../molecules/CardList';
+import CardList from '../molecules/CardList/CardList';
 
 const StyledWrapper = styled.div`
   position: relative;

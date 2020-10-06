@@ -9,7 +9,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 import UserTemplate from '../templates/UserTemplate';
 import { Input, Select, Button } from '../components/atoms';
 import { addItem } from '../actions/pantryActions';
-import Header from '../components/molecules/Header';
+import Header from '../components/molecules/Header/Header';
 import SectionWrapper from '../templates/SectionWrapper';
 
 const StyledWrapper = styled(SectionWrapper)`

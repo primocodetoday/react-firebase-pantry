@@ -17,7 +17,7 @@ import {
   addStock as addStockAction,
   subStock as subStockAction,
 } from '../actions/pantryActions';
-import Header from '../components/molecules/Header';
+import Header from '../components/molecules/Header/Header';
 import { deleteIcon, applyIcon, plusIcon, minusIcon } from '../assets/icons';
 
 const ItemWrapper = styled.section`

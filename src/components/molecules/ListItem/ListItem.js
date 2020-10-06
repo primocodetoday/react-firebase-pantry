@@ -1,26 +1,8 @@
 ﻿import React, { useState } from 'react';
-import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Paragraph from '../atoms/Paragraph/Paragraph';
-
-const StyledWrapper = styled.li`
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 35px 25px;
-  margin: 5px 0;
-  cursor: pointer;
-  color: ${(theme) => theme.primary};
-
-  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
-    font-size: 2.3rem;
-  }
-`;
-
-const StyledStock = styled(Paragraph)`
-  text-align: right;
-  margin-right: 3px;
-`;
+import Paragraph from 'components/atoms/Paragraph/Paragraph';
+import { Wrapper, Stock } from './styled/StyledListItem';
 
 const ListItem = ({ name, stock, id, unit }) => {
   const [isRedirect, setRedirect] = useState({ redirect: false });
@@ -31,11 +13,11 @@ const ListItem = ({ name, stock, id, unit }) => {
     return <Redirect to={`/pantry/${id}`} />;
   }
   return (
-    <StyledWrapper onClick={handleItemClick}>
+    <Wrapper onClick={handleItemClick}>
       <Paragraph>{name}</Paragraph>
-      <StyledStock>{stock}</StyledStock>
+      <Stock>{stock}</Stock>
       <Paragraph>{unit}</Paragraph>
-    </StyledWrapper>
+    </Wrapper>
   );
 };
 
