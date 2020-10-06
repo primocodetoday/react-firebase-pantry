@@ -2,9 +2,9 @@
 import PropTypes from 'prop-types';
 import { Wrapper } from './styled/StyledLogo';
 
-const Logo = ({ big }) => {
+const Logo = ({ big, ...restProps }) => {
   return (
-    <Wrapper big={big}>
+    <Wrapper {...restProps}>
       <span>P</span>antry
     </Wrapper>
   );

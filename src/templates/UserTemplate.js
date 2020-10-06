@@ -2,8 +2,8 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import Sidebar from '../components/organisms/Navbars/Sidebar';
-import TopBar from '../components/organisms/Navbars/Topbar';
+import Sidebar from 'components/organisms/Navbars/Sidebar/Sidebar';
+import TopBar from 'components/organisms/Navbars/Topbar/Topbar';
 import { useWindowWidth } from '../hooks';
 import { signOut as signOutAction } from '../actions/authActions';
 

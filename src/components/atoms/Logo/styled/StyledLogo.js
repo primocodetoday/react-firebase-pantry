@@ -1,6 +1,7 @@
 ﻿import styled, { css } from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
-export const Wrapper = styled.p`
+export const Wrapper = styled(NavLink)`
   color: ${({ theme }) => theme.primary};
   font-family: 'Dancing Script', cursive;
   font-size: 3.5rem;

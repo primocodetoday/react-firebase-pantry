@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
-import Card from '../components/organisms/Card';
+import Card from '../components/organisms/Card/Card';
 import Header from '../components/molecules/Header/Header';
 import UserTemplate from '../templates/UserTemplate';
 import {
