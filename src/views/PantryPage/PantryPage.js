@@ -1,6 +1,5 @@
 ﻿import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
@@ -9,24 +8,8 @@ import { Card } from 'components/organisms';
 import { Header } from 'components/molecules';
 import { Paragraph, Input, SectionWrapper } from 'components/atoms';
 import { fruits, dairy, drinks, grains, meats, chemicals } from 'assets/icons';
+import { GridWrapper } from './styles/StyledPantryPage';
 
-const StyledGridWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-
-  @media (max-width: 1350px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (max-width: 960px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
-    padding: 0;
-    width: 100%;
-  }
-`;
 // this will be  move to state
 const iconsList = [
   { file: fruits, name: 'Fruits & Vegs' },
@@ -84,13 +67,13 @@ const PantryPage = ({ pantry }) => {
           titleText="Pantry"
           subTitleText="Click product for change or info"
         />
-        <StyledGridWrapper>
+        <GridWrapper>
           {pantry ? (
             showPantry(pantry, iconsList, searchState)
           ) : (
             <Paragraph>Fetching data...</Paragraph>
           )}
-        </StyledGridWrapper>
+        </GridWrapper>
       </SectionWrapper>
     </UserTemplate>
   );

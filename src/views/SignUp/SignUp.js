@@ -1,32 +1,9 @@
 ﻿import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import {
-  Logo,
-  Paragraph,
-  Input,
-  Button,
-  SignCard,
-} from '../../components/atoms';
+import { Logo, Paragraph, Button, SignCard } from 'components/atoms';
+import { StyledForm, StyledInput, StyledItemBar } from './styles/StyledSignUp';
 import { signUp as signUpAction } from '../../actions/authActions';
-
-const StyledForm = styled.form`
-  background-color: ${({ theme }) => theme.primary};
-  height: 100vh;
-  margin: 0 auto;
-`;
-
-const StyledInput = styled(Input)`
-  width: 80%;
-  font-size: 2rem;
-`;
-
-const StyledItemBar = styled.div`
-  height: 1px;
-  width: 60%;
-  background-color: ${({ theme }) => theme.secondary};
-`;
 
 const SignUp = ({ signUp, authError, auth, history }) => {
   const [formState, setFormState] = useState({

@@ -1,41 +1,16 @@
 ﻿import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Logo, Paragraph, Input, Button, SignCard } from 'components/atoms';
+import { Logo, Paragraph, SignCard } from 'components/atoms';
 import { signIn as signInAction } from '../../actions/authActions';
-
-const StyledForm = styled.form`
-  background-color: ${({ theme }) => theme.primary};
-  height: 100vh;
-  margin: 0 auto;
-  text-align: center;
-`;
-
-const StyledInput = styled(Input)`
-  width: 80%;
-  font-size: 2rem;
-`;
-
-const StyledItemBar = styled.div`
-  height: 1px;
-  width: 60%;
-  background-color: ${({ theme }) => theme.secondary};
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-`;
-
-const SignButton = styled(Button)`
-  font-size: 2rem;
-  text-decoration: none;
-
-  &:first-child {
-    margin-right: 20px;
-  }
-`;
+import {
+  StyledForm,
+  StyledInput,
+  StyledItemBar,
+  ButtonWrapper,
+  SignButton,
+} from './styles/StyledSignIn';
 
 const SignIn = ({ signIn, authError, auth, history }) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
