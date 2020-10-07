@@ -4,19 +4,11 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
-import Card from '../components/organisms/Card/Card';
-import Header from '../components/molecules/Header/Header';
-import UserTemplate from '../templates/UserTemplate';
-import {
-  fruits,
-  dairy,
-  drinks,
-  grains,
-  meats,
-  chemicals,
-} from '../assets/icons';
-import SectionWrapper from '../templates/SectionWrapper';
-import { Paragraph, Input } from '../components/atoms';
+import { UserTemplate } from 'templates';
+import { Card } from 'components/organisms';
+import { Header } from 'components/molecules';
+import { Paragraph, Input, SectionWrapper } from 'components/atoms';
+import { fruits, dairy, drinks, grains, meats, chemicals } from 'assets/icons';
 
 const StyledGridWrapper = styled.div`
   display: grid;

@@ -1,6 +1,6 @@
 ﻿import { useEffect, useState } from 'react';
 
-export const useWindowWidth = () => {
+const useWindowWidth = () => {
   const isClient = typeof window === 'object';
 
   const getWidth = () => {
@@ -26,3 +26,5 @@ export const useWindowWidth = () => {
 
   return windowSize;
 };
+
+export default useWindowWidth;

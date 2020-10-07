@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import PropTypes from 'prop-types';
-import { Wrapper } from './styled/StyledSelect';
+import { Wrapper } from './styles/StyledSelect';
 
 // TODO refactor this
 const Select = ({ options, ...restProps }) => {

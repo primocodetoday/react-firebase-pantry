@@ -1,11 +1,11 @@
 ﻿import React from 'react';
 import PropTypes from 'prop-types';
-import { Wrapper } from './styled/StyledLogo';
+import { Wrapper, First } from './styles/StyledLogo';
 
 const Logo = ({ to = '/', big, ...restProps }) => {
   return (
     <Wrapper to={to} big={big ? 1 : 0} {...restProps}>
-      <span>P</span>antry
+      <First>P</First>antry
     </Wrapper>
   );
 };

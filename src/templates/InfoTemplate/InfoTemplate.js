@@ -1,35 +1,7 @@
 ﻿import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Fieldset } from '../components/atoms';
-
-const InfoWrapper = styled.section`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  padding: 25px 25px 0;
-  flex-basis: 400px;
-
-  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
-    padding: 10px 10px 0;
-    width: 100%;
-    justify-content: center;
-  }
-`;
-
-const StyledImage = styled.img`
-  height: auto;
-  max-width: 50%;
-  border: 2px solid white;
-  border-radius: ${({ theme }) => theme.borderRadius};
-  margin-bottom: 50px;
-
-  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
-    margin: 0 auto 20px;
-    max-width: 80%;
-  }
-`;
+import { Fieldset } from 'components/atoms';
+import { Image, Wrapper } from './styles/StyledInfoTemplate';
 
 const InfoTemplate = ({ item }) => {
   const [data, setData] = useState();
@@ -59,16 +31,16 @@ const InfoTemplate = ({ item }) => {
   }, [name]);
 
   return (
-    <InfoWrapper>
+    <Wrapper>
       {data && !err ? (
         <>
-          <StyledImage src={data.photo} alt={name} />
+          <Image src={data.photo} alt={name} />
           <Fieldset legend="info">{data.info}</Fieldset>
         </>
       ) : (
         <p>Fetching data ...</p>
       )}
-    </InfoWrapper>
+    </Wrapper>
   );
 };
 

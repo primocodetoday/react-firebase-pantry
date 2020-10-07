@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import PropTypes from 'prop-types';
-import { Wrapper } from './styled/StyledFieldset';
+import { Wrapper } from './styles/StyledFieldset';
 
 const Fieldset = ({ legend, children, settings }) => (
   <Wrapper settings={settings}>

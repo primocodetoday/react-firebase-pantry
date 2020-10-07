@@ -1,8 +1,8 @@
 ﻿import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Paragraph from 'components/atoms/Paragraph/Paragraph';
-import { Wrapper, Stock } from './styled/StyledListItem';
+import { Paragraph } from 'components/atoms';
+import { Wrapper, Stock } from './styles/StyledListItem';
 
 const ListItem = ({ name, stock, id, unit }) => {
   const [isRedirect, setRedirect] = useState({ redirect: false });

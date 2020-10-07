@@ -10,12 +10,12 @@ import {
   NewPage,
   SignIn,
   SignUp,
-} from '.';
-import MainTemplate from '../templates/MainTemplate';
-import { store, rrfProps } from '../store/index';
-import { routes } from '../routes/index';
-import LoadingScreen from '../helpers/LoadingScreen';
-import PrivateRoute from '../helpers/PrivateRoute';
+} from 'views';
+import { routes } from 'routes';
+import { store, rrfProps } from 'store';
+import { MainTemplate } from 'templates';
+import LoadingScreen from 'helpers/LoadingScreen';
+import PrivateRoute from 'helpers/PrivateRoute';
 
 const AuthIsLoaded = ({ children }) => {
   const auth = useSelector((state) => state.firebase.auth);

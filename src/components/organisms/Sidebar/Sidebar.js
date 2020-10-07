@@ -2,10 +2,10 @@
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { logout } from 'assets/icons';
-import Logo from 'components/atoms/Logo/Logo';
+import { Logo } from 'components/atoms';
 import { routes } from 'routes';
 import { menuItems } from '../menuItems';
-import { Wrapper, MenuIcon } from './styled/StyledSidebar';
+import { Wrapper, MenuIcon } from './styles/StyledSidebar';
 
 // TODO Maybe make MenuIcon a Link
 

@@ -13,9 +13,9 @@ export const Wrapper = styled(NavLink)`
     css`
       font-size: 5rem;
     `}
+`;
 
-  span {
-    color: ${({ theme }) => theme.secondary};
-    font-size: 1.3em;
-  }
+export const First = styled.span`
+  color: ${({ theme }) => theme.secondary};
+  font-size: 1.3em;
 `;

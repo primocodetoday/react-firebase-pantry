@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { routes } from 'routes';
 import { Paragraph, Logo } from 'components/atoms';
 import { menuItems } from '../menuItems';
-import { Wrapper, BurgerWrapper } from './styled/StyledTopbar';
+import { Wrapper, BurgerWrapper } from './styles/StyledTopbar';
 
 const Topbar = ({ signOut }) => {
   return (

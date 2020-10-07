@@ -1,42 +1,15 @@
 ﻿import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { Formik, Form, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import { withRouter } from 'react-router-dom';
 import { firestoreConnect } from 'react-redux-firebase';
-import UserTemplate from '../templates/UserTemplate';
-import { Input, Select, Button } from '../components/atoms';
-import { addItem } from '../actions/pantryActions';
-import Header from '../components/molecules/Header/Header';
-import SectionWrapper from '../templates/SectionWrapper';
-
-const StyledWrapper = styled(SectionWrapper)`
-  width: auto;
-`;
-
-const StyledForm = styled(Form)`
-  display: grid;
-  grid-template-columns: 1fr 80px 150px;
-  align-items: center;
-  gap: 10px;
-
-  .grid-label {
-    grid-column: 1/2;
-  }
-
-  .grid-button {
-    justify-self: end;
-    align-self: center;
-    grid-column: 3/4;
-    margin-top: 20px;
-  }
-  .grid-input {
-    text-align: center;
-    grid-column: 3/4;
-  }
-`;
+import { Input, Select, Button } from 'components/atoms';
+import { Header } from 'components/molecules';
+import { addItem } from 'actions/pantryActions';
+import { UserTemplate } from 'templates';
+import { StyledWrapper, StyledForm } from './styles/StyledNewPage';
 
 const NewPage = ({ handleAddItem, history, units, categories }) => {
   return (

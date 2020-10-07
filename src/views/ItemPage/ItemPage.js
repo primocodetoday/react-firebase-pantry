@@ -3,11 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
-import { Paragraph } from '../components/atoms/index';
-import ItemTemplate from '../templates/ItemTemplate';
-import UserTemplate from '../templates/UserTemplate';
-import InfoTemplate from '../templates/InfoTemplate';
-import SectionWrapper from '../templates/SectionWrapper';
+import { ItemTemplate, UserTemplate, InfoTemplate } from 'templates';
+import { Paragraph, SectionWrapper } from 'components/atoms';
 
 const ItemPage = ({ match, item, units }) => {
   const { id } = match.params;

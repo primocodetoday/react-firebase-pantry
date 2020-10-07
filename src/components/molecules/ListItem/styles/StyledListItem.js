@@ -1,5 +1,5 @@
 ﻿import styled from 'styled-components';
-import Paragraph from 'components/atoms/Paragraph/Paragraph';
+import { Paragraph } from 'components/atoms';
 
 export const Wrapper = styled.li`
   width: 100%;

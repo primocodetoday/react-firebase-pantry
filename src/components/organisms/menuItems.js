@@ -1,5 +1,4 @@
-﻿import { routes } from '../../../routes';
-import {
+﻿import {
   home,
   basket,
   settings,
@@ -8,7 +7,8 @@ import {
   basketActive,
   newItem,
   newItemActive,
-} from '../../../assets/icons';
+} from 'assets/icons';
+import { routes } from 'routes';
 
 export const menuItems = [
   {

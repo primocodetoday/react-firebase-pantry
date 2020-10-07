@@ -1,7 +1,7 @@
 ﻿import React from 'react';
-import UserTemplate from '../templates/UserTemplate';
-import Header from '../components/molecules/Header/Header';
-import SectionWrapper from '../templates/SectionWrapper';
+import UserTemplate from '../../templates/UserTemplate/UserTemplate';
+import Header from '../../components/molecules/Header/Header';
+import SectionWrapper from '../../components/atoms/SectionWrapper/SectionWrapper';
 
 const SettingsPage = () => (
   <UserTemplate>
