@@ -2,15 +2,14 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Logo, Paragraph, Button, SignCard } from 'components/atoms';
+import { signUp as signUpAction } from 'actions/authActions';
 import { StyledForm, StyledInput, StyledItemBar } from './styles/StyledSignUp';
-import { signUp as signUpAction } from '../../actions/authActions';
 
 const SignUp = ({ signUp, authError, auth, history }) => {
   const [formState, setFormState] = useState({
     email: '',
     password: '',
     firstName: '',
-    lastName: '',
   });
 
   const handleChange = (e) => {
@@ -59,13 +58,6 @@ const SignUp = ({ signUp, authError, auth, history }) => {
           onChange={handleChange}
         />
         <StyledItemBar />
-        <StyledInput
-          name="lastName"
-          type="text"
-          placeholder="lastname"
-          value={formState.lastname}
-          onChange={handleChange}
-        />
         <Button type="submit">Sign Up</Button>
         {authError ? <Paragraph>{authError}</Paragraph> : null}
       </SignCard>

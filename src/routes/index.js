@@ -6,4 +6,5 @@
   settings: '/settings',
   new: '/new',
   signIn: '/signin',
+  signUp: '/signup',
 };

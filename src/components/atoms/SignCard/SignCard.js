@@ -1,7 +1,7 @@
-﻿import styled, { css } from 'styled-components';
+﻿import styled from 'styled-components/macro';
 
 const SignCard = styled.div`
-  padding: 20px;
+  padding: 30px 20px;
   color: ${({ theme }) => theme.primary};
   background-color: white;
   width: 450px;
@@ -25,12 +25,6 @@ const SignCard = styled.div`
   @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
     width: 90vw;
   }
-
-  ${({ signup }) =>
-    signup &&
-    css`
-      background-color: grey;
-    `}
 `;
 
 export default SignCard;

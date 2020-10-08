@@ -1,4 +1,4 @@
-﻿import styled from 'styled-components';
+﻿import styled from 'styled-components/macro';
 import { Input, Button } from 'components/atoms';
 
 export const StyledForm = styled.form`
@@ -15,19 +15,16 @@ export const StyledInput = styled(Input)`
 
 export const StyledItemBar = styled.div`
   height: 1px;
-  width: 60%;
+  width: 80%;
   background-color: ${({ theme }) => theme.secondary};
 `;
 
 export const ButtonWrapper = styled.div`
+  padding: 10px;
   display: flex;
 `;
 
 export const SignButton = styled(Button)`
   font-size: 2rem;
   text-decoration: none;
-
-  &:first-child {
-    margin-right: 20px;
-  }
 `;

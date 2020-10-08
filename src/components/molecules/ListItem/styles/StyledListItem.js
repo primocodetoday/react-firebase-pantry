@@ -4,7 +4,7 @@ import { Paragraph } from 'components/atoms';
 export const Wrapper = styled.li`
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 35px 25px;
+  grid-template-columns: 1fr 50px 35px;
   margin: 5px 0;
   cursor: pointer;
   color: ${(theme) => theme.primary};

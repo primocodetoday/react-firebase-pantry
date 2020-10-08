@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Logo, Paragraph, SignCard } from 'components/atoms';
-import { signIn as signInAction } from '../../actions/authActions';
+import { signIn as signInAction } from 'actions/authActions';
+import { routes } from 'routes';
 import {
   StyledForm,
   StyledInput,
@@ -53,11 +54,11 @@ const SignIn = ({ signIn, authError, auth, history }) => {
         />
         <StyledItemBar />
         <ButtonWrapper>
-          <SignButton as={Link} to="/signup">
-            Create
-          </SignButton>
           <SignButton type="submit">Sign In</SignButton>
         </ButtonWrapper>
+        <Paragraph>
+          To create a account click <Link to={routes.signUp}>here</Link>
+        </Paragraph>
 
         {authError ? <Paragraph>{authError}</Paragraph> : null}
       </SignCard>

@@ -5,6 +5,7 @@ export const StyledForm = styled.form`
   background-color: ${({ theme }) => theme.primary};
   height: 100vh;
   margin: 0 auto;
+  text-align: center;
 `;
 
 export const StyledInput = styled(Input)`

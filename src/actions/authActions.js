@@ -38,7 +38,6 @@ export const signUp = (newUser) => {
       .then((resp) => {
         return firestore.collection('users').doc(resp.user.uid).set({
           firstName: newUser.firstName,
-          lastName: newUser.lastName,
         });
       })
       .then(() => {
