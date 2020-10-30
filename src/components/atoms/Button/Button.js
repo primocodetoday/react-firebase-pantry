@@ -1,8 +1,11 @@
 ﻿import React from 'react';
+import PropTypes from 'prop-types';
 import { Wrapper } from './styles/StyledButton';
 
-const Button = ({ children, ...restProps }) => {
+export const Button = ({ children, ...restProps }) => {
   return <Wrapper {...restProps}>{children}</Wrapper>;
 };
 
-export default Button;
+Button.propTypes = {
+  children: PropTypes.string.isRequired,
+};

@@ -1,4 +1,4 @@
-﻿export { default as Button } from './Button/Button';
+﻿export { Button } from './Button/Button';
 export { default as ButtonIcon } from './ButtonIcon/ButtonIcon';
 export { default as Fieldset } from './Fieldset/Fieldset';
 export { default as Input } from './Input/Input';
