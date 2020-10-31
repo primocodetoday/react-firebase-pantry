@@ -1,6 +1,6 @@
 ﻿export { Button } from './Button/Button';
 export { ButtonIcon } from './ButtonIcon/ButtonIcon';
-export { default as Fieldset } from './Fieldset/Fieldset';
+export { Fieldset } from './Fieldset/Fieldset';
 export { default as Input } from './Input/Input';
 export { default as Logo } from './Logo/Logo';
 export { default as Paragraph } from './Paragraph/Paragraph';

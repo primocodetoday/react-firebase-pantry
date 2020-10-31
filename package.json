@@ -73,7 +73,8 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "**/*.{js,jsx}"
+      "**/*.{js,jsx}",
+      "!<rootDir>/src/__tests__/helpers/*.js"
     ],
     "coverageThreshold": {
       "global": {
@@ -85,6 +86,9 @@
     },
     "coverageReporters": [
       "html"
+    ],
+    "watchPathIgnorePatterns": [
+      "<rootDir>/src/__tests__/helpers/"
     ]
   }
 }

@@ -19,4 +19,5 @@ Wrapper.defaultProps = {
     borderRadius: '15px',
     secondary: '#ac3b61',
   },
+  icon: '',
 };

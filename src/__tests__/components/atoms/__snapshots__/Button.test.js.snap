@@ -7,3 +7,11 @@ exports[`Renders <Button/> properly with defaultProps 1`] = `
   Test
 </button>
 `;
+
+exports[`Renders <Button/> properly with secondary props 1`] = `
+<button
+  class="StyledButton__Wrapper-sc-1x4y9in-0 loMEba"
+>
+  Test
+</button>
+`;

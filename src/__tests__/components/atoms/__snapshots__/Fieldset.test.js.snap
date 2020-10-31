@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders <Fieldset> properly with defaultProps 1`] = `
+<fieldset
+  class="StyledFieldset__Wrapper-gqkhg4-0 fXyGwR"
+>
+  Lorem ipsum dolor sit amet
+</fieldset>
+`;
+
+exports[`Renders <Fieldset> properly with provided legend props 1`] = `
+<fieldset
+  class="StyledFieldset__Wrapper-gqkhg4-0 fXyGwR"
+>
+  <legend>
+    Test frame
+  </legend>
+  Lorem ipsum dolor sit amet
+</fieldset>
+`;

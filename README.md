@@ -25,7 +25,7 @@ A simple application to manage your pantry.</h3>
 
 ### Tech/framework used 🔧
 
-| Main Tech | React                                  |
+| Main Tech | React - Atomic Design Pattern          |
 | --------- | -------------------------------------- |
 | Addons    | Router, Redux, Thunk, Formik           |
 | Backend   | Firebase                               |

@@ -60,7 +60,7 @@ const ItemTemplate = ({
           <ButtonSub icon={minusIcon} onClick={() => subStock(id)} />
         </ChangeStockWrapper>
       </Stock>
-      <Fieldset settings legend="settings">
+      <Fieldset legend="settings">
         <Formik
           initialValues={{ maxStock, minStock, unit }}
           onSubmit={(values, { setSubmitting }) => {

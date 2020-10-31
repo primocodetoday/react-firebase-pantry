@@ -2,21 +2,22 @@
 import PropTypes from 'prop-types';
 import { Wrapper } from './styles/StyledFieldset';
 
-const Fieldset = ({ legend, children, settings }) => (
-  <Wrapper settings={settings}>
-    <legend>{legend}</legend>
-    {children}
-  </Wrapper>
-);
+export const Fieldset = ({ legend, children, ...restProps }) => {
+  const isLegendPassed = legend ? <legend>{legend}</legend> : null;
+
+  return (
+    <Wrapper {...restProps}>
+      {isLegendPassed}
+      {children}
+    </Wrapper>
+  );
+};
 
 Fieldset.defaultProps = {
-  settings: false,
+  legend: '',
 };
 
 Fieldset.propTypes = {
-  legend: PropTypes.string.isRequired,
+  legend: PropTypes.string,
   children: PropTypes.node.isRequired,
-  settings: PropTypes.bool,
 };
-
-export default Fieldset;
