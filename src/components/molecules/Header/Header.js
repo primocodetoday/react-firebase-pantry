@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import PropTypes from 'prop-types';
-
-import { Wrapper, Text, SubText } from './styled/StyledHeader';
+import { Wrapper, Text, SubText } from './styles/StyledHeader';
 
 const Header = ({ titleText, subTitleText }) => {
   return (

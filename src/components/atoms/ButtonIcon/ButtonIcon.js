@@ -1,17 +1,15 @@
-﻿import styled from 'styled-components';
+﻿import React from 'react';
+import PropTypes from 'prop-types';
+import { Wrapper } from './styles/StyledButtonIcon';
 
-const ButtonIcon = styled.button`
-  width: 42px;
-  height: 37px;
-  background-image: url(${(props) => props.icon});
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: contain;
-  background-color: ${({ theme }) => theme.secondary};
-  padding: 5px;
-  border: 2px solid white;
-  border-radius: ${({ theme }) => theme.borderRadius};
-  cursor: pointer;
-`;
+export const ButtonIcon = ({ icon, ...restProps }) => {
+  return <Wrapper icon={icon} {...restProps} />;
+};
 
-export default ButtonIcon;
+ButtonIcon.propTypes = {
+  icon: PropTypes.string,
+};
+
+ButtonIcon.defaultProps = {
+  icon: '/assets/icon/testIcon.svg',
+};

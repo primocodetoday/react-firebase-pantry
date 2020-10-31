@@ -1,26 +1,20 @@
-﻿import styled, { css } from 'styled-components';
+﻿import React from 'react';
+import PropTypes from 'prop-types';
+import { Wrapper } from './styles/StyledButton';
 
-const Button = styled.button`
-  background-color: ${({ theme }) => theme.secondary};
-  padding: 9px 15px;
-  font-size: ${({ theme }) => theme.fontSize.big};
-  color: white;
-  border-radius: ${({ theme }) => theme.borderRadius};
-  font-family: 'Montserrat', sans-serif;
-  border: 2px solid white;
+export const Button = ({ children, secondary, ...restProps }) => {
+  return (
+    <Wrapper secondary={secondary} {...restProps}>
+      {children}
+    </Wrapper>
+  );
+};
 
-  &:disabled,
-  &[disabled] {
-    border: 1px solid white;
-    background-color: darkgrey;
-    color: white;
-  }
+Button.propTypes = {
+  secondary: PropTypes.bool,
+  children: PropTypes.string.isRequired,
+};
 
-  ${({ secondary }) =>
-    secondary &&
-    css`
-      background-color: grey;
-    `}
-`;
-
-export default Button;
+Button.defaultProps = {
+  secondary: false,
+};

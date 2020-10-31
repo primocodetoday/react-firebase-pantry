@@ -1,6 +1,6 @@
 ﻿import React from 'react';
-import Title from 'components/atoms';
-import { Wrapper, Line } from './styled/StyledBasket';
+import { Title } from 'components/atoms';
+import { Wrapper, Line } from './styles/StyledBasket';
 
 const Basket = () => {
   return (

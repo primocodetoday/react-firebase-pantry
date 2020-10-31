@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import PropTypes from 'prop-types';
-import CardList from '../../molecules/CardList/CardList';
+import { CardList } from 'components/molecules';
 
 import { Wrapper, CardIcon, Text, Line } from './styled/StyledCard';
 

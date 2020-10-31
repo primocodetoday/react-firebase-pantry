@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import PropTypes from 'prop-types';
-import { Wrapper } from './styled/StyledCardList';
-import ListItem from '../ListItem/ListItem';
+import { ListItem } from 'components/molecules';
+import { Wrapper } from './styles/StyledCardList';
 
 const CardList = ({ content }) => {
   const list = content.map(({ id, name, stock, unit }) => (
