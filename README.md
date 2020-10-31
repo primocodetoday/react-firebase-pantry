@@ -8,8 +8,8 @@
 
 <h2 align="center">Pantry App</h2>
 
-<h3 align="center">
-A simple application to manage your pantry.</h3>
+App to manage your local pantry. Build in React with Redux and Firebase as a backend.
+
 
 <!-- <p align="center">
   <a >
@@ -29,8 +29,9 @@ A simple application to manage your pantry.</h3>
 | --------- | -------------------------------------- |
 | Addons    | Router, Redux, Thunk, Formik           |
 | Backend   | Firebase                               |
-| Styles    | Styled Components, Theming, Flex, Grid |
-| Code      | ES6, Hooks, PropTypes, Linter(airbnb)  |
+| Styles    | Styled Components, Theming,  |
+| Code      | ES6, Hooks, PropTypes)  |
+| Testing   | React Testing Library  |
 
 ## Screenshots 📺
 
@@ -52,6 +53,7 @@ A simple application to manage your pantry.</h3>
 | --------------- | ---------------------- |
 | `npm run start` | Open local server      |
 | `npm run build` | Create optimized build |
+| `npm run test`  | Run all tests and create coverage |
 
 ### Live 📍
 
