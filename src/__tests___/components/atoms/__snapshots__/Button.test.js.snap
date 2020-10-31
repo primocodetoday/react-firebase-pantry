@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders <Button/> properly with defaultProps 1`] = `
+<button
+  class="StyledButton__Wrapper-sc-1x4y9in-0 bsqhTU"
+>
+  Test
+</button>
+`;

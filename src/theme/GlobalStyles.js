@@ -1,6 +1,6 @@
 ﻿import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
 
 *, *::before, *::after {
   box-sizing: border-box;
-  ;
+  
 }
 
 // happy rems below
@@ -24,5 +24,3 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
   }
 `;
-
-export default GlobalStyles;

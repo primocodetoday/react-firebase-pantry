@@ -22,3 +22,13 @@ export const Wrapper = styled.button`
       background-color: grey;
     `}
 `;
+
+Wrapper.defaultProps = {
+  theme: {
+    fontSize: {
+      big: '2.5rem',
+    },
+    borderRadius: '15px',
+    secondary: '#ac3b61',
+  },
+};
