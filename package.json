@@ -23,7 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --coverage --watchAll",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "make-badges": "istanbul-badges-readme"
   },
   "browserslist": {
     "production": [
@@ -51,6 +52,7 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.0",
     "husky": "^4.3.0",
+    "istanbul-badges-readme": "^1.0.5",
     "jest-styled-components": "^7.0.3",
     "lint-staged": "^10.4.0",
     "prettier": "2.1.2",
@@ -85,7 +87,8 @@
       }
     },
     "coverageReporters": [
-      "html"
+      "html",
+      "json-summary"
     ],
     "watchPathIgnorePatterns": [
       "<rootDir>/src/__tests__/helpers/"
