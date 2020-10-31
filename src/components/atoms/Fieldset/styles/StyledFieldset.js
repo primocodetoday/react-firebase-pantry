@@ -18,6 +18,5 @@ Wrapper.defaultProps = {
       normal: '1.6rem',
     },
     borderRadius: '15px',
-    secondary: '#ac3b61',
   },
 };

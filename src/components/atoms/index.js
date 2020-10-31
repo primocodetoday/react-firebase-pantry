@@ -1,7 +1,7 @@
 ﻿export { Button } from './Button/Button';
 export { ButtonIcon } from './ButtonIcon/ButtonIcon';
 export { Fieldset } from './Fieldset/Fieldset';
-export { default as Input } from './Input/Input';
+export { Input } from './Input/Input';
 export { default as Logo } from './Logo/Logo';
 export { default as Paragraph } from './Paragraph/Paragraph';
 export { default as SectionWrapper } from './SectionWrapper/SectionWrapper';

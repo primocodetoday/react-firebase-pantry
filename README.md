@@ -1,14 +1,10 @@
-<!-- <h1 align="center"> -->
-<!-- <br> -->
-<!-- <p align="center">
-<img src="https://i.imgur.com/mH3UlQB.jpg"  alt="Logo">
-</p> -->
-
-<!-- </h1> -->
-
-<h2 align="center">Pantry App</h2>
+# Pantry
 
 App to manage your local pantry. Build in React with Redux and Firebase as a backend.
+I used the [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) pattern as a guide to build the entire application.
+
+Current status: refactoring + new features
+I create some roadmap soon. First, I'd like to clear the code and cover all with tests.
 
 ## Tech/framework used 🔧
 
@@ -16,33 +12,25 @@ App to manage your local pantry. Build in React with Redux and Firebase as a bac
 | --------- | ----------------------------- |
 | Addons    | Router, Redux, Thunk, Formik  |
 | Backend   | Firebase                      |
-| Styles    | Styled Components, Theming,   |
+| Styles    | Styled Components, Theme,     |
 | Code      | ES6, Hooks, PropTypes)        |
 | Testing   | React Testing Library         |
 
 ## Screenshots 📺
 
-<p align="center">
-    <img height="auto" width="500" src="https://i.imgur.com/amemSXt.png" alt="Screenshot">
-</p>
-
-<p align="center">
-    <img height="auto" width="500" src="https://i.imgur.com/q0onTnm.png" alt="Screenshot">
-</p>
-
-<p align="center">
-    <img height="auto" width="500" src="https://i.imgur.com/GdpYIfT.png" alt="Screenshot">
-</p>
+![SignIn](https://i.imgur.com/amemSXt.png)
+![Pantry](https://i.imgur.com/q0onTnm.png)
+![Detail](https://i.imgur.com/GdpYIfT.png)
 
 ## Code coverage 🧪
 
 | Statements                                                           | Branches                                                           | Functions                                                           | Lines                                                           |
 | -------------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------- | --------------------------------------------------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-9.58%25-red.svg) | ![Branches](https://img.shields.io/badge/Coverage-3.85%25-red.svg) | ![Functions](https://img.shields.io/badge/Coverage-6.15%25-red.svg) | ![Lines](https://img.shields.io/badge/Coverage-9.91%25-red.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-12.35%25-red.svg) | ![Branches](https://img.shields.io/badge/Coverage-7.69%25-red.svg) | ![Functions](https://img.shields.io/badge/Coverage-10.71%25-red.svg) | ![Lines](https://img.shields.io/badge/Coverage-12.77%25-red.svg) |
 
 <br>
 
-### Scripts
+## Scripts
 
 | Command         | Description                       |
 | --------------- | --------------------------------- |
@@ -52,7 +40,7 @@ App to manage your local pantry. Build in React with Redux and Firebase as a bac
 
 <br>
 
-### Live 📍
+## Live 📍
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a3b172d0-edc6-4cb9-81b7-d5f2a02e85b8/deploy-status)](https://pantry-app-react.netlify.app)
 
