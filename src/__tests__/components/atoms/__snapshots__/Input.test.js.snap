@@ -21,6 +21,13 @@ exports[`Component <Input/> render properly with default props 1`] = `
 />
 `;
 
+exports[`Component <Input/> render properly with default props without theme provider 1`] = `
+<input
+  class="sc-bdfBwQ huaijo"
+  data-testid="input"
+/>
+`;
+
 exports[`Component <Input/> render properly with passed props 1`] = `
 <input
   class="sc-bdfBwQ huaijo"

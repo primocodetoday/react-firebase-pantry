@@ -4,6 +4,13 @@ import { TestThemeProvider } from '__tests__/helpers/TestThemeProvider';
 import { Input } from 'components/atoms';
 
 describe('Component <Input/> render properly', () => {
+  it('with default props without theme provider', () => {
+    const { getByTestId, container } = render(<Input />);
+
+    expect(getByTestId('input')).toBeTruthy();
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
   it('with default props', () => {
     const { getByTestId, container } = render(
       <TestThemeProvider>

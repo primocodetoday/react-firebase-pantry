@@ -8,8 +8,8 @@ export const Wrapper = styled(NavLink)`
   margin: 0;
   text-decoration: none;
 
-  ${({ big }) =>
-    big &&
+  ${({ $big }) =>
+    $big &&
     css`
       font-size: 5rem;
     `}
@@ -19,3 +19,10 @@ export const First = styled.span`
   color: ${({ theme }) => theme.secondary};
   font-size: 1.3em;
 `;
+
+Wrapper.defaultProps = {
+  theme: {
+    primary: '#0D2743',
+    secondary: '#ac3b61',
+  },
+};

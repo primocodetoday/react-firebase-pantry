@@ -2,7 +2,7 @@
 export { ButtonIcon } from './ButtonIcon/ButtonIcon';
 export { Fieldset } from './Fieldset/Fieldset';
 export { Input } from './Input/Input';
-export { default as Logo } from './Logo/Logo';
+export { Logo } from './Logo/Logo';
 export { default as Paragraph } from './Paragraph/Paragraph';
 export { default as SectionWrapper } from './SectionWrapper/SectionWrapper';
 export { default as Select } from './Select/Select';
