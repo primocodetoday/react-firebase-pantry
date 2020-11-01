@@ -1,8 +1,8 @@
 ﻿import styled from 'styled-components';
 import { Form } from 'formik';
-import { SectionWrapper } from 'components/atoms';
+import { Section } from 'components/atoms';
 
-export const StyledWrapper = styled(SectionWrapper)`
+export const StyledWrapper = styled(Section)`
   width: auto;
 `;
 

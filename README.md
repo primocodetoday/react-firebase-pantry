@@ -26,7 +26,7 @@ I create some roadmap soon. First, I'd like to clear the code and cover all with
 
 | Statements                                                           | Branches                                                           | Functions                                                           | Lines                                                           |
 | -------------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------- | --------------------------------------------------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-13.35%25-red.svg) | ![Branches](https://img.shields.io/badge/Coverage-9.9%25-red.svg) | ![Functions](https://img.shields.io/badge/Coverage-12.76%25-red.svg) | ![Lines](https://img.shields.io/badge/Coverage-13.8%25-red.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-15.04%25-red.svg) | ![Branches](https://img.shields.io/badge/Coverage-13.86%25-red.svg) | ![Functions](https://img.shields.io/badge/Coverage-15.23%25-red.svg) | ![Lines](https://img.shields.io/badge/Coverage-15.55%25-red.svg) |
 
 <br>
 

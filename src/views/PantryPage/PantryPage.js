@@ -6,7 +6,7 @@ import { compose } from 'redux';
 import { UserTemplate } from 'templates';
 import { Card } from 'components/organisms';
 import { Header } from 'components/molecules';
-import { Paragraph, Input, SectionWrapper } from 'components/atoms';
+import { Paragraph, Input, Section } from 'components/atoms';
 import { fruits, dairy, drinks, grains, meats, chemicals } from 'assets/icons';
 import { GridWrapper } from './styles/StyledPantryPage';
 
@@ -54,7 +54,7 @@ const PantryPage = ({ pantry }) => {
 
   return (
     <UserTemplate>
-      <SectionWrapper column>
+      <Section column>
         <Input
           type="text"
           search
@@ -74,7 +74,7 @@ const PantryPage = ({ pantry }) => {
             <Paragraph>Fetching data...</Paragraph>
           )}
         </GridWrapper>
-      </SectionWrapper>
+      </Section>
     </UserTemplate>
   );
 };

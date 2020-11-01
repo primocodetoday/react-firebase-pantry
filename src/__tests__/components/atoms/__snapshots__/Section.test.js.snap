@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Section/> render properly with default props, without theme provider 1`] = `
+<div
+  class="StyledSection__Wrapper-tchlt3-0 fHKQdA"
+>
+  <div>
+    <p>
+      Lorem ipsum dolor sit
+    </p>
+  </div>
+</div>
+`;
+
+exports[`<Section/> render properly with passed props, and theme provider 1`] = `
+<div
+  class="StyledSection__Wrapper-tchlt3-0 qWwUt"
+>
+  <div>
+    <p>
+      Lorem ipsum dolor sit
+    </p>
+  </div>
+</div>
+`;

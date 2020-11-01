@@ -1,16 +1,16 @@
 ﻿import React from 'react';
+import { Section } from 'components/atoms';
 import UserTemplate from '../../templates/UserTemplate/UserTemplate';
 import Header from '../../components/molecules/Header/Header';
-import SectionWrapper from '../../components/atoms/SectionWrapper/SectionWrapper';
 
 const SettingsPage = () => (
   <UserTemplate>
-    <SectionWrapper column>
+    <Section column>
       <Header
         titleText="Settings"
         subTitleText="Fill out the form to add a new item"
       />
-    </SectionWrapper>
+    </Section>
   </UserTemplate>
 );
 

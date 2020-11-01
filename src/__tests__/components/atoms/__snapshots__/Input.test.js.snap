@@ -2,35 +2,35 @@
 
 exports[`Component <Input/> render properly with "search" props 1`] = `
 <input
-  class="sc-bdfBwQ fmptkE"
+  class="StyledInput__Wrapper-c30uhj-0 bvjyfA"
   data-testid="input"
 />
 `;
 
 exports[`Component <Input/> render properly with "settings" props 1`] = `
 <input
-  class="sc-bdfBwQ ddQPAF"
+  class="StyledInput__Wrapper-c30uhj-0 fSSPhJ"
   data-testid="input"
 />
 `;
 
 exports[`Component <Input/> render properly with default props 1`] = `
 <input
-  class="sc-bdfBwQ huaijo"
+  class="StyledInput__Wrapper-c30uhj-0 gZqCgY"
   data-testid="input"
 />
 `;
 
 exports[`Component <Input/> render properly with default props without theme provider 1`] = `
 <input
-  class="sc-bdfBwQ huaijo"
+  class="StyledInput__Wrapper-c30uhj-0 gZqCgY"
   data-testid="input"
 />
 `;
 
 exports[`Component <Input/> render properly with passed props 1`] = `
 <input
-  class="sc-bdfBwQ huaijo"
+  class="StyledInput__Wrapper-c30uhj-0 gZqCgY"
   data-testid="input"
   placeholder="Email address"
 />

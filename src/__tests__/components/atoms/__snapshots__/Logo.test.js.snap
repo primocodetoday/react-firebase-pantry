@@ -3,12 +3,12 @@
 exports[`Render <Logo/> properly with "big" props passed 1`] = `
 <a
   aria-current="page"
-  class="sc-gsTCUz biVMdF active"
+  class="StyledLogo__Wrapper-ssv8zj-0 bODzJp active"
   href="/"
   theme="[object Object]"
 >
   <span
-    class="sc-dlfnbm hdIZnM"
+    class="StyledLogo__First-ssv8zj-1 fIwBVt"
   >
     P
   </span>
@@ -19,12 +19,12 @@ exports[`Render <Logo/> properly with "big" props passed 1`] = `
 exports[`Render <Logo/> properly with default props with theme 1`] = `
 <a
   aria-current="page"
-  class="sc-gsTCUz dtOQGU active"
+  class="StyledLogo__Wrapper-ssv8zj-0 ijTQGo active"
   href="/"
   theme="[object Object]"
 >
   <span
-    class="sc-dlfnbm ibcQvP"
+    class="StyledLogo__First-ssv8zj-1 bvMZCy"
   >
     P
   </span>
@@ -35,12 +35,12 @@ exports[`Render <Logo/> properly with default props with theme 1`] = `
 exports[`Render <Logo/> properly with default props without provider 1`] = `
 <a
   aria-current="page"
-  class="sc-gsTCUz dtOQGU active"
+  class="StyledLogo__Wrapper-ssv8zj-0 ijTQGo active"
   href="/"
   theme="[object Object]"
 >
   <span
-    class="sc-dlfnbm hdIZnM"
+    class="StyledLogo__First-ssv8zj-1 fIwBVt"
   >
     P
   </span>

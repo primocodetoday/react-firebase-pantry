@@ -1,4 +1,4 @@
-﻿import styled, { css } from 'styled-components';
+﻿import styled, { css } from 'styled-components/macro';
 import searchIcon from 'assets/icons/search.svg';
 
 export const Wrapper = styled.input`

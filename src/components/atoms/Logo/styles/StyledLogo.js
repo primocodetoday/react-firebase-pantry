@@ -1,4 +1,4 @@
-﻿import styled, { css } from 'styled-components';
+﻿import styled, { css } from 'styled-components/macro';
 import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled(NavLink)`

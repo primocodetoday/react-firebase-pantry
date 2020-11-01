@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { ItemTemplate, UserTemplate, InfoTemplate } from 'templates';
-import { Paragraph, SectionWrapper } from 'components/atoms';
+import { Paragraph, Section } from 'components/atoms';
 
 const ItemPage = ({ match, item, units }) => {
   const { id } = match.params;
@@ -12,10 +12,10 @@ const ItemPage = ({ match, item, units }) => {
   return (
     <UserTemplate>
       {item ? (
-        <SectionWrapper wrap="true">
+        <Section wrap="true">
           <ItemTemplate item={item} id={id} units={units} />
           <InfoTemplate item={item} />
-        </SectionWrapper>
+        </Section>
       ) : (
         <Paragraph>Fetching data...</Paragraph>
       )}
