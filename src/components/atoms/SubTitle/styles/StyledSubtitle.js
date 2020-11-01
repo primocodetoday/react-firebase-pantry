@@ -1,7 +1,6 @@
 ﻿import styled from 'styled-components/macro';
-import PropTypes from 'prop-types';
 
-export const SubTitle = styled.p`
+export const Wrapper = styled.p`
   padding: 0;
   margin: 0;
   color: white;
@@ -9,6 +8,10 @@ export const SubTitle = styled.p`
   font-weight: 500;
 `;
 
-SubTitle.propTypes = {
-  children: PropTypes.string.isRequired,
+Wrapper.defaultProps = {
+  theme: {
+    fontSize: {
+      normal: '1.6rem',
+    },
+  },
 };

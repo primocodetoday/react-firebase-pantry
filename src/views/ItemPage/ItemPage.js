@@ -12,7 +12,7 @@ const ItemPage = ({ match, item, units }) => {
   return (
     <UserTemplate>
       {item ? (
-        <Section wrap="true">
+        <Section wrap>
           <ItemTemplate item={item} id={id} units={units} />
           <InfoTemplate item={item} />
         </Section>

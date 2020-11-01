@@ -1,10 +1,9 @@
 ﻿import styled, { css } from 'styled-components/macro';
-import PropTypes from 'prop-types';
 
-export const Title = styled.h1`
+export const Wrapper = styled.h1`
   padding: 0;
   margin: 0;
-  color: white;
+  color: #fff;
   font-size: ${({ theme }) => theme.fontSize.big};
   font-weight: 700;
 
@@ -15,6 +14,12 @@ export const Title = styled.h1`
     `}
 `;
 
-Title.propTypes = {
-  children: PropTypes.string.isRequired,
+Wrapper.defaultProps = {
+  theme: {
+    secondary: '#ac3b61',
+    fontSize: {
+      normal: '1.6rem',
+      big: '2.5rem',
+    },
+  },
 };

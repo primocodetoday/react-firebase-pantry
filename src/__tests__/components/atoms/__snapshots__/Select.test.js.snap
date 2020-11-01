@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Select/> renders properly with default props, without ThemeProvider 1`] = `
+<select
+  class="StyledSelect__Wrapper-i4ks6i-0 fzDiY"
+  data-testid="select"
+>
+  <option
+    disabled=""
+  >
+    select option
+  </option>
+</select>
+`;
+
+exports[`<Select/> renders properly with passed props, with ThemeProvider 1`] = `
+<select
+  class="StyledSelect__Wrapper-i4ks6i-0 foWHuH"
+  data-testid="select"
+>
+  <option
+    disabled=""
+  >
+    select option
+  </option>
+  <option
+    value="Lorem"
+  >
+    Lorem
+  </option>
+  <option
+    value="ipsum"
+  >
+    ipsum
+  </option>
+  <option
+    value="dolor"
+  >
+    dolor
+  </option>
+  <option
+    value="amet"
+  >
+    amet
+  </option>
+</select>
+`;
