@@ -18,19 +18,6 @@ describe('Render <Logo/> properly', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('with default props with theme', () => {
-    const { getByText, container } = render(
-      <TestThemeProvider>
-        <MemoryRouter>
-          <Logo />
-        </MemoryRouter>
-      </TestThemeProvider>,
-    );
-
-    expect(getByText('antry')).toBeTruthy();
-    expect(container.firstChild).toMatchSnapshot();
-  });
-
   it('with "big" props passed', () => {
     const { getByText, container } = render(
       <MemoryRouter>

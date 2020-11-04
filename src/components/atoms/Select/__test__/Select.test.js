@@ -1,23 +1,20 @@
 ﻿import React from 'react';
 import { render } from '@testing-library/react';
 import { Select } from 'components/atoms';
-import { TestThemeProvider } from '__tests__/helpers/TestThemeProvider';
 
 describe('<Select/> renders properly', () => {
-  it('with default props, without ThemeProvider', () => {
+  it('with default props', () => {
     const { getByTestId, container } = render(<Select />);
 
     expect(getByTestId('select')).toBeTruthy();
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('with passed props, with ThemeProvider', () => {
+  it('with passed props', () => {
     const testProps = ['Lorem', 'ipsum', 'dolor', 'amet'];
 
     const { getByDisplayValue, container } = render(
-      <TestThemeProvider>
-        <Select options={testProps} />
-      </TestThemeProvider>,
+      <Select options={testProps} />,
     );
 
     expect(getByDisplayValue('Lorem')).toBeTruthy();

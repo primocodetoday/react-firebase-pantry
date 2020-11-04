@@ -2,10 +2,10 @@
 import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled(NavLink)`
+  margin: 0;
   color: ${({ theme }) => theme.primary};
   font-family: 'Dancing Script', cursive;
   font-size: 3.5rem;
-  margin: 0;
   text-decoration: none;
 
   ${({ $big }) =>

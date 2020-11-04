@@ -4,7 +4,7 @@ import { Section } from 'components/atoms';
 import { TestThemeProvider } from '__tests__/helpers/TestThemeProvider';
 
 describe('<Section/> render properly', () => {
-  it('with default props, without theme provider', () => {
+  it('with passed nodes', () => {
     const { getByText, container } = render(
       <Section>
         <div>
@@ -17,15 +17,13 @@ describe('<Section/> render properly', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('with passed props, and theme provider', () => {
+  it('with passed props', () => {
     const { getByText, container } = render(
-      <TestThemeProvider>
-        <Section column wrap>
-          <div>
-            <p>Lorem ipsum dolor sit</p>
-          </div>
-        </Section>
-      </TestThemeProvider>,
+      <Section column wrap>
+        <div>
+          <p>Lorem ipsum dolor sit</p>
+        </div>
+      </Section>,
     );
 
     expect(getByText('Lorem ipsum dolor sit')).toBeTruthy();

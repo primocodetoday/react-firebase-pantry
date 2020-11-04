@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Section/> render properly with default props, without theme provider 1`] = `
+exports[`<Section/> render properly with passed nodes 1`] = `
 <div
   class="StyledSection__Wrapper-tchlt3-0 fHKQdA"
 >
@@ -12,7 +12,7 @@ exports[`<Section/> render properly with default props, without theme provider 1
 </div>
 `;
 
-exports[`<Section/> render properly with passed props, and theme provider 1`] = `
+exports[`<Section/> render properly with passed props 1`] = `
 <div
   class="StyledSection__Wrapper-tchlt3-0 qWwUt"
 >

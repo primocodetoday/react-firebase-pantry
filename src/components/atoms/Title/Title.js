@@ -1,19 +1,10 @@
-﻿import styled, { css } from 'styled-components/macro';
-import PropTypes from 'prop-types';
+﻿import PropTypes from 'prop-types';
+import React from 'react';
+import { Wrapper } from './styles/StyledTitle';
 
-export const Title = styled.h1`
-  padding: 0;
-  margin: 0;
-  color: white;
-  font-size: ${({ theme }) => theme.fontSize.big};
-  font-weight: 700;
-
-  ${({ card }) =>
-    card &&
-    css`
-      color: ${({ theme }) => theme.secondary};
-    `}
-`;
+export const Title = ({ children, ...restProps }) => {
+  return <Wrapper {...restProps}>{children}</Wrapper>;
+};
 
 Title.propTypes = {
   children: PropTypes.string.isRequired,

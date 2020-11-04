@@ -1,44 +1,24 @@
 ﻿import React from 'react';
 import { render } from '@testing-library/react';
-import { TestThemeProvider } from '__tests__/helpers/TestThemeProvider';
 import { Input } from 'components/atoms';
 
 describe('Component <Input/> render properly', () => {
-  it('with default props without theme provider', () => {
+  it('with default props', () => {
     const { getByTestId, container } = render(<Input />);
 
     expect(getByTestId('input')).toBeTruthy();
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('with default props', () => {
-    const { getByTestId, container } = render(
-      <TestThemeProvider>
-        <Input />
-      </TestThemeProvider>,
-    );
-
-    expect(getByTestId('input')).toBeTruthy();
-    expect(container.firstChild).toMatchSnapshot();
-  });
-
   it('with "search" props', () => {
-    const { getByTestId, container } = render(
-      <TestThemeProvider>
-        <Input search />
-      </TestThemeProvider>,
-    );
+    const { getByTestId, container } = render(<Input search />);
 
     expect(getByTestId('input')).toBeTruthy();
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it('with "settings" props', () => {
-    const { getByTestId, container } = render(
-      <TestThemeProvider>
-        <Input settings />
-      </TestThemeProvider>,
-    );
+    const { getByTestId, container } = render(<Input settings />);
 
     expect(getByTestId('input')).toBeTruthy();
     expect(container.firstChild).toMatchSnapshot();
@@ -46,9 +26,7 @@ describe('Component <Input/> render properly', () => {
 
   it('with passed props', () => {
     const { container, getByPlaceholderText } = render(
-      <TestThemeProvider>
-        <Input placeholder="Email address" />
-      </TestThemeProvider>,
+      <Input placeholder="Email address" />,
     );
 
     expect(getByPlaceholderText('Email address')).toBeTruthy();
