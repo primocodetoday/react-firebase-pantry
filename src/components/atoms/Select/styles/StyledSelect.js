@@ -1,4 +1,5 @@
 ﻿import styled from 'styled-components/macro';
+import { defaultThemeProps } from 'theme/defaultThemeProps';
 
 export const Wrapper = styled.select`
   text-align: center;
@@ -14,9 +15,4 @@ export const Wrapper = styled.select`
   }
 `;
 
-Wrapper.defaultProps = {
-  theme: {
-    secondary: '#ac3b61',
-    borderRadius: '16px',
-  },
-};
+Wrapper.defaultProps = defaultThemeProps;

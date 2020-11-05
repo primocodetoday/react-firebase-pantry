@@ -1,4 +1,5 @@
 ﻿import styled from 'styled-components/macro';
+import { defaultThemeProps } from 'theme/defaultThemeProps';
 
 export const Wrapper = styled.p`
   padding: 0;
@@ -8,10 +9,4 @@ export const Wrapper = styled.p`
   font-weight: 500;
 `;
 
-Wrapper.defaultProps = {
-  theme: {
-    fontSize: {
-      normal: '1.6rem',
-    },
-  },
-};
+Wrapper.defaultProps = defaultThemeProps;

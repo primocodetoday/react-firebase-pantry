@@ -1,5 +1,6 @@
 ﻿import styled, { css } from 'styled-components/macro';
 import { NavLink } from 'react-router-dom';
+import { defaultThemeProps } from 'theme/defaultThemeProps';
 
 export const Wrapper = styled(NavLink)`
   margin: 0;
@@ -20,9 +21,5 @@ export const First = styled.span`
   font-size: 1.3em;
 `;
 
-Wrapper.defaultProps = {
-  theme: {
-    primary: '#0D2743',
-    secondary: '#ac3b61',
-  },
-};
+Wrapper.defaultProps = defaultThemeProps;
+First.defaultProps = defaultThemeProps;

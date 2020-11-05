@@ -8,7 +8,7 @@ exports[`Render <Logo/> properly with "big" props passed 1`] = `
   theme="[object Object]"
 >
   <span
-    class="StyledLogo__First-ssv8zj-1 fIwBVt"
+    class="StyledLogo__First-ssv8zj-1 bvMZCy"
   >
     P
   </span>
@@ -24,7 +24,7 @@ exports[`Render <Logo/> properly with default props without provider 1`] = `
   theme="[object Object]"
 >
   <span
-    class="StyledLogo__First-ssv8zj-1 fIwBVt"
+    class="StyledLogo__First-ssv8zj-1 bvMZCy"
   >
     P
   </span>

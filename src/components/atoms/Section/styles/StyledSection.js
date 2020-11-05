@@ -1,4 +1,5 @@
 ﻿import styled from 'styled-components/macro';
+import { defaultThemeProps } from 'theme/defaultThemeProps';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -16,10 +17,4 @@ export const Wrapper = styled.div`
   }
 `;
 
-Wrapper.defaultProps = {
-  theme: {
-    mediaBreaks: {
-      mobile: 600,
-    },
-  },
-};
+Wrapper.defaultProps = defaultThemeProps;

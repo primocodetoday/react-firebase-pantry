@@ -1,4 +1,5 @@
 ﻿import styled, { css } from 'styled-components/macro';
+import { defaultThemeProps } from 'theme/defaultThemeProps';
 
 export const Wrapper = styled.h1`
   padding: 0;
@@ -14,12 +15,4 @@ export const Wrapper = styled.h1`
     `}
 `;
 
-Wrapper.defaultProps = {
-  theme: {
-    secondary: '#ac3b61',
-    fontSize: {
-      normal: '1.6rem',
-      big: '2.5rem',
-    },
-  },
-};
+Wrapper.defaultProps = defaultThemeProps;

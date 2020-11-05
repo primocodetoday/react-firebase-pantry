@@ -1,4 +1,5 @@
 ﻿import styled from 'styled-components/macro';
+import { defaultThemeProps } from 'theme/defaultThemeProps';
 
 export const Wrapper = styled.div`
   background-color: white;
@@ -20,14 +21,5 @@ export const Line = styled.div`
   height: 1px;
 `;
 
-Wrapper.defaultProps = {
-  theme: {
-    secondary: '#ac3b61',
-  },
-};
-
-Line.defaultProps = {
-  theme: {
-    primary: '#0D2743',
-  },
-};
+Wrapper.defaultProps = defaultThemeProps;
+Line.defaultProps = defaultThemeProps;

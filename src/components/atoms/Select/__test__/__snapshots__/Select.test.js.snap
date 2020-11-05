@@ -2,7 +2,7 @@
 
 exports[`<Select/> renders properly with default props 1`] = `
 <select
-  class="StyledSelect__Wrapper-i4ks6i-0 fzDiY"
+  class="StyledSelect__Wrapper-i4ks6i-0 foWHuH"
   data-testid="select"
 >
   <option
@@ -15,7 +15,7 @@ exports[`<Select/> renders properly with default props 1`] = `
 
 exports[`<Select/> renders properly with passed props 1`] = `
 <select
-  class="StyledSelect__Wrapper-i4ks6i-0 fzDiY"
+  class="StyledSelect__Wrapper-i4ks6i-0 foWHuH"
   data-testid="select"
 >
   <option

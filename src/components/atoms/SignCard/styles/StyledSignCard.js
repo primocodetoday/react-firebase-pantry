@@ -1,4 +1,5 @@
 ﻿import styled from 'styled-components/macro';
+import { defaultThemeProps } from 'theme/defaultThemeProps';
 
 export const Wrapper = styled.div`
   display: grid;
@@ -27,12 +28,4 @@ export const Wrapper = styled.div`
   }
 `;
 
-Wrapper.defaultProps = {
-  theme: {
-    primary: '#0D2743',
-    borderRadius: '15px',
-    mediaBreaks: {
-      mobile: 600,
-    },
-  },
-};
+Wrapper.defaultProps = defaultThemeProps;
