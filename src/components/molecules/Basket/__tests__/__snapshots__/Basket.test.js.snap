@@ -2,7 +2,7 @@
 
 exports[`<Basket/> renders properly> with  passed props 1`] = `
 <div
-  class="StyledBasket__Wrapper-sc-13gdfu1-0 kXgmdu"
+  class="StyledBasket__Wrapper-sc-13gdfu1-0 hAsiTJ"
 >
   <h1
     class="StyledTitle__Wrapper-sc-1etxgm6-0 bcXqTI"
@@ -10,7 +10,7 @@ exports[`<Basket/> renders properly> with  passed props 1`] = `
     Shop list
   </h1>
   <div
-    class="StyledBasket__Line-sc-13gdfu1-1 gtDSIE"
+    class="StyledBasket__Line-sc-13gdfu1-1 dhZdXp"
   />
   <h1>
     Test string
@@ -20,7 +20,7 @@ exports[`<Basket/> renders properly> with  passed props 1`] = `
 
 exports[`<Basket/> renders properly> without  props 1`] = `
 <div
-  class="StyledBasket__Wrapper-sc-13gdfu1-0 kXgmdu"
+  class="StyledBasket__Wrapper-sc-13gdfu1-0 hAsiTJ"
 >
   <h1
     class="StyledTitle__Wrapper-sc-1etxgm6-0 bcXqTI"
@@ -28,7 +28,7 @@ exports[`<Basket/> renders properly> without  props 1`] = `
     Shop list
   </h1>
   <div
-    class="StyledBasket__Line-sc-13gdfu1-1 gtDSIE"
+    class="StyledBasket__Line-sc-13gdfu1-1 dhZdXp"
   />
 </div>
 `;

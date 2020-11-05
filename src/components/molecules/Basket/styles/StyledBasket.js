@@ -19,3 +19,15 @@ export const Line = styled.div`
   width: 100%;
   height: 1px;
 `;
+
+Wrapper.defaultProps = {
+  theme: {
+    secondary: '#ac3b61',
+  },
+};
+
+Line.defaultProps = {
+  theme: {
+    primary: '#0D2743',
+  },
+};

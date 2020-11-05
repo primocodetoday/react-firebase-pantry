@@ -24,7 +24,6 @@ const AuthIsLoaded = ({ children }) => {
 const Root = () => {
   return (
     <Provider store={store}>
-      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <ReactReduxFirebaseProvider {...rrfProps}>
         <AuthIsLoaded>
           <BrowserRouter>

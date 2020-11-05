@@ -79,6 +79,7 @@
       "**/*.{js,jsx}",
       "!<rootDir>/src/__tests__/helpers/*.js",
       "!<rootDir>/src/components/atoms/index.js",
+      "!<rootDir>/src/components/molecules/index.js",
       "!<rootDir>/src/index.js"
     ],
     "coverageThreshold": {
