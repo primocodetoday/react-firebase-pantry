@@ -15,10 +15,7 @@ const NewPage = ({ handleAddItem, history, units, categories }) => {
   return (
     <UserTemplate>
       <StyledWrapper column>
-        <Header
-          titleText="New Item"
-          subTitleText="Fill out the form to add a new item"
-        />
+        <Header titleText="New Item" subTitleText="Fill out the form to add a new item" />
         <Formik
           initialValues={{
             name: '',
@@ -41,23 +38,11 @@ const NewPage = ({ handleAddItem, history, units, categories }) => {
               errors.name = 'required';
             } else if (!values.category) {
               errors.category = 'required';
-            } else if (
-              !/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/i.test(
-                values.stock,
-              )
-            ) {
+            } else if (!/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/i.test(values.stock)) {
               errors.stock = 'wrong number';
-            } else if (
-              !/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/i.test(
-                values.maxStock,
-              )
-            ) {
+            } else if (!/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/i.test(values.maxStock)) {
               errors.maxStock = 'wrong number';
-            } else if (
-              !/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/i.test(
-                values.minStock,
-              )
-            ) {
+            } else if (!/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/i.test(values.minStock)) {
               errors.minStock = 'wrong number';
             } else if (!values.unit) {
               errors.unit = 'required';
@@ -65,13 +50,7 @@ const NewPage = ({ handleAddItem, history, units, categories }) => {
             return errors;
           }}
         >
-          {({
-            values,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            isSubmitting,
-          }) => (
+          {({ values, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
             <StyledForm onSubmit={handleSubmit}>
               <label className="grid-label" htmlFor="name">
                 Name:
@@ -148,11 +127,7 @@ const NewPage = ({ handleAddItem, history, units, categories }) => {
                 onBlur={handleBlur}
                 value={values.unit}
               />
-              <Button
-                className="grid-button"
-                type="submit"
-                disabled={isSubmitting}
-              >
+              <Button className="grid-button" type="submit" disabled={isSubmitting}>
                 Add Item
               </Button>
             </StyledForm>

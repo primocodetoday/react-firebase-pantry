@@ -13,7 +13,7 @@ export const GridWrapper = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
-    padding: 0;
     width: 100%;
+    padding: 0;
   }
 `;
