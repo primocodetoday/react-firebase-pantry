@@ -2,14 +2,15 @@
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider, useSelector } from 'react-redux';
 import { ReactReduxFirebaseProvider, isLoaded } from 'react-redux-firebase';
-import { SettingsPage, SignIn, SignUp } from 'views';
 import { routes } from 'routes';
 import { store, rrfProps } from 'store';
 import { MainTemplate } from 'templates';
 import LoadingScreen from 'helpers/LoadingScreen';
 import PrivateRoute from 'helpers/PrivateRoute';
-
 // Lazy loading views
+const SignUp = React.lazy(() => import('views/SignUp/SignUp'));
+const SignIn = React.lazy(() => import('views/SignIn/SignIn'));
+const SettingsPage = React.lazy(() => import('views/SettingsPage/SettingsPage'));
 const PantryPage = React.lazy(() => import('views/PantryPage/PantryPage'));
 const ShopListPage = React.lazy(() => import('views/ShopListPage/ShopListPage'));
 const ItemPage = React.lazy(() => import('views/ItemPage/ItemPage'));
