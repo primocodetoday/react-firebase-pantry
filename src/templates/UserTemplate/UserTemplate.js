@@ -1,35 +1,18 @@
 ﻿import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Sidebar from 'components/organisms/Sidebar/Sidebar';
-import TopBar from 'components/organisms/Topbar/Topbar';
+import Topbar from 'components/organisms/Topbar/Topbar';
 import useWindowWidth from 'hooks/useWindowWidth';
 import { signOut as signOutAction } from '../../actions/authActions';
-
-const UserWrapper = styled.div`
-  padding: 10px;
-  margin: 0 auto;
-  display: flex;
-  background-color: ${({ theme }) => theme.primary};
-  color: white;
-  min-height: 100vh;
-
-  @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
-    flex-direction: column;
-  }
-`;
+import { UserWrapper } from './styles/StyledUserTemplate';
 
 const UserTemplate = ({ children, signOut }) => {
   const { width } = useWindowWidth();
 
   return (
     <UserWrapper>
-      {width > 600 ? (
-        <Sidebar signOut={signOut} />
-      ) : (
-        <TopBar signOut={signOut} />
-      )}
+      {width > 600 ? <Sidebar signOut={signOut} /> : <Topbar signOut={signOut} />}
       {children}
     </UserWrapper>
   );
