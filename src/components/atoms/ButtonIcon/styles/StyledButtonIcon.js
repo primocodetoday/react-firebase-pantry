@@ -1,4 +1,5 @@
 ﻿import styled from 'styled-components/macro';
+import { defaultThemeProps } from 'theme/defaultThemeProps';
 
 export const Wrapper = styled.button`
   width: 42px;
@@ -14,9 +15,4 @@ export const Wrapper = styled.button`
   cursor: pointer;
 `;
 
-Wrapper.defaultProps = {
-  theme: {
-    borderRadius: '15px',
-    secondary: '#ac3b61',
-  },
-};
+Wrapper.defaultProps = defaultThemeProps;

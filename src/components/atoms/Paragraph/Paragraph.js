@@ -1,10 +1,8 @@
-﻿import styled from 'styled-components';
+﻿import styled from 'styled-components/macro';
 
-const Paragraph = styled.p`
+export const Paragraph = styled.p`
   display: inline;
-  margin: 0;
   padding: 0;
-  font-size: ${(props) => props.size};
+  margin: 0;
+  font-size: ${({ size }) => size};
 `;
-
-export default Paragraph;

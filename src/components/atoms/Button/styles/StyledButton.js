@@ -1,4 +1,5 @@
 ﻿import styled, { css } from 'styled-components/macro';
+import { defaultThemeProps } from 'theme/defaultThemeProps';
 
 export const Wrapper = styled.button`
   background-color: ${({ theme }) => theme.secondary};
@@ -23,12 +24,4 @@ export const Wrapper = styled.button`
     `}
 `;
 
-Wrapper.defaultProps = {
-  theme: {
-    fontSize: {
-      big: '2.5rem',
-    },
-    borderRadius: '15px',
-    secondary: '#ac3b61',
-  },
-};
+Wrapper.defaultProps = defaultThemeProps;

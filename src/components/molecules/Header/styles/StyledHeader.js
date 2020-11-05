@@ -1,5 +1,6 @@
-﻿import styled from 'styled-components';
+﻿import styled from 'styled-components/macro';
 import { Title, SubTitle } from 'components/atoms';
+import { defaultThemeProps } from 'theme/defaultThemeProps';
 
 export const Wrapper = styled.header`
   width: 100%;
@@ -17,3 +18,5 @@ export const SubText = styled(SubTitle)`
   color: white;
   margin-top: 17px;
 `;
+
+Wrapper.defaultProps = defaultThemeProps;

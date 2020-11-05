@@ -1,5 +1,6 @@
-﻿import styled, { css } from 'styled-components';
+﻿import styled, { css } from 'styled-components/macro';
 import searchIcon from 'assets/icons/search.svg';
+import { defaultThemeProps } from 'theme/defaultThemeProps';
 
 export const Wrapper = styled.input`
   font-family: 'Montserrat', sans-serif;
@@ -45,13 +46,4 @@ export const Wrapper = styled.input`
     `};
 `;
 
-Wrapper.defaultProps = {
-  theme: {
-    fontSize: {
-      normal: '1.6rem',
-      small: '1.2rem',
-    },
-    borderRadius: '15px',
-    secondary: '#ac3b61',
-  },
-};
+Wrapper.defaultProps = defaultThemeProps;

@@ -1,4 +1,5 @@
 ﻿import styled from 'styled-components/macro';
+import { defaultThemeProps } from 'theme/defaultThemeProps';
 
 export const Wrapper = styled.fieldset`
   border-radius: ${({ theme }) => theme.borderRadius};
@@ -12,11 +13,4 @@ export const Wrapper = styled.fieldset`
   }
 `;
 
-Wrapper.defaultProps = {
-  theme: {
-    fontSize: {
-      normal: '1.6rem',
-    },
-    borderRadius: '15px',
-  },
-};
+Wrapper.defaultProps = defaultThemeProps;

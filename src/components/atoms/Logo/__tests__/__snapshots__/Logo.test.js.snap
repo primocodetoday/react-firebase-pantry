@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render <Logo/> properly with "big" props passed 1`] = `
+<a
+  aria-current="page"
+  class="StyledLogo__Wrapper-ssv8zj-0 eCAOod active"
+  href="/"
+  theme="[object Object]"
+>
+  <span
+    class="StyledLogo__First-ssv8zj-1 bvMZCy"
+  >
+    P
+  </span>
+  antry
+</a>
+`;
+
+exports[`Render <Logo/> properly with default props without provider 1`] = `
+<a
+  aria-current="page"
+  class="StyledLogo__Wrapper-ssv8zj-0 bQZuWo active"
+  href="/"
+  theme="[object Object]"
+>
+  <span
+    class="StyledLogo__First-ssv8zj-1 bvMZCy"
+  >
+    P
+  </span>
+  antry
+</a>
+`;

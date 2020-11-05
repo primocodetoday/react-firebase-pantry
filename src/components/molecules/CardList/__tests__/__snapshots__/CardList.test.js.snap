@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardList/> renders properly> with  passed props 1`] = `
+<ul
+  class="StyledCardList__Wrapper-zp7mvs-0 gBOpsV"
+>
+  <li
+    class="StyledListItem__Wrapper-m6611x-0 ffofAU"
+  >
+    <p
+      class="Paragraph-vj49lv-0 eenHSs"
+    >
+      Bread
+    </p>
+    <p
+      class="Paragraph-vj49lv-0 StyledListItem__Stock-m6611x-1 eenHSs eMTcUE"
+    >
+      15
+    </p>
+    <p
+      class="Paragraph-vj49lv-0 eenHSs"
+    >
+      kg
+    </p>
+  </li>
+</ul>
+`;

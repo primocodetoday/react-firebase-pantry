@@ -2,10 +2,10 @@
 export { ButtonIcon } from './ButtonIcon/ButtonIcon';
 export { Fieldset } from './Fieldset/Fieldset';
 export { Input } from './Input/Input';
-export { default as Logo } from './Logo/Logo';
-export { default as Paragraph } from './Paragraph/Paragraph';
-export { default as SectionWrapper } from './SectionWrapper/SectionWrapper';
-export { default as Select } from './Select/Select';
-export { default as SubTitle } from './SubTitle/SubTitle';
-export { default as Title } from './Title/Title';
-export { default as SignCard } from './SignCard/SignCard';
+export { Logo } from './Logo/Logo';
+export { Paragraph } from './Paragraph/Paragraph';
+export { Section } from './Section/Section';
+export { Select } from './Select/Select';
+export { SignCard } from './SignCard/SignCard';
+export { SubTitle } from './SubTitle/SubTitle';
+export { Title } from './Title/Title';

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SignCard/> renders properly with passed node 1`] = `
+<div
+  class="StyledSignCard__Wrapper-sc-1izkqin-0 efKdbS"
+>
+  <div>
+    <p>
+      Hello World
+    </p>
+  </div>
+</div>
+`;

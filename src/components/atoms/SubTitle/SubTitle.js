@@ -1,16 +1,11 @@
-﻿import styled from 'styled-components';
+﻿import React from 'react';
 import PropTypes from 'prop-types';
+import { Wrapper } from './styles/StyledSubTitle';
 
-const SubTitle = styled.p`
-  color: white;
-  font-size: ${({ theme }) => theme.fontSize.normal};
-  font-weight: 500;
-  margin: 0;
-  padding: 0;
-`;
+export const SubTitle = ({ children, ...restProps }) => {
+  return <Wrapper {...restProps}>{children}</Wrapper>;
+};
 
 SubTitle.propTypes = {
   children: PropTypes.string.isRequired,
 };
-
-export default SubTitle;

@@ -1,10 +1,18 @@
-﻿import styled from 'styled-components';
+﻿import styled from 'styled-components/macro';
+import { defaultThemeProps } from 'theme/defaultThemeProps';
 
 export const Wrapper = styled.select`
   text-align: center;
+  text-align-last: center;
+  padding: 10px 10px;
+  border: none;
   color: ${({ theme }) => theme.secondary};
   font-size: 1.6rem;
-  padding: 10px 10px;
   border-radius: ${({ theme }) => theme.borderRadius};
-  border: none;
+
+  option {
+    text-align: left;
+  }
 `;
+
+Wrapper.defaultProps = defaultThemeProps;

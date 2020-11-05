@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Title/> renders properly with default props 1`] = `
+<h1
+  class="StyledTitle__Wrapper-sc-1etxgm6-0 hdoaJX"
+>
+  Hello World
+</h1>
+`;
+
+exports[`<Title/> renders properly with passed props 1`] = `
+<h1
+  class="StyledTitle__Wrapper-sc-1etxgm6-0 bcXqTI"
+>
+  Hello World
+</h1>
+`;

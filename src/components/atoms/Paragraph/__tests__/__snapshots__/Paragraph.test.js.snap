@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Paragraph/> components renders properly with passed children 1`] = `
+<p
+  class="Paragraph-vj49lv-0 eenHSs"
+>
+  Lorem ipsum dolor sit amet
+</p>
+`;
+
+exports[`<Paragraph/> components renders properly with size prop 1`] = `
+<p
+  class="Paragraph-vj49lv-0 hMqrMq"
+>
+  Lorem ipsum dolor sit amet
+</p>
+`;

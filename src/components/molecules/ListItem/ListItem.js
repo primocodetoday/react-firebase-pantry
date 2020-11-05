@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Paragraph } from 'components/atoms';
 import { Wrapper, Stock } from './styles/StyledListItem';
 
-const ListItem = ({ name, stock, id, unit }) => {
+export const ListItem = ({ name, stock, id, unit }) => {
   const [isRedirect, setRedirect] = useState({ redirect: false });
 
   const handleItemClick = () => setRedirect({ redirect: true });
@@ -27,5 +27,3 @@ ListItem.propTypes = {
   stock: PropTypes.number.isRequired,
   unit: PropTypes.string.isRequired,
 };
-
-export default ListItem;

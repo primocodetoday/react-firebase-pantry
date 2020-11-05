@@ -2,17 +2,12 @@
 import PropTypes from 'prop-types';
 import { Wrapper, First } from './styles/StyledLogo';
 
-const Logo = ({ to = '/', big, ...restProps }) => {
+export const Logo = ({ to, big, ...restProps }) => {
   return (
-    <Wrapper to={to} big={big ? 1 : 0} {...restProps}>
+    <Wrapper to={to} $big={big} {...restProps}>
       <First>P</First>antry
     </Wrapper>
   );
-};
-
-Logo.defaultProps = {
-  big: false,
-  to: '/',
 };
 
 Logo.propTypes = {
@@ -20,4 +15,7 @@ Logo.propTypes = {
   to: PropTypes.string,
 };
 
-export default Logo;
+Logo.defaultProps = {
+  big: false,
+  to: '/',
+};
