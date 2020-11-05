@@ -2,7 +2,7 @@
 
 exports[`<Section/> render properly with passed nodes 1`] = `
 <div
-  class="StyledSection__Wrapper-tchlt3-0 fHKQdA"
+  class="StyledSection__Wrapper-tchlt3-0 hlxlII"
 >
   <div>
     <p>
@@ -14,7 +14,7 @@ exports[`<Section/> render properly with passed nodes 1`] = `
 
 exports[`<Section/> render properly with passed props 1`] = `
 <div
-  class="StyledSection__Wrapper-tchlt3-0 qWwUt"
+  class="StyledSection__Wrapper-tchlt3-0 sYIfJ"
 >
   <div>
     <p>

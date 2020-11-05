@@ -1,6 +1,5 @@
 ﻿import React from 'react';
 import { render } from '@testing-library/react';
-import { TestThemeProvider } from '__tests__/helpers/TestThemeProvider';
 import { Logo } from 'components/atoms';
 import { MemoryRouter } from 'react-router-dom';
 

@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import { render } from '@testing-library/react';
 import { Section } from 'components/atoms';
-import { TestThemeProvider } from '__tests__/helpers/TestThemeProvider';
 
 describe('<Section/> render properly', () => {
   it('with passed nodes', () => {

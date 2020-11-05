@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   padding: 25px 35px;
 
   @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
-    align-items: center;
+    /* align-items: center; */
     padding: 10px 10px 0;
   }
 `;

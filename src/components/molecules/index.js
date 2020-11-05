@@ -1,4 +1,4 @@
-﻿export { default as Basket } from './Basket/Basket';
-export { default as CardList } from './CardList/CardList';
-export { default as Header } from './Header/Header';
-export { default as ListItem } from './ListItem/ListItem';
+﻿export { Basket } from './Basket/Basket';
+export { CardList } from './CardList/CardList';
+export { Header } from './Header/Header';
+export { ListItem } from './ListItem/ListItem';

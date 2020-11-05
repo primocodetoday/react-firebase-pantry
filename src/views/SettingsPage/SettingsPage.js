@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { Section } from 'components/atoms';
+import { Header } from 'components/molecules';
 import UserTemplate from '../../templates/UserTemplate/UserTemplate';
-import Header from '../../components/molecules/Header/Header';
 
 const SettingsPage = () => (
   <UserTemplate>

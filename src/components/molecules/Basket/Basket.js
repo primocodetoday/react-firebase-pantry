@@ -1,15 +1,22 @@
 ﻿import React from 'react';
 import { Title } from 'components/atoms';
+import PropTypes from 'prop-types';
 import { Wrapper, Line } from './styles/StyledBasket';
 
-const Basket = () => {
+export const Basket = ({ children, ...restProps }) => {
   return (
-    <Wrapper>
-      <Title>ShopList</Title>
+    <Wrapper {...restProps}>
+      <Title card>Shop list</Title>
       <Line />
-      <p>List</p>
+      {children}
     </Wrapper>
   );
 };
 
-export default Basket;
+Basket.propTypes = {
+  children: PropTypes.node,
+};
+
+Basket.defaultProps = {
+  children: undefined,
+};

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Basket/> renders properly> with  passed props 1`] = `
+<div
+  class="StyledBasket__Wrapper-sc-13gdfu1-0 kXgmdu"
+>
+  <h1
+    class="StyledTitle__Wrapper-sc-1etxgm6-0 bcXqTI"
+  >
+    Shop list
+  </h1>
+  <div
+    class="StyledBasket__Line-sc-13gdfu1-1 gtDSIE"
+  />
+  <h1>
+    Test string
+  </h1>
+</div>
+`;
+
+exports[`<Basket/> renders properly> without  props 1`] = `
+<div
+  class="StyledBasket__Wrapper-sc-13gdfu1-0 kXgmdu"
+>
+  <h1
+    class="StyledTitle__Wrapper-sc-1etxgm6-0 bcXqTI"
+  >
+    Shop list
+  </h1>
+  <div
+    class="StyledBasket__Line-sc-13gdfu1-1 gtDSIE"
+  />
+</div>
+`;
