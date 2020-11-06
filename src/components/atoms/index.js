@@ -7,5 +7,5 @@ export { Paragraph } from './Paragraph/Paragraph';
 export { Section } from './Section/Section';
 export { Select } from './Select/Select';
 export { SignCard } from './SignCard/SignCard';
-export { SubTitle } from './subTitle/SubTitle';
+export { SubTitle } from './subTitle/subTitle';
 export { Title } from './Title/Title';
