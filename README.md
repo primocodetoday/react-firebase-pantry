@@ -24,8 +24,8 @@ I create some roadmap soon. First, I'd like to clear the code and cover all with
 
 ## Code coverage 🧪
 
-| Statements                                                           | Branches                                                           | Functions                                                           | Lines                                                           |
-| -------------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------- | --------------------------------------------------------------- |
+| Statements                                                         | Branches                                                            | Functions                                                            | Lines                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------- |
 | ![Statements](https://img.shields.io/badge/Coverage-25%25-red.svg) | ![Branches](https://img.shields.io/badge/Coverage-19.19%25-red.svg) | ![Functions](https://img.shields.io/badge/Coverage-25.62%25-red.svg) | ![Lines](https://img.shields.io/badge/Coverage-26.02%25-red.svg) |
 
 <br>
@@ -42,6 +42,6 @@ I create some roadmap soon. First, I'd like to clear the code and cover all with
 
 ## Live 📍
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a3b172d0-edc6-4cb9-81b7-d5f2a02e85b8/deploy-status)](https://pantry-app-react.netlify.app)
+[Netlify](https://pantry-app-react.netlify.app)
 
 <!-- ### License 🔱 -->
