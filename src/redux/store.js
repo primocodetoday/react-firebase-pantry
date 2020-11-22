@@ -3,9 +3,9 @@ import thunk from 'redux-thunk';
 import { reduxFirestore, getFirestore, createFirestoreInstance } from 'redux-firestore';
 import { getFirebase } from 'react-redux-firebase';
 import firebase from 'firebase/app';
-import rootReducer from '../redux/reducers/rootReducer';
-import fbConfig from '../config/fbConfig';
-import { initialStore } from './initialStore';
+import rootReducer from './reducers/rootReducer';
+import fbConfig from '../services/fbConfig';
+import { initialStore } from './reducers/pantryReducer';
 
 /* eslint-disable no-underscore-dangle */
 export const store = createStore(
@@ -20,7 +20,7 @@ export const store = createStore(
 );
 /* eslint-enable */
 
-const rrfConfig = {
+export const rrfConfig = {
   userProfile: 'users',
   useFirestoreForProfile: true,
 };

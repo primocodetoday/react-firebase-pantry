@@ -1,4 +1,17 @@
-﻿export const removeItem = (id) => {
+﻿export const PANTRY_ACTION_TYPES = {
+  REMOVE_ITEM: 'REMOVE_ITEM',
+  REMOVE_ITEM_ERROR: 'REMOVE_ITEM_ERROR',
+  ADD_ITEM: 'ADD_ITEM',
+  ADD_ITEM_ERROR: 'ADD_ITEM_ERROR',
+  CHANGE_ITEM: 'CHANGE_ITEM',
+  CHANGE_ITEM_ERROR: 'CHANGE_ITEM_ERROR',
+  ADD_STOCK: 'ADD_STOCK',
+  ADD_STOCK_ERROR: 'ADD_STOCK_ERROR',
+  SUB_STOCK: 'SUB_STOCK',
+  SUB_STOCK_ERROR: 'SUB_STOCK_ERROR',
+};
+
+export const removeItem = (id) => {
   return (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
     firestore
@@ -7,12 +20,12 @@
       .delete()
       .then(() => {
         dispatch({
-          type: 'REMOVE_ITEM',
+          type: PANTRY_ACTION_TYPES.REMOVE_ITEM,
           payload: { id },
         });
       })
       .catch((err) => {
-        dispatch({ type: 'REMOVE_ITEM_ERROR', err });
+        dispatch({ type: PANTRY_ACTION_TYPES.REMOVE_ITEM_ERROR, err });
       });
   };
 };
@@ -25,7 +38,7 @@ export const addItem = (itemContent) => {
       .add(itemContent)
       .then((docRef) => {
         dispatch({
-          type: 'ADD_ITEM',
+          type: PANTRY_ACTION_TYPES.ADD_ITEM,
           payload: {
             item: {
               id: docRef.id,
@@ -35,7 +48,7 @@ export const addItem = (itemContent) => {
         });
       })
       .catch((err) => {
-        dispatch({ type: 'ADD_ITEM_ERROR', err });
+        dispatch({ type: PANTRY_ACTION_TYPES.ADD_ITEM_ERROR, err });
       });
   };
 };
@@ -53,7 +66,7 @@ export const changeItem = (id, maxStock, minStock, unit) => {
       })
       .then(() => {
         dispatch({
-          type: 'CHANGE_ITEM',
+          type: PANTRY_ACTION_TYPES.CHANGE_ITEM,
           payload: {
             id,
             maxStock,
@@ -63,7 +76,7 @@ export const changeItem = (id, maxStock, minStock, unit) => {
         });
       })
       .catch((err) => {
-        dispatch({ type: 'CHANGE_ITEM_ERROR', err });
+        dispatch({ type: PANTRY_ACTION_TYPES.CHANGE_ITEM_ERROR, err });
       });
   };
 };
@@ -78,14 +91,14 @@ export const addStock = (id) => {
       .update({ stock: firebase.firestore.FieldValue.increment(1) })
       .then(() => {
         dispatch({
-          type: 'ADD_STOCK',
+          type: PANTRY_ACTION_TYPES.ADD_STOCK,
           payload: {
             id,
           },
         });
       })
       .catch((err) => {
-        dispatch({ type: 'ADD_STOCK_ERROR', err });
+        dispatch({ type: PANTRY_ACTION_TYPES.ADD_STOCK_ERROR, err });
       });
   };
 };
@@ -100,14 +113,14 @@ export const subStock = (id) => {
       .update({ stock: firebase.firestore.FieldValue.increment(-1) })
       .then(() => {
         dispatch({
-          type: 'SUB_STOCK',
+          type: PANTRY_ACTION_TYPES.SUB_STOCK,
           payload: {
             id,
           },
         });
       })
       .catch((err) => {
-        dispatch({ type: 'SUB_STOCK_ERROR', err });
+        dispatch({ type: PANTRY_ACTION_TYPES.SUB_STOCK_ERROR, err });
       });
   };
 };

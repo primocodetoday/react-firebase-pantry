@@ -1,4 +1,4 @@
-﻿export const AUTH_ACTIONS = {
+﻿export const AUTH_ACTIONS_TYPES = {
   LOGIN_ERROR: 'LOGIN_ERROR',
   LOGIN_SUCCESS: 'LOGIN_SUCCESS',
   SIGNOUT_SUCCESS: 'SIGNOUT_SUCCESS',
@@ -14,10 +14,10 @@ export const signIn = (creds) => {
       .auth()
       .signInWithEmailAndPassword(creds.email, creds.password)
       .then(() => {
-        dispatch({ type: AUTH_ACTIONS.LOGIN_SUCCESS });
+        dispatch({ type: AUTH_ACTIONS_TYPES.LOGIN_SUCCESS });
       })
       .catch((err) => {
-        dispatch({ type: AUTH_ACTIONS.LOGIN_ERROR, err });
+        dispatch({ type: AUTH_ACTIONS_TYPES.LOGIN_ERROR, err });
       });
   };
 };
@@ -30,7 +30,7 @@ export const signOut = () => {
       .auth()
       .signOut()
       .then(() => {
-        dispatch({ type: AUTH_ACTIONS.SIGNOUT_SUCCESS });
+        dispatch({ type: AUTH_ACTIONS_TYPES.SIGNOUT_SUCCESS });
       });
   };
 };
@@ -49,8 +49,8 @@ export const signUp = (newUser) => {
         });
       })
       .then(() => {
-        dispatch({ type: AUTH_ACTIONS.SIGNUP_SUCCESS });
+        dispatch({ type: AUTH_ACTIONS_TYPES.SIGNUP_SUCCESS });
       })
-      .catch((err) => dispatch({ type: AUTH_ACTIONS.SIGNUP_ERROR, err }));
+      .catch((err) => dispatch({ type: AUTH_ACTIONS_TYPES.SIGNUP_ERROR, err }));
   };
 };

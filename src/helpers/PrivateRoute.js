@@ -5,12 +5,7 @@ import { Redirect, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const PrivateRoute = ({ component: Component, auth, ...rest }) => (
-  <Route
-    {...rest}
-    render={(props) =>
-      auth.uid ? <Component {...props} /> : <Redirect to="/signin" />
-    }
-  />
+  <Route {...rest} render={(props) => (auth.uid ? <Component {...props} /> : <Redirect to="/signin" />)} />
 );
 
 PrivateRoute.propTypes = {

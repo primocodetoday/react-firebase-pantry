@@ -3,11 +3,11 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider, useSelector } from 'react-redux';
 import { ReactReduxFirebaseProvider, isLoaded } from 'react-redux-firebase';
 import { ROUTES } from 'routes';
-import { store, rrfProps } from 'store';
 import { MainTemplate } from 'templates';
 import LoadingScreen from 'helpers/LoadingScreen';
 import PrivateRoute from 'helpers/PrivateRoute';
 import { PantryPage, ShopListPage, SettingsPage, ItemPage, NewPage, SignIn, SignUp } from 'views';
+import { store, rrfProps } from 'redux/store';
 
 const AuthIsLoaded = ({ children }) => {
   const auth = useSelector((state) => state.firebase.auth);
