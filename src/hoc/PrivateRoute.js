@@ -12,7 +12,6 @@ const PrivateRoute = ({ component: Component, ...restProps }) => {
 
 PrivateRoute.propTypes = {
   component: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
-  auth: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default PrivateRoute;

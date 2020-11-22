@@ -5,9 +5,10 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { ItemTemplate, UserTemplate, InfoTemplate } from 'templates';
 import { Paragraph, Section } from 'components/atoms';
+import { useParams } from 'react-router-dom';
 
-const ItemPage = ({ match, item, units }) => {
-  const { id } = match.params;
+const ItemPage = ({ item, units }) => {
+  const { id } = useParams();
 
   return (
     <UserTemplate>
@@ -37,7 +38,6 @@ ItemPage.propTypes = {
     minStock: PropTypes.number.isRequired,
     maxStock: PropTypes.number.isRequired,
   }),
-  match: PropTypes.objectOf(PropTypes.any).isRequired,
   units: PropTypes.arrayOf(PropTypes.string),
 };
 

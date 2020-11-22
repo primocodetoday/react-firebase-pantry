@@ -1,8 +1,9 @@
-﻿import { createStore, applyMiddleware, compose } from 'redux';
+﻿import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { reduxFirestore, getFirestore, createFirestoreInstance } from 'redux-firestore';
 import { getFirebase } from 'react-redux-firebase';
 import firebase from 'firebase/app';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers/rootReducer';
 import fbConfig from '../services/fbConfig';
 import { initialStore } from './reducers/pantryReducer';
@@ -11,10 +12,9 @@ import { initialStore } from './reducers/pantryReducer';
 export const store = createStore(
   rootReducer,
   initialStore,
-  compose(
+  composeWithDevTools(
     applyMiddleware(thunk.withExtraArgument({ getFirestore, getFirebase })),
     reduxFirestore(fbConfig),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   ),
 );
 /* eslint-enable */
