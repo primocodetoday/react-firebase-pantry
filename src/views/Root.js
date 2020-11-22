@@ -4,8 +4,8 @@ import { Provider, useSelector } from 'react-redux';
 import { ReactReduxFirebaseProvider, isLoaded } from 'react-redux-firebase';
 import { ROUTES } from 'routes';
 import { MainTemplate } from 'templates';
-import LoadingScreen from 'helpers/LoadingScreen';
-import PrivateRoute from 'helpers/PrivateRoute';
+import LoadingScreen from 'components/atoms/LoadingScreen/LoadingScreen';
+import PrivateRoute from 'hoc/PrivateRoute';
 import { PantryPage, ShopListPage, SettingsPage, ItemPage, NewPage, SignIn, SignUp } from 'views';
 import { store, rrfProps } from 'redux/store';
 

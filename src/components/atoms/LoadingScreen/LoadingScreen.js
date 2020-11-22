@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import styled from 'styled-components';
-import { Paragraph } from '../components/atoms';
-import { GlobalStyles } from '../theme/GlobalStyles';
+import { Paragraph } from '..';
+import { GlobalStyles } from '../../../theme/GlobalStyles';
 
 const StyledWrapper = styled.div`
   display: flex;
