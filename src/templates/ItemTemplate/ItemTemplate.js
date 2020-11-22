@@ -3,19 +3,13 @@ import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import {
-  Paragraph,
-  Fieldset,
-  Input,
-  ButtonIcon,
-  Select,
-} from 'components/atoms';
+import { Paragraph, Fieldset, Input, ButtonIcon, Select } from 'components/atoms';
 import {
   removeItem as removeItemAction,
   changeItem as changeItemAction,
   addStock as addStockAction,
   subStock as subStockAction,
-} from 'actions/pantryActions';
+} from 'redux/actions/pantryActions';
 import { Header } from 'components/molecules';
 import {
   Wrapper,
@@ -70,13 +64,7 @@ const ItemTemplate = ({
             }, 400);
           }}
         >
-          {({
-            values,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            isSubmitting,
-          }) => (
+          {({ values, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
             <Settings onSubmit={handleSubmit}>
               <label className="grid-settings-1" htmlFor="maxStock">
                 Maximum:
@@ -117,12 +105,7 @@ const ItemTemplate = ({
               <Paragraph className="grid-settings-7" size="1.6rem">
                 Apply
               </Paragraph>
-              <ApplyIcon
-                className="grid-settings-8"
-                type="submit"
-                disabled={isSubmitting}
-                icon={applyIcon}
-              />
+              <ApplyIcon className="grid-settings-8" type="submit" disabled={isSubmitting} icon={applyIcon} />
             </Settings>
           )}
         </Formik>
@@ -160,8 +143,7 @@ ItemTemplate.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   removeItem: (id) => dispatch(removeItemAction(id)),
-  changeItem: (id, maxStock, minStock, unit) =>
-    dispatch(changeItemAction(id, maxStock, minStock, unit)),
+  changeItem: (id, maxStock, minStock, unit) => dispatch(changeItemAction(id, maxStock, minStock, unit)),
   addStock: (id) => dispatch(addStockAction(id)),
   subStock: (id) => dispatch(subStockAction(id)),
 });

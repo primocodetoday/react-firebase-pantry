@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Logo, Paragraph, Button, SignCard } from 'components/atoms';
-import { signUp as signUpAction } from 'actions/authActions';
+import { signUp as signUpAction } from 'redux/actions/authActions';
 import { StyledForm, StyledInput, StyledItemBar } from './styles/StyledSignUp';
 
 const SignUp = ({ signUp, authError, auth, history }) => {
@@ -34,13 +34,7 @@ const SignUp = ({ signUp, authError, auth, history }) => {
         <Logo big />
         <Paragraph>Create an account to manage your own pantry</Paragraph>
 
-        <StyledInput
-          name="email"
-          type="email"
-          placeholder="login"
-          value={formState.login}
-          onChange={handleChange}
-        />
+        <StyledInput name="email" type="email" placeholder="login" value={formState.login} onChange={handleChange} />
         <StyledItemBar />
         <StyledInput
           name="password"

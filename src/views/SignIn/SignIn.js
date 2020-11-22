@@ -3,15 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Logo, Paragraph, SignCard } from 'components/atoms';
-import { signIn as signInAction } from 'actions/authActions';
+import { signIn as signInAction } from 'redux/actions/authActions';
 import { routes } from 'routes';
-import {
-  StyledForm,
-  StyledInput,
-  StyledItemBar,
-  ButtonWrapper,
-  SignButton,
-} from './styles/StyledSignIn';
+import { StyledForm, StyledInput, StyledItemBar, ButtonWrapper, SignButton } from './styles/StyledSignIn';
 
 const SignIn = ({ signIn, authError, auth, history }) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -37,13 +31,7 @@ const SignIn = ({ signIn, authError, auth, history }) => {
       <SignCard>
         <Logo big />
         <Paragraph>Menage your pantry</Paragraph>
-        <StyledInput
-          name="email"
-          type="email"
-          placeholder="login"
-          value={formState.login}
-          onChange={handleChange}
-        />
+        <StyledInput name="email" type="email" placeholder="login" value={formState.login} onChange={handleChange} />
         <StyledItemBar />
         <StyledInput
           name="password"

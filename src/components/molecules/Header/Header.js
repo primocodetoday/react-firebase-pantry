@@ -2,9 +2,9 @@
 import PropTypes from 'prop-types';
 import { Wrapper, Text, SubText } from './styles/StyledHeader';
 
-export const Header = ({ titleText, subTitleText }) => {
+export const Header = ({ titleText, subTitleText, ...restProps }) => {
   return (
-    <Wrapper>
+    <Wrapper {...restProps}>
       <Text>{titleText}</Text>
       <SubText>{subTitleText}</SubText>
     </Wrapper>

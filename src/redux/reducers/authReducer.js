@@ -1,11 +1,15 @@
 ﻿/* eslint-disable no-console */
+export const AUTH_ACTIONS = {
+  LOGIN_ERROR: 'LOGIN_ERROR',
+};
+
 const InitialState = {
   authReducer: null,
 };
 
 const authReducer = (state = InitialState, action) => {
   switch (action.type) {
-    case 'LOGIN_ERROR':
+    case AUTH_ACTIONS.LOGIN_ERROR:
       console.log('login error');
       return {
         ...state,

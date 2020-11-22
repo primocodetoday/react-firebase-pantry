@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Sidebar from 'components/organisms/Sidebar/Sidebar';
 import TopBar from 'components/organisms/Topbar/Topbar';
 import useWindowWidth from 'hooks/useWindowWidth';
-import { signOut as signOutAction } from '../../actions/authActions';
+import { signOut as signOutAction } from '../../redux/actions/authActions';
 
 const UserWrapper = styled.div`
   padding: 10px;
@@ -25,11 +25,7 @@ const UserTemplate = ({ children, signOut }) => {
 
   return (
     <UserWrapper>
-      {width > 600 ? (
-        <Sidebar signOut={signOut} />
-      ) : (
-        <TopBar signOut={signOut} />
-      )}
+      {width > 600 ? <Sidebar signOut={signOut} /> : <TopBar signOut={signOut} />}
       {children}
     </UserWrapper>
   );

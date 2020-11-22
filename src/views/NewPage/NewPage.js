@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 import { firestoreConnect } from 'react-redux-firebase';
 import { Input, Select, Button } from 'components/atoms';
 import { Header } from 'components/molecules';
-import { addItem } from 'actions/pantryActions';
+import { addItem } from 'redux/actions/pantryActions';
 import { UserTemplate } from 'templates';
 import { StyledWrapper, StyledForm } from './styles/StyledNewPage';
 

@@ -1,5 +1,5 @@
 ﻿/* eslint-disable no-console */
-import { initialStore } from '../store/initialStore';
+import { initialStore } from '../../store/initialStore';
 
 const pantryReducer = (state = initialStore, action) => {
   switch (action.type) {
