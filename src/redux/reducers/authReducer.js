@@ -1,7 +1,5 @@
 ﻿/* eslint-disable no-console */
-export const AUTH_ACTIONS = {
-  LOGIN_ERROR: 'LOGIN_ERROR',
-};
+import { AUTH_ACTIONS } from 'redux/actions/authActions';
 
 const InitialState = {
   authReducer: null,
@@ -15,19 +13,19 @@ const authReducer = (state = InitialState, action) => {
         ...state,
         authError: action.err.message,
       };
-    case 'LOGIN_SUCCESS':
+    case AUTH_ACTIONS.LOGIN_SUCCESS:
       console.log('login success');
       return {
         ...state,
         authError: null,
       };
-    case 'SIGNOUT_SUCCESS':
+    case AUTH_ACTIONS.SIGNOUT_SUCCESS:
       console.log('logout success');
       return state;
-    case 'SIGNUP_SUCCESS':
+    case AUTH_ACTIONS.SIGNUP_SUCCESS:
       console.log('signup success');
       return { ...state, authError: null };
-    case 'SIGNUP_ERROR':
+    case AUTH_ACTIONS.SIGNUP_ERROR:
       console.log('signup error');
       return { ...state, authError: action.err.message };
     default:

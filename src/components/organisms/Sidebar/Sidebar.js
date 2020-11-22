@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { logout } from 'assets/icons';
 import { Logo } from 'components/atoms';
-import { routes } from 'routes';
+import { ROUTES } from 'routes';
 import { menuItems } from '../menuItems';
 import { Wrapper, MenuIcon } from './styles/StyledSidebar';
 
@@ -12,7 +12,7 @@ import { Wrapper, MenuIcon } from './styles/StyledSidebar';
 const Sidebar = ({ signOut }) => {
   return (
     <Wrapper>
-      <Logo to={routes.home} />
+      <Logo to={ROUTES.home} />
       {menuItems.map((item) => (
         <MenuIcon
           key={item.name}

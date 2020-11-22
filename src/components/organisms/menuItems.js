@@ -1,37 +1,28 @@
-﻿import {
-  home,
-  basket,
-  settings,
-  homeActive,
-  settingsActive,
-  basketActive,
-  newItem,
-  newItemActive,
-} from 'assets/icons';
-import { routes } from 'routes';
+﻿import { home, basket, settings, homeActive, settingsActive, basketActive, newItem, newItemActive } from 'assets/icons';
+import { ROUTES } from 'routes';
 
 export const menuItems = [
   {
     name: 'Main',
-    route: routes.pantry,
+    route: ROUTES.pantry,
     icon: home,
     activeIcon: homeActive,
   },
   {
     name: 'New Item',
-    route: routes.new,
+    route: ROUTES.new,
     icon: newItem,
     activeIcon: newItemActive,
   },
   {
     name: 'Shoplist',
-    route: routes.shoplist,
+    route: ROUTES.shoplist,
     icon: basket,
     activeIcon: basketActive,
   },
   {
     name: 'Settings',
-    route: routes.settings,
+    route: ROUTES.settings,
     icon: settings,
     activeIcon: settingsActive,
   },

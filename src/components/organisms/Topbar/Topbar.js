@@ -2,7 +2,7 @@
 import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import PropTypes from 'prop-types';
-import { routes } from 'routes';
+import { ROUTES } from 'routes';
 import { Paragraph, Logo } from 'components/atoms';
 import { menuItems } from '../menuItems';
 import { Wrapper, BurgerWrapper } from './styles/StyledTopbar';
@@ -10,7 +10,7 @@ import { Wrapper, BurgerWrapper } from './styles/StyledTopbar';
 const Topbar = ({ signOut }) => {
   return (
     <Wrapper>
-      <Logo to={routes.home} />
+      <Logo to={ROUTES.home} />
       <BurgerWrapper>
         <Menu right>
           {menuItems.map((item) => (

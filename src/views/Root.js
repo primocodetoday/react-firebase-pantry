@@ -2,7 +2,7 @@
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider, useSelector } from 'react-redux';
 import { ReactReduxFirebaseProvider, isLoaded } from 'react-redux-firebase';
-import { routes } from 'routes';
+import { ROUTES } from 'routes';
 import { store, rrfProps } from 'store';
 import { MainTemplate } from 'templates';
 import LoadingScreen from 'helpers/LoadingScreen';
@@ -23,14 +23,14 @@ const Root = () => {
           <BrowserRouter>
             <MainTemplate>
               <Switch>
-                <Route exact path={routes.home} render={() => <Redirect to="/pantry" />} />
-                <PrivateRoute exact path={routes.pantry} component={PantryPage} />
-                <PrivateRoute path={routes.pantryitem} component={ItemPage} />
-                <PrivateRoute path={routes.shoplist} component={ShopListPage} />
-                <PrivateRoute path={routes.new} component={NewPage} />
-                <PrivateRoute path={routes.settings} component={SettingsPage} />
-                <Route path={routes.signIn} component={SignIn} />
-                <Route path={routes.signUp} component={SignUp} />
+                <Route exact path={ROUTES.home} render={() => <Redirect to="/pantry" />} />
+                <PrivateRoute exact path={ROUTES.pantry} component={PantryPage} />
+                <PrivateRoute path={ROUTES.pantryitem} component={ItemPage} />
+                <PrivateRoute path={ROUTES.shoplist} component={ShopListPage} />
+                <PrivateRoute path={ROUTES.new} component={NewPage} />
+                <PrivateRoute path={ROUTES.settings} component={SettingsPage} />
+                <Route path={ROUTES.signIn} component={SignIn} />
+                <Route path={ROUTES.signUp} component={SignUp} />
               </Switch>
             </MainTemplate>
           </BrowserRouter>

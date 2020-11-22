@@ -1,4 +1,12 @@
-﻿export const signIn = (creds) => {
+﻿export const AUTH_ACTIONS = {
+  LOGIN_ERROR: 'LOGIN_ERROR',
+  LOGIN_SUCCESS: 'LOGIN_SUCCESS',
+  SIGNOUT_SUCCESS: 'SIGNOUT_SUCCESS',
+  SIGNUP_SUCCESS: 'SIGNUP_SUCCESS',
+  SIGNUP_ERROR: 'SIGNUP_ERROR',
+};
+
+export const signIn = (creds) => {
   return (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
 
@@ -6,10 +14,10 @@
       .auth()
       .signInWithEmailAndPassword(creds.email, creds.password)
       .then(() => {
-        dispatch({ type: 'LOGIN_SUCCESS' });
+        dispatch({ type: AUTH_ACTIONS.LOGIN_SUCCESS });
       })
       .catch((err) => {
-        dispatch({ type: 'LOGIN_ERROR', err });
+        dispatch({ type: AUTH_ACTIONS.LOGIN_ERROR, err });
       });
   };
 };
@@ -22,7 +30,7 @@ export const signOut = () => {
       .auth()
       .signOut()
       .then(() => {
-        dispatch({ type: 'SIGNOUT_SUCCESS' });
+        dispatch({ type: AUTH_ACTIONS.SIGNOUT_SUCCESS });
       });
   };
 };
@@ -41,8 +49,8 @@ export const signUp = (newUser) => {
         });
       })
       .then(() => {
-        dispatch({ type: 'SIGNUP_SUCCESS' });
+        dispatch({ type: AUTH_ACTIONS.SIGNUP_SUCCESS });
       })
-      .catch((err) => dispatch({ type: 'SIGNUP_ERROR', err }));
+      .catch((err) => dispatch({ type: AUTH_ACTIONS.SIGNUP_ERROR, err }));
   };
 };

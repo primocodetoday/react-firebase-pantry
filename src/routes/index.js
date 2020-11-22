@@ -1,4 +1,4 @@
-﻿export const routes = {
+﻿export const ROUTES = {
   home: '/',
   pantry: '/pantry',
   pantryitem: '/pantry/:id',
