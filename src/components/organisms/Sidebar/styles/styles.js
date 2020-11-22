@@ -1,17 +1,17 @@
 ﻿import styled from 'styled-components';
 
 export const Wrapper = styled.header`
-  flex-shrink: 0;
   display: grid;
+  align-items: center;
+  flex-shrink: 0;
   grid-template-columns: 1fr;
   justify-items: center;
   grid-template-rows: 85px repeat(4, 70px) 1fr;
-  background-color: white;
-  color: ${({ theme }) => theme.primary};
   width: 110px;
   height: 96vh;
+  background-color: white;
+  color: ${({ theme }) => theme.primary};
   border-radius: 15px;
-  align-items: center;
 
   @media (max-height: 500px) {
     height: 150vh;
@@ -28,9 +28,9 @@ export const MenuIcon = styled.button`
   height: 50px;
   background-image: url(${({ icon }) => icon});
   background-repeat: no-repeat;
+  border: none;
   color: white;
   background-position: 50% 50%;
-  border: none;
   background-color: white;
   background-size: contain;
   cursor: pointer;

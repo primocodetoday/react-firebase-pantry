@@ -1,12 +1,12 @@
-﻿import styled from 'styled-components';
+﻿import SC from 'styled-components';
 
-export const Wrapper = styled.header`
+export const Wrapper = SC.header`
   display: flex;
   align-items: center;
   background-color: white;
-  color: ${({ theme }) => theme.primary};
   width: 93vw;
   height: 65px;
+  color: ${({ theme }) => theme.primary};
   border-radius: 15px;
   padding-left: 10px;
 
@@ -19,13 +19,13 @@ export const Wrapper = styled.header`
   }
 `;
 
-export const BurgerWrapper = styled.div`
+export const BurgerWrapper = SC.div`
   .bm-burger-button {
     position: absolute;
+    top: 30px;
+    right: 36px;
     width: 36px;
     height: 30px;
-    right: 36px;
-    top: 30px;
   }
   .bm-burger-bars {
     background: #ac3b61;
@@ -34,8 +34,8 @@ export const BurgerWrapper = styled.div`
     background: #a90000;
   }
   .bm-cross-button {
-    height: 40px;
     width: 40px;
+    height: 40px;
   }
   .bm-cross {
     background: #ac3b61;
@@ -46,8 +46,8 @@ export const BurgerWrapper = styled.div`
     height: 60% !important;
   }
   .bm-menu {
-    background: #fff;
     padding: 1rem 1rem 0;
+    background: #fff;
     font-size: 3.3rem;
     border-radius: 0 0 0 15px;
     font-weight: 700;
@@ -62,8 +62,8 @@ export const BurgerWrapper = styled.div`
     padding: 1rem;
   }
   .bm-item {
-    margin: 15px 0;
     display: inline-block;
+    margin: 15px 0;
     color: ${({ theme }) => theme.primary};
 
     &:last-child {

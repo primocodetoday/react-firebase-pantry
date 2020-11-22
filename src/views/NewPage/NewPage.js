@@ -32,6 +32,7 @@ const NewPage = ({ handleAddItem, history, units, categories }) => {
             handleAddItem(values);
             history.push('/');
           }}
+          // Ło matko boska
           validate={(values) => {
             const errors = {};
             if (!values.name) {

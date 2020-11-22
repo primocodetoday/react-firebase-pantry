@@ -1,15 +1,18 @@
-﻿import React from 'react';
+﻿import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { logout } from 'assets/icons';
 import { Logo } from 'components/atoms';
+import { signOut } from 'redux/actions/authActions';
 import { ROUTES } from 'routes';
-import { menuItems } from '../menuItems';
-import { Wrapper, MenuIcon } from './styles/StyledSidebar';
+import { useDispatch } from 'react-redux';
+import { menuItems } from '../../../constants/menuItems';
+import { Wrapper, MenuIcon } from './styles/styles';
 
 // TODO Maybe make MenuIcon a Link
 
-const Sidebar = ({ signOut }) => {
+const Sidebar = () => {
+  const dispatch = useDispatch();
+
   return (
     <Wrapper>
       <Logo to={ROUTES.home} />
@@ -23,13 +26,9 @@ const Sidebar = ({ signOut }) => {
           activeclass="active"
         />
       ))}
-      <MenuIcon key="logout" onClick={signOut} icon={logout} />
+      <MenuIcon key="logout" onClick={() => dispatch(signOut())} icon={logout} />
     </Wrapper>
   );
-};
-
-Sidebar.propTypes = {
-  signOut: PropTypes.func.isRequired,
 };
 
 export default Sidebar;

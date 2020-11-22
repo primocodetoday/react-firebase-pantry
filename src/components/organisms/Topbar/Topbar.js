@@ -1,13 +1,16 @@
-﻿import React from 'react';
+﻿import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
-import PropTypes from 'prop-types';
 import { ROUTES } from 'routes';
 import { Paragraph, Logo } from 'components/atoms';
-import { menuItems } from '../menuItems';
-import { Wrapper, BurgerWrapper } from './styles/StyledTopbar';
+import { useDispatch } from 'react-redux';
+import { signOut } from 'redux/actions/authActions';
+import { menuItems } from '../../../constants/menuItems';
+import { Wrapper, BurgerWrapper } from './styles/styles';
 
-const Topbar = ({ signOut }) => {
+const Topbar = () => {
+  const dispatch = useDispatch();
+
   return (
     <Wrapper>
       <Logo to={ROUTES.home} />
@@ -18,15 +21,11 @@ const Topbar = ({ signOut }) => {
               {item.name}
             </NavLink>
           ))}
-          <Paragraph onClick={signOut}>Logout</Paragraph>
+          <Paragraph onClick={() => dispatch(signOut())}>Logout</Paragraph>
         </Menu>
       </BurgerWrapper>
     </Wrapper>
   );
-};
-
-Topbar.propTypes = {
-  signOut: PropTypes.func.isRequired,
 };
 
 export default Topbar;
