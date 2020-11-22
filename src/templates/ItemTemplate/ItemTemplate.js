@@ -1,15 +1,10 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { Paragraph, Fieldset, Input, ButtonIcon, Select } from 'components/atoms';
-import {
-  removeItem as removeItemAction,
-  changeItem as changeItemAction,
-  addStock as addStockAction,
-  subStock as subStockAction,
-} from 'redux/actions/pantryActions';
+import { removeItem, changeItem, addStock, subStock } from 'redux/actions/pantryActions';
 import { Header } from 'components/molecules';
 import {
   Wrapper,
@@ -25,19 +20,14 @@ import { deleteIcon, applyIcon, plusIcon, minusIcon } from '../../assets/icons';
 
 const ItemTemplate = ({
   id,
-  removeItem,
   item,
-  history,
-  changeItem,
   // unitsOptions,
-  addStock,
-  subStock,
   units,
 }) => {
-  // this is from Redux
   const { name, category, unit, maxStock, minStock, stock } = item;
-
   const [stockState, setNewStock] = useState();
+  const history = useHistory();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setNewStock(stock);
@@ -50,15 +40,15 @@ const ItemTemplate = ({
         <label htmlFor="stock">Stock</label>
         <Input id="stock" defaultValue={stockState} settings />
         <ChangeStockWrapper>
-          <ButtonAdd icon={plusIcon} onClick={() => addStock(id)} />
-          <ButtonSub icon={minusIcon} onClick={() => subStock(id)} />
+          <ButtonAdd icon={plusIcon} onClick={() => dispatch(addStock(id))} />
+          <ButtonSub icon={minusIcon} onClick={() => dispatch(subStock(id))} />
         </ChangeStockWrapper>
       </Stock>
       <Fieldset legend="settings">
         <Formik
           initialValues={{ maxStock, minStock, unit }}
           onSubmit={(values, { setSubmitting }) => {
-            changeItem(id, values.maxStock, values.minStock, values.unit);
+            dispatch(changeItem(id, values.maxStock, values.minStock, values.unit));
             setTimeout(() => {
               setSubmitting(false);
             }, 400);
@@ -117,7 +107,7 @@ const ItemTemplate = ({
         <ButtonIcon
           icon={deleteIcon}
           onClick={() => {
-            removeItem(id);
+            dispatch(removeItem(id));
             history.push('/');
           }}
         />
@@ -131,21 +121,9 @@ ItemTemplate.defaultProps = {
 };
 
 ItemTemplate.propTypes = {
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
-  removeItem: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
   item: PropTypes.objectOf(PropTypes.any).isRequired,
-  changeItem: PropTypes.func.isRequired,
-  addStock: PropTypes.func.isRequired,
-  subStock: PropTypes.func.isRequired,
   units: PropTypes.arrayOf(PropTypes.string),
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  removeItem: (id) => dispatch(removeItemAction(id)),
-  changeItem: (id, maxStock, minStock, unit) => dispatch(changeItemAction(id, maxStock, minStock, unit)),
-  addStock: (id) => dispatch(addStockAction(id)),
-  subStock: (id) => dispatch(subStockAction(id)),
-});
-
-export default connect(null, mapDispatchToProps)(withRouter(ItemTemplate));
+export default ItemTemplate;
