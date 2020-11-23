@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import { CardList } from 'molecules';
 
-import { Wrapper, CardIcon, Text, Line } from './styled/StyledCard';
+import { Wrapper, CardIcon, Text, Line } from './Card.styles';
 
 const Card = ({ category, icon, content }) => {
   return (

@@ -1,8 +1,8 @@
-﻿import SC from 'styled-components/macro';
+﻿import styled from 'styled-components/macro';
 import { defaultThemeProps } from 'theme/defaultThemeProps';
 import PropTypes from 'prop-types';
 
-export const ButtonIcon = SC.button`
+const ButtonIcon = styled.button`
   width: 42px;
   height: 37px;
   background-image: url(${({ icon }) => icon});
@@ -21,3 +21,5 @@ ButtonIcon.propTypes = {
 };
 
 ButtonIcon.defaultProps = defaultThemeProps;
+
+export default ButtonIcon;

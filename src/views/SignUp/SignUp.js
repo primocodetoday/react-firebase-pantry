@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Logo, Paragraph, Button, SignCard } from 'atoms';
 import { signUp as signUpAction } from 'redux/actions/authActions';
-import { StyledForm, StyledInput, StyledItemBar } from './styles/StyledSignUp';
+import { StyledForm, StyledInput, StyledItemBar } from './SignUp.styles';
 
 const SignUp = ({ signUp, authError, auth, history }) => {
   const [formState, setFormState] = useState({

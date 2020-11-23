@@ -1,4 +1,4 @@
-﻿import styled from 'styled-components';
+﻿import styled from 'styled-components/macro';
 import { Form } from 'formik';
 import { Section } from 'atoms';
 

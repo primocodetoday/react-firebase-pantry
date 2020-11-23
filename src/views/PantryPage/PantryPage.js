@@ -8,7 +8,7 @@ import { Card } from 'organisms';
 import { Header } from 'molecules';
 import { Paragraph, Input, Section } from 'atoms';
 import { fruits, dairy, drinks, grains, meats, chemicals } from 'assets/icons';
-import { GridWrapper } from './styles/StyledPantryPage';
+import { GridWrapper } from './PantryPage.styles';
 
 // this will be  move to state
 const iconsList = [

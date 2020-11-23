@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Sidebar from 'organisms/Sidebar/Sidebar';
 import TopBar from 'organisms/Topbar/Topbar';
 import useWindowWidth from 'hooks/useWindowWidth';
-import { UserWrapper } from './styles/styles';
+import { UserWrapper } from './UserTemplate.styles';
 
 const UserTemplate = ({ children }) => {
   const { width } = useWindowWidth();

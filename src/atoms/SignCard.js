@@ -1,8 +1,8 @@
-﻿import SC from 'styled-components/macro';
+﻿import styled from 'styled-components/macro';
 import { defaultThemeProps } from 'theme/defaultThemeProps';
 import PropTypes from 'prop-types';
 
-export const SignCard = SC.div`
+export const SignCard = styled.div`
   display: grid;
   position: absolute;
   top: 50%;

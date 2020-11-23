@@ -1,8 +1,8 @@
-﻿import SC, { css } from 'styled-components/macro';
+﻿import styled, { css } from 'styled-components/macro';
 import PropTypes from 'prop-types';
 import { defaultThemeProps } from 'theme/defaultThemeProps';
 
-export const Title = SC.h1`
+export const Title = styled.h1`
   padding: 0;
   margin: 0;
   color: #fff;

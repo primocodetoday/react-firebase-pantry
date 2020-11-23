@@ -15,15 +15,10 @@ import {
   Settings,
   ApplyIcon,
   Delete,
-} from './styles/StyledItemTemplate';
+} from './ItemTemplate.styles';
 import { deleteIcon, applyIcon, plusIcon, minusIcon } from '../../assets/icons';
 
-const ItemTemplate = ({
-  id,
-  item,
-  // unitsOptions,
-  units,
-}) => {
+const ItemTemplate = ({ id, item, units }) => {
   const { name, category, unit, maxStock, minStock, stock } = item;
   const [stockState, setNewStock] = useState();
   const history = useHistory();

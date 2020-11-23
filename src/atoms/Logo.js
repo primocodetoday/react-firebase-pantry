@@ -1,10 +1,10 @@
 ﻿import * as React from 'react';
 import PropTypes from 'prop-types';
-import SC, { css } from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
 import { NavLink } from 'react-router-dom';
 import { defaultThemeProps } from 'theme/defaultThemeProps';
 
-const Wrapper = SC(NavLink)`
+const Wrapper = styled(NavLink)`
   margin: 0;
   color: ${({ theme }) => theme.primary};
   font-family: 'Dancing Script', cursive;
@@ -18,7 +18,7 @@ const Wrapper = SC(NavLink)`
     `}
 `;
 
-const First = SC.span`
+const First = styled.span`
   color: ${({ theme }) => theme.secondary};
   font-size: 1.3em;
 `;

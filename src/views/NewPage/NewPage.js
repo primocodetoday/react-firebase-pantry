@@ -9,7 +9,8 @@ import { Input, Select, Button } from 'atoms';
 import { Header } from 'molecules';
 import { addItem } from 'redux/actions/pantryActions';
 import { UserTemplate } from 'templates';
-import { StyledWrapper, StyledForm } from './styles/StyledNewPage';
+import { newItemSchema } from 'models/newItemSchema';
+import { StyledWrapper, StyledForm } from './NewPage.styles';
 
 const NewPage = ({ handleAddItem, history, units, categories }) => {
   return (
@@ -32,24 +33,7 @@ const NewPage = ({ handleAddItem, history, units, categories }) => {
             handleAddItem(values);
             history.push('/');
           }}
-          // Ło matko boska
-          validate={(values) => {
-            const errors = {};
-            if (!values.name) {
-              errors.name = 'required';
-            } else if (!values.category) {
-              errors.category = 'required';
-            } else if (!/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/i.test(values.stock)) {
-              errors.stock = 'wrong number';
-            } else if (!/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/i.test(values.maxStock)) {
-              errors.maxStock = 'wrong number';
-            } else if (!/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/i.test(values.minStock)) {
-              errors.minStock = 'wrong number';
-            } else if (!values.unit) {
-              errors.unit = 'required';
-            }
-            return errors;
-          }}
+          validate={(values) => newItemSchema(values)}
         >
           {({ values, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
             <StyledForm onSubmit={handleSubmit}>

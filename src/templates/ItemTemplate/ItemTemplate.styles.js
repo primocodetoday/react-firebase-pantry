@@ -2,25 +2,24 @@
 import { ButtonIcon } from 'atoms';
 
 export const Wrapper = styled.section`
-  position: relative;
   display: flex;
+  position: relative;
   flex-direction: column;
   flex-grow: 1;
   padding: 0 25px;
 
   @media (max-width: ${({ theme }) => theme.mediaBreaks.mobile}px) {
-    padding: 10px 10px 0;
     width: 100%;
+    padding: 10px 10px 0;
   }
 `;
 
 export const Settings = styled.form`
-  height: 100%;
   display: grid;
   align-items: center;
+  height: 100%;
   grid-template-columns: 1fr 100px;
   gap: 15px;
-  align-items: center;
   font-size: 2.2rem;
 
   input {

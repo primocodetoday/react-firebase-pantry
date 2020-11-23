@@ -4,25 +4,25 @@ import { ROUTES } from 'routes';
 export const menuItems = [
   {
     name: 'Main',
-    route: ROUTES.pantry,
+    route: ROUTES.PANTRY,
     icon: home,
     activeIcon: homeActive,
   },
   {
     name: 'New Item',
-    route: ROUTES.new,
+    route: ROUTES.NEW,
     icon: newItem,
     activeIcon: newItemActive,
   },
   {
     name: 'Shoplist',
-    route: ROUTES.shoplist,
+    route: ROUTES.SHOPLIST,
     icon: basket,
     activeIcon: basketActive,
   },
   {
     name: 'Settings',
-    route: ROUTES.settings,
+    route: ROUTES.SETTINGS,
     icon: settings,
     activeIcon: settingsActive,
   },

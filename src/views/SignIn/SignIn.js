@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Logo, Paragraph, SignCard } from 'atoms';
 import { signIn as signInAction } from 'redux/actions/authActions';
 import { ROUTES } from 'routes';
-import { StyledForm, StyledInput, StyledItemBar, ButtonWrapper, SignButton } from './styles/StyledSignIn';
+import { StyledForm, StyledInput, StyledItemBar, ButtonWrapper, SignButton } from './SignIn.styles';
 
 const SignIn = ({ signIn, authError, auth, history }) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -45,7 +45,7 @@ const SignIn = ({ signIn, authError, auth, history }) => {
           <SignButton type="submit">Sign In</SignButton>
         </ButtonWrapper>
         <Paragraph>
-          To create a account click <Link to={ROUTES.signUp}>here</Link>
+          To create a account click <Link to={ROUTES.SIGNUP}>here</Link>
         </Paragraph>
 
         {authError ? <Paragraph>{authError}</Paragraph> : null}

@@ -23,14 +23,14 @@ const Root = () => {
           <BrowserRouter>
             <MainTemplate>
               <Switch>
-                <Route exact path={ROUTES.home} render={() => <Redirect to="/pantry" />} />
-                <PrivateRoute exact path={ROUTES.pantry} component={PantryPage} />
-                <PrivateRoute path={ROUTES.pantryitem} component={ItemPage} />
-                <PrivateRoute path={ROUTES.shoplist} component={ShopListPage} />
-                <PrivateRoute path={ROUTES.new} component={NewPage} />
-                <PrivateRoute path={ROUTES.settings} component={SettingsPage} />
-                <Route path={ROUTES.signIn} component={SignIn} />
-                <Route path={ROUTES.signUp} component={SignUp} />
+                <Route exact path={ROUTES.HOME} render={() => <Redirect to="/pantry" />} />
+                <PrivateRoute exact path={ROUTES.PANTRY} component={PantryPage} />
+                <PrivateRoute path={ROUTES.PANTRY_ITEM} component={ItemPage} />
+                <PrivateRoute path={ROUTES.SHOPLIST} component={ShopListPage} />
+                <PrivateRoute path={ROUTES.NEW} component={NewPage} />
+                <PrivateRoute path={ROUTES.SETTINGS} component={SettingsPage} />
+                <Route path={ROUTES.SIGNIN} component={SignIn} />
+                <Route path={ROUTES.SIGNUP} component={SignUp} />
               </Switch>
             </MainTemplate>
           </BrowserRouter>

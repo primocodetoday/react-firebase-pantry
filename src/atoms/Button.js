@@ -1,8 +1,8 @@
-﻿import SC, { css } from 'styled-components/macro';
+﻿import styled, { css } from 'styled-components/macro';
 import PropTypes from 'prop-types';
 import { defaultThemeProps } from 'theme/defaultThemeProps';
 
-export const Button = SC.button`
+const Button = styled.button`
   background-color: ${({ theme }) => theme.secondary};
   padding: 9px 15px;
   font-size: ${({ theme }) => theme.fontSize.big};
@@ -31,3 +31,5 @@ Button.propTypes = {
 };
 
 Button.defaultProps = defaultThemeProps;
+
+export default Button;

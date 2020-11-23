@@ -1,6 +1,6 @@
-﻿import SC from 'styled-components/macro';
+﻿import styled from 'styled-components/macro';
 
-export const UserWrapper = SC.div`
+export const UserWrapper = styled.div`
   display: flex;
   min-height: 100vh;
   padding: 10px;

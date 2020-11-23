@@ -1,6 +1,6 @@
-﻿import SC from 'styled-components';
+﻿import styled from 'styled-components';
 
-export const Wrapper = SC.header`
+export const Wrapper = styled.header`
   display: flex;
   align-items: center;
   background-color: white;
@@ -19,7 +19,7 @@ export const Wrapper = SC.header`
   }
 `;
 
-export const BurgerWrapper = SC.div`
+export const BurgerWrapper = styled.div`
   .bm-burger-button {
     position: absolute;
     top: 30px;

@@ -1,8 +1,8 @@
-﻿import SC from 'styled-components/macro';
+﻿import styled from 'styled-components/macro';
 import PropTypes from 'prop-types';
 import { defaultThemeProps } from 'theme/defaultThemeProps';
 
-export const SubTitle = SC.p`
+export const SubTitle = styled.p`
   padding: 0;
   margin: 0;
   color: white;

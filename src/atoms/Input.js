@@ -1,9 +1,9 @@
-﻿import SC, { css } from 'styled-components/macro';
+﻿import styled, { css } from 'styled-components/macro';
 import searchIcon from 'assets/icons/search.svg';
 import PropTypes from 'prop-types';
 import { defaultThemeProps } from 'theme/defaultThemeProps';
 
-export const Input = SC.input`
+export const Input = styled.input`
   font-family: 'Montserrat', sans-serif;
   padding: 10px 10px;
   font-size: ${({ theme }) => theme.fontSize.normal};

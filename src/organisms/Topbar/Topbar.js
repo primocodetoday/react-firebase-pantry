@@ -6,14 +6,14 @@ import { Paragraph, Logo } from 'atoms';
 import { useDispatch } from 'react-redux';
 import { signOut } from 'redux/actions/authActions';
 import { menuItems } from '../../constants/menuItems';
-import { Wrapper, BurgerWrapper } from './styles/styles';
+import { Wrapper, BurgerWrapper } from './Topbar.styles';
 
 const Topbar = () => {
   const dispatch = useDispatch();
 
   return (
     <Wrapper>
-      <Logo to={ROUTES.home} />
+      <Logo to={ROUTES.HOME} />
       <BurgerWrapper>
         <Menu right>
           {menuItems.map((item) => (

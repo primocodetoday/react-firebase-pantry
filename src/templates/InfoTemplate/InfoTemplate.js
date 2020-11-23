@@ -1,7 +1,7 @@
 ﻿import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Fieldset } from 'atoms';
-import { Image, Wrapper } from './styles/StyledInfoTemplate';
+import { Image, Wrapper } from './InfoTemplate.styles';
 
 const InfoTemplate = ({ item }) => {
   const [data, setData] = useState();

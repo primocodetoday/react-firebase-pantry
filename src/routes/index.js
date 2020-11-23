@@ -1,10 +1,10 @@
 ﻿export const ROUTES = {
-  home: '/',
-  pantry: '/pantry',
-  pantryitem: '/pantry/:id',
-  shoplist: '/shoplist',
-  settings: '/settings',
-  new: '/new',
-  signIn: '/signin',
-  signUp: '/signup',
+  HOME: '/',
+  PANTRY: '/pantry',
+  PANTRY_ITEM: '/pantry/:id',
+  SHOPLIST: '/shoplist',
+  SETTINGS: '/settings',
+  NEW: '/new',
+  SIGNIN: '/signin',
+  SIGNUP: '/signup',
 };

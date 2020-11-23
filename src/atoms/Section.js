@@ -1,9 +1,9 @@
 ﻿import * as React from 'react';
 import PropTypes from 'prop-types';
-import SC from 'styled-components/macro';
+import styled from 'styled-components/macro';
 import { defaultThemeProps } from 'theme/defaultThemeProps';
 
-export const Wrapper = SC.div`
+export const Wrapper = styled.div`
   display: flex;
   position: relative;
   flex-direction: ${({ $column }) => ($column ? 'column' : 'row')};

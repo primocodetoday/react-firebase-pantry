@@ -6,7 +6,7 @@ import { signOut } from 'redux/actions/authActions';
 import { ROUTES } from 'routes';
 import { useDispatch } from 'react-redux';
 import { menuItems } from '../../constants/menuItems';
-import { Wrapper, MenuIcon } from './styles/styles';
+import { Wrapper, MenuIcon } from './Sidebar.styles';
 
 // TODO Maybe make MenuIcon a Link
 
@@ -15,7 +15,7 @@ const Sidebar = () => {
 
   return (
     <Wrapper>
-      <Logo to={ROUTES.home} />
+      <Logo to={ROUTES.HOME} />
       {menuItems.map((item) => (
         <MenuIcon
           key={item.name}

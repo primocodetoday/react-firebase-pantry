@@ -1,5 +1,5 @@
-﻿export { Button } from './Button';
-export { ButtonIcon } from './ButtonIcon';
+﻿export { default as Button } from './Button';
+export { default as ButtonIcon } from './ButtonIcon';
 export { Fieldset } from './Fieldset';
 export { Input } from './Input';
 export { Logo } from './Logo';

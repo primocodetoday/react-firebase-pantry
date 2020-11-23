@@ -3,13 +3,13 @@ import { Title } from 'atoms';
 
 export const Wrapper = styled.div`
   position: relative;
+  max-width: 420px;
+  min-height: 250px;
   background-color: white;
+  padding: 27px 25px;
   color: ${({ theme }) => theme.primary};
   border-radius: ${({ theme }) => theme.borderRadius};
   flex-basis: 350px;
-  min-height: 250px;
-  padding: 27px 25px;
-  max-width: 420px;
   flex-grow: 1;
 
   @media (max-width: 960px) {
@@ -26,8 +26,8 @@ export const Text = styled(Title)`
 
 export const Line = styled.div`
   background-color: ${({ theme }) => theme.primary};
-  height: 1px;
   width: 100%;
+  height: 1px;
 `;
 
 export const CardIcon = styled.div`

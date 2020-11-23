@@ -1,9 +1,9 @@
 ﻿import * as React from 'react';
-import SC from 'styled-components';
-import { Paragraph } from '../../atoms';
-import { GlobalStyles } from '../../theme/GlobalStyles';
+import styled from 'styled-components';
+import { Paragraph } from 'atoms';
+import { GlobalStyles } from 'theme/GlobalStyles';
 
-const StyledWrapper = SC.div`
+const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
