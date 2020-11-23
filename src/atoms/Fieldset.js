@@ -17,7 +17,7 @@ export const Wrapper = styled.fieldset`
 
 Wrapper.defaultProps = defaultThemeProps;
 
-export const Fieldset = ({ legend, children, ...restProps }) => {
+const Fieldset = ({ legend, children, ...restProps }) => {
   const isLegendPassed = legend ? <legend>{legend}</legend> : null;
 
   return (
@@ -36,3 +36,5 @@ Fieldset.propTypes = {
   legend: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
+
+export default Fieldset;

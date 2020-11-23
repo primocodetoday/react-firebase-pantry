@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import { defaultThemeProps } from 'theme/defaultThemeProps';
 
-export const SubTitle = styled.p`
+const SubTitle = styled.p`
   padding: 0;
   margin: 0;
   color: white;
@@ -15,3 +15,5 @@ SubTitle.defaultProps = defaultThemeProps;
 SubTitle.propTypes = {
   children: PropTypes.string.isRequired,
 };
+
+export default SubTitle;

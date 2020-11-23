@@ -1,16 +1,20 @@
 ﻿import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Logo, Paragraph, Button, SignCard } from 'atoms';
 import { signUp as signUpAction } from 'redux/actions/authActions';
 import { StyledForm, StyledInput, StyledItemBar } from './SignUp.styles';
 
-const SignUp = ({ signUp, authError, auth, history }) => {
+const SignUp = ({ signUp, history }) => {
   const [formState, setFormState] = useState({
     email: '',
     password: '',
     firstName: '',
   });
+
+  // auth selectors
+  const authError = useSelector((state) => state.auth.authError);
+  const auth = useSelector((state) => state.firebase.auth);
 
   const handleChange = (e) => {
     setFormState({
@@ -60,22 +64,22 @@ const SignUp = ({ signUp, authError, auth, history }) => {
 };
 
 SignUp.defaultProps = {
-  authError: '',
+  // authError: '',
 };
 
 SignUp.propTypes = {
-  authError: PropTypes.string,
+  // authError: PropTypes.string,
   signUp: PropTypes.func.isRequired,
   history: PropTypes.objectOf(PropTypes.any).isRequired,
-  auth: PropTypes.objectOf(PropTypes.any).isRequired,
+  // auth: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
-const mapStateToProps = (state) => {
-  return {
-    authError: state.auth.authError,
-    auth: state.firebase.auth,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     authError: state.auth.authError,
+//     auth: state.firebase.auth,
+//   };
+// };
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -83,4 +87,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default connect(null, mapDispatchToProps)(SignUp);

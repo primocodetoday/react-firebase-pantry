@@ -2,7 +2,7 @@
 import { defaultThemeProps } from 'theme/defaultThemeProps';
 import PropTypes from 'prop-types';
 
-export const SignCard = styled.div`
+const SignCard = styled.div`
   display: grid;
   position: absolute;
   top: 50%;
@@ -34,3 +34,5 @@ SignCard.propTypes = {
 };
 
 SignCard.defaultProps = defaultThemeProps;
+
+export default SignCard;

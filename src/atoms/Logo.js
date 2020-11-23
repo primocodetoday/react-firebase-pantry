@@ -43,3 +43,5 @@ Logo.defaultProps = {
   big: false,
   to: '/',
 };
+
+export default Logo;

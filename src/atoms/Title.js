@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import { defaultThemeProps } from 'theme/defaultThemeProps';
 
-export const Title = styled.h1`
+const Title = styled.h1`
   padding: 0;
   margin: 0;
   color: #fff;
@@ -21,3 +21,5 @@ Title.propTypes = {
 };
 
 Title.defaultProps = defaultThemeProps;
+
+export default Title;

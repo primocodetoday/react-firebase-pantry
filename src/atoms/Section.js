@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
 
 Wrapper.defaultProps = defaultThemeProps;
 
-export const Section = ({ children, column, wrap, ...restProps }) => {
+const Section = ({ children, column, wrap, ...restProps }) => {
   return (
     <Wrapper $column={column} $wrap={wrap} {...restProps}>
       {children}
@@ -39,3 +39,5 @@ Section.defaultProps = {
   column: false,
   wrap: false,
 };
+
+export default Section;

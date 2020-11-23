@@ -20,7 +20,7 @@ export const Wrapper = styled.select`
 
 Wrapper.defaultProps = defaultThemeProps;
 
-export const Select = ({ options, ...restProps }) => {
+const Select = ({ options, ...restProps }) => {
   const selectOptions = options
     ? options.map((item) => (
         <option key={item} value={item}>
@@ -44,3 +44,5 @@ Select.defaultProps = {
 Select.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string),
 };
+
+export default Select;
