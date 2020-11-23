@@ -1,5 +1,5 @@
 ﻿import styled from 'styled-components';
-import { ButtonIcon } from 'components/atoms';
+import { ButtonIcon } from 'atoms';
 
 export const Wrapper = styled.section`
   position: relative;

@@ -1,7 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Logo, Paragraph, Button, SignCard } from 'components/atoms';
+import { Logo, Paragraph, Button, SignCard } from 'atoms';
 import { signUp as signUpAction } from 'redux/actions/authActions';
 import { StyledForm, StyledInput, StyledItemBar } from './styles/StyledSignUp';
 

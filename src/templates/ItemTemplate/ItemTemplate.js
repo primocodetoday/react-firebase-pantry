@@ -3,9 +3,9 @@ import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Paragraph, Fieldset, Input, ButtonIcon, Select } from 'components/atoms';
+import { Paragraph, Fieldset, Input, ButtonIcon, Select } from 'atoms';
 import { removeItem, changeItem, addStock, subStock } from 'redux/actions/pantryActions';
-import { Header } from 'components/molecules';
+import { Header } from 'molecules';
 import {
   Wrapper,
   Stock,

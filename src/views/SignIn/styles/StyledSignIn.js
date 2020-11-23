@@ -1,5 +1,5 @@
 ﻿import styled from 'styled-components/macro';
-import { Input, Button } from 'components/atoms';
+import { Input, Button } from 'atoms';
 
 export const StyledForm = styled.form`
   background-color: ${({ theme }) => theme.primary};

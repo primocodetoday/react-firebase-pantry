@@ -1,7 +1,7 @@
 ﻿import * as React from 'react';
 import PropTypes from 'prop-types';
-import Sidebar from 'components/organisms/Sidebar/Sidebar';
-import TopBar from 'components/organisms/Topbar/Topbar';
+import Sidebar from 'organisms/Sidebar/Sidebar';
+import TopBar from 'organisms/Topbar/Topbar';
 import useWindowWidth from 'hooks/useWindowWidth';
 import { UserWrapper } from './styles/styles';
 

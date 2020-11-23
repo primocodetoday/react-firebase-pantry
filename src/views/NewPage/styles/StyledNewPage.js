@@ -1,6 +1,6 @@
 ﻿import styled from 'styled-components';
 import { Form } from 'formik';
-import { Section } from 'components/atoms';
+import { Section } from 'atoms';
 
 export const StyledWrapper = styled(Section)`
   width: auto;

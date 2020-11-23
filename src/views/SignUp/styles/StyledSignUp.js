@@ -1,5 +1,5 @@
 ﻿import styled from 'styled-components';
-import { Input } from 'components/atoms';
+import { Input } from 'atoms';
 
 export const StyledForm = styled.form`
   background-color: ${({ theme }) => theme.primary};

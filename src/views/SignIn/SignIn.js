@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Logo, Paragraph, SignCard } from 'components/atoms';
+import { Logo, Paragraph, SignCard } from 'atoms';
 import { signIn as signInAction } from 'redux/actions/authActions';
 import { ROUTES } from 'routes';
 import { StyledForm, StyledInput, StyledItemBar, ButtonWrapper, SignButton } from './styles/StyledSignIn';

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { ItemTemplate, UserTemplate, InfoTemplate } from 'templates';
-import { Paragraph, Section } from 'components/atoms';
+import { Paragraph, Section } from 'atoms';
 import { useParams } from 'react-router-dom';
 
 const ItemPage = ({ item, units }) => {

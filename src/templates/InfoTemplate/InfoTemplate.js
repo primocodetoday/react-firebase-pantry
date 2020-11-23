@@ -1,6 +1,6 @@
 ﻿import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Fieldset } from 'components/atoms';
+import { Fieldset } from 'atoms';
 import { Image, Wrapper } from './styles/StyledInfoTemplate';
 
 const InfoTemplate = ({ item }) => {

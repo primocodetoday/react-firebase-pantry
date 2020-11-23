@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<SubTitle/> renders properly with passed props 1`] = `
-<p
-  class="StyledSubTitle__Wrapper-sc-1gqk0h7-0 eXAItH"
->
-  Hello World
-</p>
-`;
