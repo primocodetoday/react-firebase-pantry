@@ -1,4 +1,4 @@
-﻿// import React from 'react';
+﻿// import * as React from 'react';
 // import { ThemeProvider } from 'styled-components';
 // import PropTypes from 'prop-types';
 // import { GlobalStyles } from 'theme/GlobalStyles';

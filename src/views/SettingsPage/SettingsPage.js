@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import * as React from 'react';
 import { Section } from 'atoms';
 import { Header } from 'molecules';
 import UserTemplate from '../../templates/UserTemplate/UserTemplate';

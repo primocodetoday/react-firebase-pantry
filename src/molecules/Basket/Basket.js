@@ -1,7 +1,8 @@
-﻿import React from 'react';
+﻿import * as React from 'react';
+
 import { Title } from 'atoms';
 import PropTypes from 'prop-types';
-import { Wrapper, Line } from './styles/StyledBasket';
+import { Wrapper, Line } from './Basket.styles';
 
 export const Basket = ({ children, ...restProps }) => {
   return (
