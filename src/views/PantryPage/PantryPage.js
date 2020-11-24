@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+﻿import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import { UserTemplate } from 'templates';
@@ -36,7 +36,7 @@ const PantryPage = () => {
   useFirestoreConnect([{ collection: 'pantry' }]);
   const pantry = useSelector((state) => state.firestore.ordered.pantry);
 
-  const [searchState, setSearchState] = useState('');
+  const [searchState, setSearchState] = React.useState('');
   const handleSearch = (e) => {
     setSearchState(e.target.value.toLowerCase());
   };

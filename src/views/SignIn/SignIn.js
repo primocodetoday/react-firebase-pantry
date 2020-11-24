@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+﻿import * as React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Logo, Paragraph, SignCard } from 'atoms';
@@ -7,7 +7,7 @@ import { ROUTES } from 'routes';
 import { StyledForm, StyledInput, StyledItemBar, ButtonWrapper, SignButton } from './SignIn.styles';
 
 const SignIn = () => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = React.useState({ email: '', password: '' });
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const SignIn = () => {
     });
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!auth.isEmpty) history.push(ROUTES.PANTRY);
   });
 

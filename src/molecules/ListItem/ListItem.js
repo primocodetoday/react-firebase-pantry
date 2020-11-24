@@ -1,11 +1,11 @@
-﻿import React, { useState } from 'react';
+﻿import * as React from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Paragraph } from 'atoms';
 import { Wrapper, Stock } from './ListItem.styles';
 
 export const ListItem = ({ name, stock, id, unit, ...restProps }) => {
-  const [isRedirect, setRedirect] = useState({ redirect: false });
+  const [isRedirect, setRedirect] = React.useState({ redirect: false });
 
   const handleItemClick = () => setRedirect({ redirect: true });
 

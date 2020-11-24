@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+﻿import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Logo, Paragraph, Button, SignCard } from 'atoms';
 import { signUp } from 'redux/actions/authActions';
@@ -11,7 +11,7 @@ const SignUp = () => {
 
   const dispatch = useDispatch();
 
-  const [formState, setFormState] = useState({
+  const [formState, setFormState] = React.useState({
     email: '',
     password: '',
     firstName: '',
@@ -28,7 +28,7 @@ const SignUp = () => {
     });
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!auth.isEmpty) history.push(ROUTES.PANTRY);
   });
 
