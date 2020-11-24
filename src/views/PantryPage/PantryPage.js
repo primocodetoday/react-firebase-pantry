@@ -5,17 +5,16 @@ import { UserTemplate } from 'templates';
 import { Card } from 'organisms';
 import { Header } from 'molecules';
 import { Paragraph, Input, Section } from 'atoms';
-import { fruits, dairy, drinks, grains, meats, chemicals } from 'assets/icons';
 import { GridWrapper } from './PantryPage.styles';
 
 // this will be  move to state
 const iconsList = [
-  { file: fruits, name: 'Fruits & Vegs' },
-  { file: dairy, name: 'Dairy Foods' },
-  { file: drinks, name: 'Drinks' },
-  { file: grains, name: 'Grains & Nuts' },
-  { file: meats, name: 'Meats & Fishes' },
-  { file: chemicals, name: 'Chemicals' },
+  { src: 'assets/icons/fruits.svg', name: 'Fruits & Vegs' },
+  { src: 'assets/icons/dairy.svg', name: 'Dairy Foods' },
+  { src: 'assets/icons/drinks.svg', name: 'Drinks' },
+  { src: 'assets/icons/grains.svg', name: 'Grains & Nuts' },
+  { src: 'assets/icons/meats.svg', name: 'Meats & Fishes' },
+  { src: 'assets/icons/chemicals.svg', name: 'Chemicals' },
 ];
 
 // combine state and icons
@@ -27,7 +26,7 @@ const showPantry = (array, icons, filter) => {
   const cardItems = categories.map((category) => {
     const itemsByCategory = filteredArray.filter((item) => item.category === category);
     const categoryIcon = icons.filter((icon) => icon.name === category);
-    return <Card key={category} icon={categoryIcon[0].file} content={itemsByCategory} category={category} />;
+    return <Card key={category} icon={categoryIcon[0].src} content={itemsByCategory} category={category} />;
   });
   return cardItems;
 };

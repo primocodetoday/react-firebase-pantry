@@ -1,5 +1,4 @@
 ﻿import styled, { css } from 'styled-components/macro';
-import searchIcon from 'assets/icons/search.svg';
 import PropTypes from 'prop-types';
 import { defaultThemeProps } from 'theme/defaultThemeProps';
 
@@ -31,7 +30,7 @@ const Input = styled.input`
       color: ${({ theme }) => theme.secondary};
       font-size: ${({ theme }) => theme.fontSize.small};
       font-weight: 600;
-      background-image: url(${searchIcon});
+      background-image: url('/assets/icons/search.svg');
       background-size: 20px;
       background-position: 10px 50%;
       background-repeat: no-repeat;

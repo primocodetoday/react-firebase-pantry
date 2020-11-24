@@ -1,29 +1,28 @@
-﻿import { home, basket, settings, homeActive, settingsActive, basketActive, newItem, newItemActive } from 'assets/icons';
-import { ROUTES } from 'routes';
+﻿import { ROUTES } from 'routes';
 
 export const menuItems = [
   {
     name: 'Main',
     route: ROUTES.PANTRY,
-    icon: home,
-    activeIcon: homeActive,
+    icon: '/assets/icons/home.svg',
+    activeIcon: '/assets/icons/homeActive.svg',
   },
   {
     name: 'New Item',
     route: ROUTES.NEW,
-    icon: newItem,
-    activeIcon: newItemActive,
+    icon: '/assets/icons/newItem.svg',
+    activeIcon: '/assets/icons/newItemActive.svg',
   },
   {
     name: 'Shoplist',
     route: ROUTES.SHOPLIST,
-    icon: basket,
-    activeIcon: basketActive,
+    icon: '/assets/icons/basket.svg',
+    activeIcon: '/assets/icons/basketActive.svg',
   },
   {
     name: 'Settings',
     route: ROUTES.SETTINGS,
-    icon: settings,
-    activeIcon: settingsActive,
+    icon: '/assets/icons/settings.svg',
+    activeIcon: '/assets/icons/settingsActive.svg',
   },
 ];

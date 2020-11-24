@@ -1,6 +1,5 @@
 ﻿import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import { logout } from 'assets/icons';
 import { Logo } from 'atoms';
 import { signOut } from 'redux/actions/authActions';
 import { ROUTES } from 'routes';
@@ -26,7 +25,7 @@ const Sidebar = () => {
           activeclass="active"
         />
       ))}
-      <MenuIcon key="logout" onClick={() => dispatch(signOut())} icon={logout} />
+      <MenuIcon key="logout" onClick={() => dispatch(signOut())} icon="/assets/icons/logout.svg" />
     </Wrapper>
   );
 };

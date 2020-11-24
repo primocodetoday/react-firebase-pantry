@@ -16,7 +16,6 @@ import {
   ApplyIcon,
   Delete,
 } from './ItemTemplate.styles';
-import { deleteIcon, applyIcon, plusIcon, minusIcon } from '../../assets/icons';
 
 const ItemTemplate = ({ id, item, units }) => {
   const { name, category, unit, maxStock, minStock, stock } = item;
@@ -35,8 +34,8 @@ const ItemTemplate = ({ id, item, units }) => {
         <label htmlFor="stock">Stock</label>
         <Input id="stock" defaultValue={stockState} settings />
         <ChangeStockWrapper>
-          <ButtonAdd icon={plusIcon} onClick={() => dispatch(addStock(id))} />
-          <ButtonSub icon={minusIcon} onClick={() => dispatch(subStock(id))} />
+          <ButtonAdd icon="/assets/icons/plusIcon.svg" onClick={() => dispatch(addStock(id))} />
+          <ButtonSub icon="/assets/icons/minusIcon.svg" onClick={() => dispatch(subStock(id))} />
         </ChangeStockWrapper>
       </Stock>
       <Fieldset legend="settings">
@@ -90,7 +89,12 @@ const ItemTemplate = ({ id, item, units }) => {
               <Paragraph className="grid-settings-7" size="1.6rem">
                 Apply
               </Paragraph>
-              <ApplyIcon className="grid-settings-8" type="submit" disabled={isSubmitting} icon={applyIcon} />
+              <ApplyIcon
+                className="grid-settings-8"
+                type="submit"
+                disabled={isSubmitting}
+                icon="/assets/icons/applyIcon.svg"
+              />
             </Settings>
           )}
         </Formik>
@@ -100,7 +104,7 @@ const ItemTemplate = ({ id, item, units }) => {
           delete item
         </Paragraph>
         <ButtonIcon
-          icon={deleteIcon}
+          icon="/assets/icons/deleteIcon.svg"
           onClick={() => {
             dispatch(removeItem(id));
             history.push('/');
