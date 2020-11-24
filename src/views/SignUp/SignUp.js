@@ -1,11 +1,16 @@
 ﻿import React, { useState, useEffect } from 'react';
-import { connect, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 import { Logo, Paragraph, Button, SignCard } from 'atoms';
-import { signUp as signUpAction } from 'redux/actions/authActions';
+import { signUp } from 'redux/actions/authActions';
+import { useHistory } from 'react-router-dom';
+import { ROUTES } from 'routes';
 import { StyledForm, StyledInput, StyledItemBar } from './SignUp.styles';
 
-const SignUp = ({ signUp, history }) => {
+const SignUp = () => {
+  const history = useHistory();
+
+  const dispatch = useDispatch();
+
   const [formState, setFormState] = useState({
     email: '',
     password: '',
@@ -24,12 +29,12 @@ const SignUp = ({ signUp, history }) => {
   };
 
   useEffect(() => {
-    if (!auth.isEmpty) history.push('/pantry');
+    if (!auth.isEmpty) history.push(ROUTES.PANTRY);
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signUp(formState);
+    dispatch(signUp(formState));
   };
 
   return (
@@ -63,17 +68,6 @@ const SignUp = ({ signUp, history }) => {
   );
 };
 
-SignUp.defaultProps = {
-  // authError: '',
-};
-
-SignUp.propTypes = {
-  // authError: PropTypes.string,
-  signUp: PropTypes.func.isRequired,
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
-  // auth: PropTypes.objectOf(PropTypes.any).isRequired,
-};
-
 // const mapStateToProps = (state) => {
 //   return {
 //     authError: state.auth.authError,
@@ -81,10 +75,10 @@ SignUp.propTypes = {
 //   };
 // };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    signUp: (newUser) => dispatch(signUpAction(newUser)),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     signUp: (newUser) => dispatch(signUpAction(newUser)),
+//   };
+// };
 
-export default connect(null, mapDispatchToProps)(SignUp);
+export default SignUp;

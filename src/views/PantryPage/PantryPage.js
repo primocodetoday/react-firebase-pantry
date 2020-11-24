@@ -1,8 +1,6 @@
 ﻿import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { firestoreConnect } from 'react-redux-firebase';
-import { compose } from 'redux';
+import { useSelector } from 'react-redux';
+import { useFirestoreConnect } from 'react-redux-firebase';
 import { UserTemplate } from 'templates';
 import { Card } from 'organisms';
 import { Header } from 'molecules';
@@ -34,9 +32,12 @@ const showPantry = (array, icons, filter) => {
   return cardItems;
 };
 
-const PantryPage = ({ pantry }) => {
-  const [searchState, setSearchState] = useState('');
+const PantryPage = () => {
+  // sync pantry
+  useFirestoreConnect([{ collection: 'pantry' }]);
+  const pantry = useSelector((state) => state.firestore.ordered.pantry);
 
+  const [searchState, setSearchState] = useState('');
   const handleSearch = (e) => {
     setSearchState(e.target.value.toLowerCase());
   };
@@ -54,33 +55,26 @@ const PantryPage = ({ pantry }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return { pantry: state.firestore.ordered.pantry };
-};
+// const mapStateToProps = (state) => {
+//   return { pantry: state.firestore.ordered.pantry };
+// };
 
-PantryPage.defaultProps = {
-  pantry: [],
-};
+// PantryPage.defaultProps = {
+//   pantry: [],
+// };
 
-PantryPage.propTypes = {
-  pantry: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      category: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      stock: PropTypes.number.isRequired,
-      unit: PropTypes.string.isRequired,
-      maxStock: PropTypes.number.isRequired,
-      minStock: PropTypes.number.isRequired,
-    }),
-  ),
-};
+// PantryPage.propTypes = {
+//   pantry: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.string.isRequired,
+//       category: PropTypes.string.isRequired,
+//       name: PropTypes.string.isRequired,
+//       stock: PropTypes.number.isRequired,
+//       unit: PropTypes.string.isRequired,
+//       maxStock: PropTypes.number.isRequired,
+//       minStock: PropTypes.number.isRequired,
+//     }),
+//   ),
+// };
 
-export default compose(
-  connect(mapStateToProps),
-  firestoreConnect([
-    {
-      collection: 'pantry',
-    },
-  ]),
-)(PantryPage);
+export default PantryPage;
