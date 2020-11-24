@@ -21,26 +21,3 @@ export const Wrapper = styled.header`
     text-decoration: none;
   }
 `;
-
-export const MenuIcon = styled.button`
-  display: block;
-  width: 50px;
-  height: 50px;
-  background-image: url(${({ icon }) => icon});
-  background-repeat: no-repeat;
-  border: none;
-  color: white;
-  background-position: 50% 50%;
-  background-color: white;
-  background-size: contain;
-  cursor: pointer;
-
-  &.active {
-    background-image: url(${({ activeicon }) => activeicon});
-  }
-
-  &:last-child {
-    align-self: end;
-    margin-bottom: 30px;
-  }
-`;

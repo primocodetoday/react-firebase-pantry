@@ -4,25 +4,25 @@ export const menuItems = [
   {
     name: 'Main',
     route: ROUTES.PANTRY,
-    icon: '/assets/icons/home.svg',
-    activeIcon: '/assets/icons/homeActive.svg',
+    src: '/assets/icons/home.svg',
+    alt: 'home',
   },
   {
     name: 'New Item',
     route: ROUTES.NEW,
-    icon: '/assets/icons/newItem.svg',
-    activeIcon: '/assets/icons/newItemActive.svg',
+    src: '/assets/icons/newItem.svg',
+    alt: 'new item',
   },
   {
     name: 'Shoplist',
     route: ROUTES.SHOPLIST,
-    icon: '/assets/icons/basket.svg',
-    activeIcon: '/assets/icons/basketActive.svg',
+    src: '/assets/icons/basket.svg',
+    alt: 'shop list',
   },
   {
     name: 'Settings',
     route: ROUTES.SETTINGS,
-    icon: '/assets/icons/settings.svg',
-    activeIcon: '/assets/icons/settingsActive.svg',
+    src: '/assets/icons/settings.svg',
+    alt: 'settings',
   },
 ];

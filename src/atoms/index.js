@@ -9,3 +9,4 @@ export { default as Select } from './Select';
 export { default as SignCard } from './SignCard';
 export { default as SubTitle } from './Subtitle';
 export { default as Title } from './Title';
+export { default as MenuIcon } from './MenuIcon';
