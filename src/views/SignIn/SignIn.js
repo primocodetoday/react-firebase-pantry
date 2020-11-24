@@ -1,20 +1,19 @@
-﻿import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { Logo, Paragraph, SignCard } from 'components/atoms';
-import { signIn as signInAction } from 'actions/authActions';
-import { routes } from 'routes';
-import {
-  StyledForm,
-  StyledInput,
-  StyledItemBar,
-  ButtonWrapper,
-  SignButton,
-} from './styles/StyledSignIn';
+﻿import * as React from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { Logo, Paragraph, SignCard } from 'atoms';
+import { signIn } from 'redux/actions/authActions';
+import { ROUTES } from 'routes';
+import { StyledForm, StyledInput, StyledItemBar, ButtonWrapper, SignButton } from './SignIn.styles';
 
-const SignIn = ({ signIn, authError, auth, history }) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+const SignIn = () => {
+  const [formState, setFormState] = React.useState({ email: '', password: '' });
+
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const authError = useSelector((state) => state.auth.authError);
+  const auth = useSelector((state) => state.firebase.auth);
 
   const handleChange = (e) => {
     setFormState({
@@ -23,13 +22,13 @@ const SignIn = ({ signIn, authError, auth, history }) => {
     });
   };
 
-  useEffect(() => {
-    if (!auth.isEmpty) history.push('/pantry');
+  React.useEffect(() => {
+    if (!auth.isEmpty) history.push(ROUTES.PANTRY);
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signIn(formState);
+    dispatch(signIn(formState));
   };
 
   return (
@@ -37,13 +36,7 @@ const SignIn = ({ signIn, authError, auth, history }) => {
       <SignCard>
         <Logo big />
         <Paragraph>Menage your pantry</Paragraph>
-        <StyledInput
-          name="email"
-          type="email"
-          placeholder="login"
-          value={formState.login}
-          onChange={handleChange}
-        />
+        <StyledInput name="email" type="email" placeholder="login" value={formState.login} onChange={handleChange} />
         <StyledItemBar />
         <StyledInput
           name="password"
@@ -57,7 +50,7 @@ const SignIn = ({ signIn, authError, auth, history }) => {
           <SignButton type="submit">Sign In</SignButton>
         </ButtonWrapper>
         <Paragraph>
-          To create a account click <Link to={routes.signUp}>here</Link>
+          To create a account click <Link to={ROUTES.SIGNUP}>here</Link>
         </Paragraph>
 
         {authError ? <Paragraph>{authError}</Paragraph> : null}
@@ -66,28 +59,17 @@ const SignIn = ({ signIn, authError, auth, history }) => {
   );
 };
 
-SignIn.defaultProps = {
-  authError: '',
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     authError: state.auth.authError,
+//     auth: state.firebase.auth,
+//   };
+// };
 
-SignIn.propTypes = {
-  signIn: PropTypes.func.isRequired,
-  authError: PropTypes.string,
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
-  auth: PropTypes.objectOf(PropTypes.any).isRequired,
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     signIn: (creds) => dispatch(signInAction(creds)),
+//   };
+// };
 
-const mapStateToProps = (state) => {
-  return {
-    authError: state.auth.authError,
-    auth: state.firebase.auth,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    signIn: (creds) => dispatch(signInAction(creds)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export default SignIn;

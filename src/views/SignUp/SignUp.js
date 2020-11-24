@@ -1,16 +1,25 @@
-﻿import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { Logo, Paragraph, Button, SignCard } from 'components/atoms';
-import { signUp as signUpAction } from 'actions/authActions';
-import { StyledForm, StyledInput, StyledItemBar } from './styles/StyledSignUp';
+﻿import * as React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Logo, Paragraph, Button, SignCard } from 'atoms';
+import { signUp } from 'redux/actions/authActions';
+import { useHistory } from 'react-router-dom';
+import { ROUTES } from 'routes';
+import { StyledForm, StyledInput, StyledItemBar } from './SignUp.styles';
 
-const SignUp = ({ signUp, authError, auth, history }) => {
-  const [formState, setFormState] = useState({
+const SignUp = () => {
+  const history = useHistory();
+
+  const dispatch = useDispatch();
+
+  const [formState, setFormState] = React.useState({
     email: '',
     password: '',
     firstName: '',
   });
+
+  // auth selectors
+  const authError = useSelector((state) => state.auth.authError);
+  const auth = useSelector((state) => state.firebase.auth);
 
   const handleChange = (e) => {
     setFormState({
@@ -19,13 +28,13 @@ const SignUp = ({ signUp, authError, auth, history }) => {
     });
   };
 
-  useEffect(() => {
-    if (!auth.isEmpty) history.push('/pantry');
+  React.useEffect(() => {
+    if (!auth.isEmpty) history.push(ROUTES.PANTRY);
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signUp(formState);
+    dispatch(signUp(formState));
   };
 
   return (
@@ -34,13 +43,7 @@ const SignUp = ({ signUp, authError, auth, history }) => {
         <Logo big />
         <Paragraph>Create an account to manage your own pantry</Paragraph>
 
-        <StyledInput
-          name="email"
-          type="email"
-          placeholder="login"
-          value={formState.login}
-          onChange={handleChange}
-        />
+        <StyledInput name="email" type="email" placeholder="login" value={formState.login} onChange={handleChange} />
         <StyledItemBar />
         <StyledInput
           name="password"
@@ -65,28 +68,17 @@ const SignUp = ({ signUp, authError, auth, history }) => {
   );
 };
 
-SignUp.defaultProps = {
-  authError: '',
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     authError: state.auth.authError,
+//     auth: state.firebase.auth,
+//   };
+// };
 
-SignUp.propTypes = {
-  authError: PropTypes.string,
-  signUp: PropTypes.func.isRequired,
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
-  auth: PropTypes.objectOf(PropTypes.any).isRequired,
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     signUp: (newUser) => dispatch(signUpAction(newUser)),
+//   };
+// };
 
-const mapStateToProps = (state) => {
-  return {
-    authError: state.auth.authError,
-    auth: state.firebase.auth,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    signUp: (newUser) => dispatch(signUpAction(newUser)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default SignUp;

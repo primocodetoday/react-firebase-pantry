@@ -1,21 +1,37 @@
-﻿import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+﻿import * as React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
-import { withRouter } from 'react-router-dom';
-import { firestoreConnect } from 'react-redux-firebase';
-import { Input, Select, Button } from 'components/atoms';
-import { Header } from 'components/molecules';
-import { addItem } from 'actions/pantryActions';
+import { useHistory } from 'react-router-dom';
+import { useFirestoreConnect } from 'react-redux-firebase';
+import { Input, Select, Button } from 'atoms';
+import { Header } from 'molecules';
+import { addItem } from 'redux/actions/pantryActions';
 import { UserTemplate } from 'templates';
-import { StyledWrapper, StyledForm } from './styles/StyledNewPage';
+import { newItemSchema } from 'models/newItemSchema';
+import { StyledWrapper, StyledForm } from './NewPage.styles';
 
-const NewPage = ({ handleAddItem, history, units, categories }) => {
+const NewPage = () => {
+  const history = useHistory();
+
+  useFirestoreConnect([{ collection: 'pantry' }, { collection: 'settings' }]);
+
+  const units = useSelector((state) => {
+    const { settings } = state.firestore.ordered;
+    return settings ? settings[0].units : null;
+  });
+
+  const categories = useSelector((state) => {
+    const { settings } = state.firestore.ordered;
+    return settings ? settings[1].categories : null;
+  });
+
+  const dispatch = useDispatch();
+
   return (
     <UserTemplate>
       <StyledWrapper column>
         <Header titleText="New Item" subTitleText="Fill out the form to add a new item" />
+        {/* TODO Formik validation to fix */}
         <Formik
           initialValues={{
             name: '',
@@ -29,26 +45,12 @@ const NewPage = ({ handleAddItem, history, units, categories }) => {
             setTimeout(() => {
               setSubmitting(false);
             }, 400);
-            handleAddItem(values);
-            history.push('/');
+            dispatch(addItem(values));
+            setTimeout(() => {
+              history.push('/');
+            }, 600);
           }}
-          validate={(values) => {
-            const errors = {};
-            if (!values.name) {
-              errors.name = 'required';
-            } else if (!values.category) {
-              errors.category = 'required';
-            } else if (!/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/i.test(values.stock)) {
-              errors.stock = 'wrong number';
-            } else if (!/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/i.test(values.maxStock)) {
-              errors.maxStock = 'wrong number';
-            } else if (!/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/i.test(values.minStock)) {
-              errors.minStock = 'wrong number';
-            } else if (!values.unit) {
-              errors.unit = 'required';
-            }
-            return errors;
-          }}
+          validate={(values) => newItemSchema(values)}
         >
           {({ values, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
             <StyledForm onSubmit={handleSubmit}>
@@ -138,38 +140,23 @@ const NewPage = ({ handleAddItem, history, units, categories }) => {
   );
 };
 
-NewPage.defaultProps = {
-  units: [],
-  categories: [],
-};
+// NewPage.propTypes = {
+//   handleAddItem: PropTypes.func.isRequired,
+// };
 
-NewPage.propTypes = {
-  handleAddItem: PropTypes.func.isRequired,
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
-  units: PropTypes.arrayOf(PropTypes.any),
-  categories: PropTypes.arrayOf(PropTypes.any),
-};
+// const mapDispatchToProps = (dispatch) => ({
+//   handleAddItem: (item) => dispatch(addItem(item)),
+// });
 
-const mapDispatchToProps = (dispatch) => ({
-  handleAddItem: (item) => dispatch(addItem(item)),
-});
+// const mapStateToProps = (state) => {
+//   const { settings } = state.firestore.ordered;
+//   const units = settings ? settings[0].units : null;
+//   const categories = settings ? settings[1].categories : null;
 
-const mapStateToProps = (state) => {
-  const { settings } = state.firestore.ordered;
-  const units = settings ? settings[0].units : null;
-  const categories = settings ? settings[1].categories : null;
+//   return {
+//     units,
+//     categories,
+//   };
+// };
 
-  return {
-    units,
-    categories,
-  };
-};
-
-export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
-  firestoreConnect([
-    {
-      collection: 'settings',
-    },
-  ]),
-)(withRouter(NewPage));
+export default NewPage;

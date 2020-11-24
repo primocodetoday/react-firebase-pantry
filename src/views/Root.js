@@ -1,13 +1,13 @@
-﻿import React from 'react';
+﻿import * as React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider, useSelector } from 'react-redux';
 import { ReactReduxFirebaseProvider, isLoaded } from 'react-redux-firebase';
-import { routes } from 'routes';
-import { store, rrfProps } from 'store';
+import { ROUTES } from 'routes';
 import { MainTemplate } from 'templates';
-import LoadingScreen from 'helpers/LoadingScreen';
-import PrivateRoute from 'helpers/PrivateRoute';
+import LoadingScreen from 'molecules/LoadingScreen/LoadingScreen';
+import PrivateRoute from 'hoc/PrivateRoute';
 import { PantryPage, ShopListPage, SettingsPage, ItemPage, NewPage, SignIn, SignUp } from 'views';
+import { store, rrfProps } from 'redux/store';
 
 const AuthIsLoaded = ({ children }) => {
   const auth = useSelector((state) => state.firebase.auth);
@@ -23,14 +23,14 @@ const Root = () => {
           <BrowserRouter>
             <MainTemplate>
               <Switch>
-                <Route exact path={routes.home} render={() => <Redirect to="/pantry" />} />
-                <PrivateRoute exact path={routes.pantry} component={PantryPage} />
-                <PrivateRoute path={routes.pantryitem} component={ItemPage} />
-                <PrivateRoute path={routes.shoplist} component={ShopListPage} />
-                <PrivateRoute path={routes.new} component={NewPage} />
-                <PrivateRoute path={routes.settings} component={SettingsPage} />
-                <Route path={routes.signIn} component={SignIn} />
-                <Route path={routes.signUp} component={SignUp} />
+                <Route exact path={ROUTES.HOME} render={() => <Redirect to="/pantry" />} />
+                <PrivateRoute exact path={ROUTES.PANTRY} component={PantryPage} />
+                <PrivateRoute path={ROUTES.PANTRY_ITEM} component={ItemPage} />
+                <PrivateRoute path={ROUTES.SHOPLIST} component={ShopListPage} />
+                <PrivateRoute path={ROUTES.NEW} component={NewPage} />
+                <PrivateRoute path={ROUTES.SETTINGS} component={SettingsPage} />
+                <Route path={ROUTES.SIGNIN} component={SignIn} />
+                <Route path={ROUTES.SIGNUP} component={SignUp} />
               </Switch>
             </MainTemplate>
           </BrowserRouter>

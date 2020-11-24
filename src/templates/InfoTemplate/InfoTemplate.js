@@ -1,15 +1,15 @@
-﻿import React, { useEffect, useState } from 'react';
+﻿import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Fieldset } from 'components/atoms';
-import { Image, Wrapper } from './styles/StyledInfoTemplate';
+import { Fieldset } from 'atoms';
+import { Image, Wrapper } from './InfoTemplate.styles';
 
 const InfoTemplate = ({ item }) => {
-  const [data, setData] = useState();
-  const [err, setErr] = useState();
+  const [data, setData] = React.useState();
+  const [err, setErr] = React.useState();
 
   const { name } = item;
 
-  useEffect(() => {
+  React.useEffect(() => {
     const API = `https://en.wikipedia.org/api/rest_v1/page/summary/${name}`;
     fetch(API)
       .then((response) => {
