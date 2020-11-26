@@ -2,23 +2,23 @@
 
 exports[`<CardList/> renders properly> with  passed props 1`] = `
 <ul
-  class="StyledCardList__Wrapper-zp7mvs-0 gBOpsV"
+  class="CardListstyles__Wrapper-sc-1dfnl2s-0 cPSuUq"
 >
   <li
-    class="StyledListItem__Wrapper-m6611x-0 ffofAU"
+    class="ListItemstyles__Wrapper-znqbkm-0 hcVLBz"
   >
     <p
-      class="Paragraph-vj49lv-0 eenHSs"
+      class="Paragraph-sc-1iyx54k-0 clzspR"
     >
       Bread
     </p>
     <p
-      class="Paragraph-vj49lv-0 StyledListItem__Stock-m6611x-1 eenHSs eMTcUE"
+      class="Paragraph-sc-1iyx54k-0 ListItemstyles__Stock-znqbkm-1 clzspR fxYTZj"
     >
       15
     </p>
     <p
-      class="Paragraph-vj49lv-0 eenHSs"
+      class="Paragraph-sc-1iyx54k-0 clzspR"
     >
       kg
     </p>

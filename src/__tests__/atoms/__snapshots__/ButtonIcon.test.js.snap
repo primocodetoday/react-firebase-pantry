@@ -2,6 +2,6 @@
 
 exports[`Renders <Button/> properly with defaultProps 1`] = `
 <button
-  class="StyledButtonIcon__Wrapper-vk02hy-0 jJlrpO"
+  class="ButtonIcon-sc-12bqy74-0 gYECiD"
 />
 `;

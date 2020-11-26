@@ -2,7 +2,7 @@
 
 exports[`<Paragraph/> components renders properly with passed children 1`] = `
 <p
-  class="Paragraph-vj49lv-0 eenHSs"
+  class="Paragraph-sc-1iyx54k-0 clzspR"
 >
   Lorem ipsum dolor sit amet
 </p>
@@ -10,7 +10,7 @@ exports[`<Paragraph/> components renders properly with passed children 1`] = `
 
 exports[`<Paragraph/> components renders properly with size prop 1`] = `
 <p
-  class="Paragraph-vj49lv-0 hMqrMq"
+  class="Paragraph-sc-1iyx54k-0 ehZnXz"
 >
   Lorem ipsum dolor sit amet
 </p>

@@ -2,7 +2,7 @@
 
 exports[`Renders <Button/> properly with defaultProps 1`] = `
 <button
-  class="StyledButton__Wrapper-sc-1x4y9in-0 bsqhTU"
+  class="Button-sc-19h6k31-0 jPzzbs"
 >
   Test
 </button>
@@ -10,7 +10,7 @@ exports[`Renders <Button/> properly with defaultProps 1`] = `
 
 exports[`Renders <Button/> properly with secondary props 1`] = `
 <button
-  class="StyledButton__Wrapper-sc-1x4y9in-0 loMEba"
+  class="Button-sc-19h6k31-0 jBGxKG"
 >
   Test
 </button>

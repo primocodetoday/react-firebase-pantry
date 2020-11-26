@@ -2,7 +2,7 @@
 
 exports[`Renders <Fieldset> properly with defaultProps 1`] = `
 <fieldset
-  class="StyledFieldset__Wrapper-gqkhg4-0 fXyGwR"
+  class="Fieldset__Wrapper-sc-5lzkti-0 fmtGwM"
 >
   Lorem ipsum dolor sit amet
 </fieldset>
@@ -10,7 +10,7 @@ exports[`Renders <Fieldset> properly with defaultProps 1`] = `
 
 exports[`Renders <Fieldset> properly with provided legend props 1`] = `
 <fieldset
-  class="StyledFieldset__Wrapper-gqkhg4-0 fXyGwR"
+  class="Fieldset__Wrapper-sc-5lzkti-0 fmtGwM"
 >
   <legend>
     Test frame

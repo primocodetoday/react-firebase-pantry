@@ -1,4 +1,5 @@
 ﻿import styled from 'styled-components/macro';
+import { defaultThemeProps } from 'theme/defaultThemeProps';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -10,8 +11,8 @@ export const Wrapper = styled.div`
   align-items: center;
   width: 450px;
   padding: 30px 20px;
-  color: ${({ theme }) => theme.primary};
   background-color: white;
+  color: ${({ theme }) => theme.primary};
   border-radius: ${({ theme }) => theme.borderRadius};
   justify-items: center;
   row-gap: 10px;
@@ -27,3 +28,5 @@ export const Wrapper = styled.div`
     width: 90vw;
   }
 `;
+
+Wrapper.defaultProps = defaultThemeProps;

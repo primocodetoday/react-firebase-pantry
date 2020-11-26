@@ -1,6 +1,8 @@
 ﻿import * as React from 'react';
 import { render } from '@testing-library/react';
-import { SignCard } from 'atoms';
+import { SignCard } from 'organisms';
+
+jest.mock('react-router-dom');
 
 describe('<SignCard/> renders properly', () => {
   it('with passed node', () => {

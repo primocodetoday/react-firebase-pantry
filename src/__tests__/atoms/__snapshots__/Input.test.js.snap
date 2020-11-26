@@ -1,30 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component <Input/> render properly with "search" props 1`] = `
-<input
-  class="StyledInput__Wrapper-c30uhj-0 bvjyfA"
-  data-testid="input"
-/>
+<div
+  class="Inputstyles__InputWrapper-xbsac8-0 feZCNq"
+>
+  <input
+    class="Inputstyles__SCInput-xbsac8-1 fVKKVH"
+    data-testid="input"
+  />
+</div>
 `;
 
 exports[`Component <Input/> render properly with "settings" props 1`] = `
-<input
-  class="StyledInput__Wrapper-c30uhj-0 fSSPhJ"
-  data-testid="input"
-/>
+<div
+  class="Inputstyles__InputWrapper-xbsac8-0 feZCNq"
+>
+  <input
+    class="Inputstyles__SCInput-xbsac8-1 iURsrK"
+    data-testid="input"
+  />
+</div>
 `;
 
 exports[`Component <Input/> render properly with default props 1`] = `
-<input
-  class="StyledInput__Wrapper-c30uhj-0 gZqCgY"
-  data-testid="input"
-/>
+<div
+  class="Inputstyles__InputWrapper-xbsac8-0 feZCNq"
+>
+  <input
+    class="Inputstyles__SCInput-xbsac8-1 cdqXvz"
+    data-testid="input"
+  />
+</div>
 `;
 
 exports[`Component <Input/> render properly with passed props 1`] = `
-<input
-  class="StyledInput__Wrapper-c30uhj-0 gZqCgY"
-  data-testid="input"
-  placeholder="Email address"
-/>
+<div
+  class="Inputstyles__InputWrapper-xbsac8-0 feZCNq"
+>
+  <input
+    class="Inputstyles__SCInput-xbsac8-1 cdqXvz"
+    data-testid="input"
+    placeholder="Email address"
+  />
+</div>
 `;

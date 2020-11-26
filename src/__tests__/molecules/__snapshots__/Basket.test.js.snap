@@ -2,15 +2,15 @@
 
 exports[`<Basket/> renders properly> with  passed props 1`] = `
 <div
-  class="StyledBasket__Wrapper-sc-13gdfu1-0 hAsiTJ"
+  class="Basketstyles__Wrapper-soyk8i-0 ilJAeb"
 >
   <h1
-    class="StyledTitle__Wrapper-sc-1etxgm6-0 bcXqTI"
+    class="Title-gs7lg-0 gPeMbJ"
   >
     Shop list
   </h1>
   <div
-    class="StyledBasket__Line-sc-13gdfu1-1 dhZdXp"
+    class="Basketstyles__Line-soyk8i-1 kgUMYD"
   />
   <h1>
     Test string
@@ -20,15 +20,15 @@ exports[`<Basket/> renders properly> with  passed props 1`] = `
 
 exports[`<Basket/> renders properly> without  props 1`] = `
 <div
-  class="StyledBasket__Wrapper-sc-13gdfu1-0 hAsiTJ"
+  class="Basketstyles__Wrapper-soyk8i-0 ilJAeb"
 >
   <h1
-    class="StyledTitle__Wrapper-sc-1etxgm6-0 bcXqTI"
+    class="Title-gs7lg-0 gPeMbJ"
   >
     Shop list
   </h1>
   <div
-    class="StyledBasket__Line-sc-13gdfu1-1 dhZdXp"
+    class="Basketstyles__Line-soyk8i-1 kgUMYD"
   />
 </div>
 `;
