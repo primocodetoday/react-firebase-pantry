@@ -16,7 +16,7 @@ describe('<Select/> renders properly', () => {
     const { getByDisplayValue, container } = render(<Select options={testProps} />);
 
     expect(getByDisplayValue('Lorem')).toBeTruthy();
-    // TODO This works enough by think about complex test that match whole array
+    // TODO TEST - This works enough by think about complex test that match whole array
 
     expect(container.firstChild).toMatchSnapshot();
   });

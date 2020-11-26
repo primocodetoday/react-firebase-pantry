@@ -31,7 +31,7 @@ const NewItem = () => {
     <UserTemplate>
       <StyledWrapper column>
         <Header titleText="New Item" subTitleText="Fill out the form to add a new item" />
-        {/* TODO Formik validation to fix */}
+        {/* TODO DEV - Formik validation to fix */}
         <Formik
           initialValues={{
             name: '',

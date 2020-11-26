@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { Logo } from 'atoms';
 import { MemoryRouter } from 'react-router-dom';
 
-// TODO add routing testing
+// TODO TEST - add routing testing
 
 describe('Render <Logo/> properly', () => {
   it('with default props without provider', () => {

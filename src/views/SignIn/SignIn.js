@@ -4,46 +4,52 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Logo, Paragraph, SignCard } from 'atoms';
 import { signIn } from 'redux/actions/authActions';
 import { ROUTES } from 'routes';
+import { useFormik } from 'formik';
 import { StyledForm, StyledInput, StyledItemBar, ButtonWrapper, SignButton } from './SignIn.styles';
 
 const SignIn = () => {
-  const [formState, setFormState] = React.useState({ email: '', password: '' });
-
   const history = useHistory();
   const dispatch = useDispatch();
 
   const authError = useSelector((state) => state.auth.authError);
   const auth = useSelector((state) => state.firebase.auth);
 
-  const handleChange = (e) => {
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value,
-    });
-  };
-
+  // TODO DEV - do i need that ?
   React.useEffect(() => {
     if (!auth.isEmpty) history.push(ROUTES.PANTRY);
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(signIn(formState));
-  };
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    onSubmit: (values) => {
+      dispatch(signIn(values));
+    },
+  });
 
   return (
-    <StyledForm onSubmit={handleSubmit}>
+    <StyledForm onSubmit={formik.handleSubmit}>
       <SignCard>
         <Logo big />
         <Paragraph>Menage your pantry</Paragraph>
-        <StyledInput name="email" type="email" placeholder="login" value={formState.login} onChange={handleChange} />
+        <StyledInput
+          id="email"
+          name="email"
+          type="email"
+          placeholder="login"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+        />
         <StyledItemBar />
         <StyledInput
+          id="password"
           name="password"
           type="password"
           placeholder="password"
-          value={formState.password}
-          onChange={handleChange}
+          value={formik.values.password}
+          onChange={formik.handleChange}
         />
         <StyledItemBar />
         <ButtonWrapper>
@@ -58,18 +64,5 @@ const SignIn = () => {
     </StyledForm>
   );
 };
-
-// const mapStateToProps = (state) => {
-//   return {
-//     authError: state.auth.authError,
-//     auth: state.firebase.auth,
-//   };
-// };
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     signIn: (creds) => dispatch(signInAction(creds)),
-//   };
-// };
 
 export default SignIn;

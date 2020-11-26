@@ -2,6 +2,7 @@
 import PropTypes from 'prop-types';
 import { defaultThemeProps } from 'theme/defaultThemeProps';
 
+// TODO DEV - rebuild this with optional label
 const Input = styled.input`
   font-family: 'Montserrat', sans-serif;
   padding: 10px 10px;

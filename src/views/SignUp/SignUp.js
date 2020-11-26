@@ -15,6 +15,7 @@ const SignUp = () => {
   const authError = useSelector((state) => state.auth.authError);
   const auth = useSelector((state) => state.firebase.auth);
 
+  // TODO DEV - do i need that ?
   React.useEffect(() => {
     if (!auth.isEmpty) history.push(ROUTES.PANTRY);
   });
@@ -54,6 +55,7 @@ const SignUp = () => {
         />
         <StyledItemBar />
         <StyledInput
+          id="firstName"
           name="firstName"
           type="text"
           placeholder="first name"
