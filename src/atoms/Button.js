@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { defaultThemeProps } from 'theme/defaultThemeProps';
 
 const Button = styled.button`
+  cursor: pointer;
   background-color: ${({ theme }) => theme.secondary};
   padding: 9px 15px;
   font-size: ${({ theme }) => theme.fontSize.big};
@@ -22,6 +23,16 @@ const Button = styled.button`
     secondary &&
     css`
       background-color: grey;
+    `}
+
+  ${({ sign }) =>
+    sign &&
+    css`
+      align-self: center;
+      width: 50%;
+      font-size: 2rem;
+      text-decoration: none;
+      margin: 20px 0;
     `}
 `;
 

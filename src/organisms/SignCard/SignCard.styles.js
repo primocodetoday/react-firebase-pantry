@@ -1,13 +1,12 @@
 ﻿import styled from 'styled-components/macro';
-import { defaultThemeProps } from 'theme/defaultThemeProps';
-import PropTypes from 'prop-types';
 
-const SignCard = styled.div`
-  display: grid;
+export const Wrapper = styled.div`
+  display: flex;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  flex-direction: column;
   align-items: center;
   width: 450px;
   padding: 30px 20px;
@@ -15,7 +14,7 @@ const SignCard = styled.div`
   background-color: white;
   border-radius: ${({ theme }) => theme.borderRadius};
   justify-items: center;
-  gap: 10px;
+  row-gap: 10px;
 
   p:first-child {
     margin-bottom: 10px;
@@ -28,11 +27,3 @@ const SignCard = styled.div`
     width: 90vw;
   }
 `;
-
-SignCard.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-SignCard.defaultProps = defaultThemeProps;
-
-export default SignCard;

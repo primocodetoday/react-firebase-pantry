@@ -1,24 +1,19 @@
 ﻿import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Logo, Paragraph, Button, SignCard } from 'atoms';
+import { Paragraph, Button } from 'atoms';
+import { SignCard } from 'organisms';
 import { signUp } from 'redux/actions/authActions';
-import { useHistory } from 'react-router-dom';
 import { ROUTES } from 'routes';
 import { useFormik } from 'formik';
-import { StyledForm, StyledInput, StyledItemBar } from './SignUp.styles';
+import SignTemplate from 'templates/SignTemplate/SignTemplate';
+import { Link } from 'react-router-dom';
+import { StyledForm, StyledInput } from './SignUp.styles';
 
 const SignUp = () => {
-  const history = useHistory();
   const dispatch = useDispatch();
 
   // auth selectors
   const authError = useSelector((state) => state.auth.authError);
-  const auth = useSelector((state) => state.firebase.auth);
-
-  // TODO DEV - do i need that ?
-  React.useEffect(() => {
-    if (!auth.isEmpty) history.push(ROUTES.PANTRY);
-  });
 
   const formik = useFormik({
     initialValues: {
@@ -32,41 +27,44 @@ const SignUp = () => {
   });
 
   return (
-    <StyledForm onSubmit={formik.handleSubmit}>
+    <SignTemplate>
       <SignCard>
-        <Logo big />
-        <Paragraph>Create an account to manage your own pantry</Paragraph>
-        <StyledInput
-          id="email"
-          name="email"
-          type="email"
-          placeholder="login"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-        />
-        <StyledItemBar />
-        <StyledInput
-          id="password"
-          name="password"
-          type="password"
-          placeholder="password"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-        />
-        <StyledItemBar />
-        <StyledInput
-          id="firstName"
-          name="firstName"
-          type="text"
-          placeholder="first name"
-          value={formik.values.firstName}
-          onChange={formik.handleChange}
-        />
-        <StyledItemBar />
-        <Button type="submit">Sign Up</Button>
-        {authError ? <Paragraph>{authError}</Paragraph> : null}
+        <StyledForm onSubmit={formik.handleSubmit}>
+          <Paragraph>Create an account to manage your own pantry</Paragraph>
+          <StyledInput
+            label
+            id="email"
+            name="email"
+            type="email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+          />
+          <StyledInput
+            label
+            id="password"
+            name="password"
+            type="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+          />
+          <StyledInput
+            label
+            id="firstName"
+            name="firstName"
+            type="text"
+            value={formik.values.firstName}
+            onChange={formik.handleChange}
+          />
+          <Button sign type="submit">
+            Sign Up
+          </Button>
+          <Paragraph>
+            To login click <Link to={ROUTES.SIGNIN}>here</Link>
+          </Paragraph>
+          {authError ? <Paragraph>{authError}</Paragraph> : null}
+        </StyledForm>
       </SignCard>
-    </StyledForm>
+    </SignTemplate>
   );
 };
 

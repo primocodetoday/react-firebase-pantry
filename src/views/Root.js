@@ -5,7 +5,7 @@ import { ReactReduxFirebaseProvider, isLoaded } from 'react-redux-firebase';
 import { ROUTES } from 'routes';
 import { MainTemplate } from 'templates';
 import LoadingScreen from 'molecules/LoadingScreen/LoadingScreen';
-import PrivateRoute from 'hoc/PrivateRoute';
+import PrivateRoute from 'routes/PrivateRoute';
 import * as Views from 'views';
 import { store, rrfProps } from 'redux/store';
 
