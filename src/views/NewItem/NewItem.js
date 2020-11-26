@@ -8,9 +8,9 @@ import { Header } from 'molecules';
 import { addItem } from 'redux/actions/pantryActions';
 import { UserTemplate } from 'templates';
 import { newItemSchema } from 'models/newItemSchema';
-import { StyledWrapper, StyledForm } from './NewPage.styles';
+import { StyledWrapper, StyledForm } from './NewItem.styles';
 
-const NewPage = () => {
+const NewItem = () => {
   const history = useHistory();
 
   useFirestoreConnect([{ collection: 'pantry' }, { collection: 'settings' }]);
@@ -140,23 +140,4 @@ const NewPage = () => {
   );
 };
 
-// NewPage.propTypes = {
-//   handleAddItem: PropTypes.func.isRequired,
-// };
-
-// const mapDispatchToProps = (dispatch) => ({
-//   handleAddItem: (item) => dispatch(addItem(item)),
-// });
-
-// const mapStateToProps = (state) => {
-//   const { settings } = state.firestore.ordered;
-//   const units = settings ? settings[0].units : null;
-//   const categories = settings ? settings[1].categories : null;
-
-//   return {
-//     units,
-//     categories,
-//   };
-// };
-
-export default NewPage;
+export default NewItem;

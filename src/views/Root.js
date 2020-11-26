@@ -6,7 +6,7 @@ import { ROUTES } from 'routes';
 import { MainTemplate } from 'templates';
 import LoadingScreen from 'molecules/LoadingScreen/LoadingScreen';
 import PrivateRoute from 'hoc/PrivateRoute';
-import { PantryPage, ShopListPage, SettingsPage, ItemPage, NewPage, SignIn, SignUp } from 'views';
+import * as Views from 'views';
 import { store, rrfProps } from 'redux/store';
 
 const AuthIsLoaded = ({ children }) => {
@@ -23,14 +23,14 @@ const Root = () => {
           <BrowserRouter>
             <MainTemplate>
               <Switch>
-                <Route exact path={ROUTES.HOME} render={() => <Redirect to="/pantry" />} />
-                <PrivateRoute exact path={ROUTES.PANTRY} component={PantryPage} />
-                <PrivateRoute path={ROUTES.PANTRY_ITEM} component={ItemPage} />
-                <PrivateRoute path={ROUTES.SHOPLIST} component={ShopListPage} />
-                <PrivateRoute path={ROUTES.NEW} component={NewPage} />
-                <PrivateRoute path={ROUTES.SETTINGS} component={SettingsPage} />
-                <Route path={ROUTES.SIGNIN} component={SignIn} />
-                <Route path={ROUTES.SIGNUP} component={SignUp} />
+                <Route exact path={ROUTES.HOME} render={() => <Redirect to={ROUTES.PANTRY} />} />
+                <PrivateRoute exact path={ROUTES.PANTRY} component={Views.Pantry} />
+                <PrivateRoute path={ROUTES.PANTRY_ITEM} component={Views.ItemPage} />
+                <PrivateRoute path={ROUTES.SHOPLIST} component={Views.ShopListPage} />
+                <PrivateRoute path={ROUTES.NEW} component={Views.NewItem} />
+                <PrivateRoute path={ROUTES.SETTINGS} component={Views.SettingsPage} />
+                <Route path={ROUTES.SIGNIN} component={Views.SignIn} />
+                <Route path={ROUTES.SIGNUP} component={Views.SignUp} />
               </Switch>
             </MainTemplate>
           </BrowserRouter>

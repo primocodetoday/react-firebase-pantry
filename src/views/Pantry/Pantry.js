@@ -5,7 +5,7 @@ import { UserTemplate } from 'templates';
 import { Card } from 'organisms';
 import { Header } from 'molecules';
 import { Paragraph, Input, Section } from 'atoms';
-import { GridWrapper } from './PantryPage.styles';
+import { GridWrapper } from './Pantry.styles';
 
 // this will be  move to state
 const iconsList = [
@@ -31,7 +31,7 @@ const showPantry = (array, icons, filter) => {
   return cardItems;
 };
 
-const PantryPage = () => {
+const Pantry = () => {
   // sync pantry
   useFirestoreConnect([{ collection: 'pantry' }]);
   const pantry = useSelector((state) => state.firestore.ordered.pantry);
@@ -54,26 +54,4 @@ const PantryPage = () => {
   );
 };
 
-// const mapStateToProps = (state) => {
-//   return { pantry: state.firestore.ordered.pantry };
-// };
-
-// PantryPage.defaultProps = {
-//   pantry: [],
-// };
-
-// PantryPage.propTypes = {
-//   pantry: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string.isRequired,
-//       category: PropTypes.string.isRequired,
-//       name: PropTypes.string.isRequired,
-//       stock: PropTypes.number.isRequired,
-//       unit: PropTypes.string.isRequired,
-//       maxStock: PropTypes.number.isRequired,
-//       minStock: PropTypes.number.isRequired,
-//     }),
-//   ),
-// };
-
-export default PantryPage;
+export default Pantry;
