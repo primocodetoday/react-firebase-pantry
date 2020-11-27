@@ -4,7 +4,13 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
 import { defaultThemeProps } from 'theme/defaultThemeProps';
 
-export const Wrapper = styled.select`
+export const SelectWrapper = styled.div`
+  display: flex;
+  justify-content: start;
+  align-items: center;
+`;
+
+export const SCSelect = styled.select`
   text-align: center;
   text-align-last: center;
   padding: 10px 10px;
@@ -18,22 +24,35 @@ export const Wrapper = styled.select`
   }
 `;
 
-Wrapper.defaultProps = defaultThemeProps;
+export const SCLabel = styled.label`
+  width: 100%;
+  color: ${({ theme }) => theme.secondary};
+  margin-right: 20px;
+`;
 
-const Select = ({ options, ...restProps }) => {
-  const selectOptions = options
-    ? options.map((item) => (
-        <option key={item} value={item}>
-          {item}
-        </option>
-      ))
-    : null;
+SelectWrapper.defaultProps = defaultThemeProps;
+
+const Select = ({ options, id, name, label, ...restProps }) => {
+  const selectOptions = React.useMemo(
+    () =>
+      options
+        ? options.map((item) => (
+            <option key={item} value={item}>
+              {item}
+            </option>
+          ))
+        : [],
+    [options],
+  );
 
   return (
-    <Wrapper {...restProps} data-testid="select">
-      <option disabled>select option</option>
-      {selectOptions}
-    </Wrapper>
+    <SelectWrapper>
+      {label && <SCLabel htmlFor={id}>{name}: </SCLabel>}
+      <SCSelect id={id} name={name} {...restProps} data-testid="select">
+        <option disabled>select option</option>
+        {selectOptions}
+      </SCSelect>
+    </SelectWrapper>
   );
 };
 

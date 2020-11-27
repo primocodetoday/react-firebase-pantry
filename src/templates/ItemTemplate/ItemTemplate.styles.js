@@ -1,4 +1,4 @@
-﻿import styled from 'styled-components';
+﻿import styled from 'styled-components/macro';
 import { ButtonIcon } from 'atoms';
 
 export const Wrapper = styled.section`
@@ -43,13 +43,17 @@ export const Settings = styled.form`
 `;
 
 export const Stock = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 80px 80px;
-  gap: 27px;
+  display: flex;
+  column-gap: 27px;
   margin-bottom: 30px;
 
   label {
-    font-size: 3rem;
+    font-size: 2.2rem;
+    color: white;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
   }
   input {
     font-size: 3rem;

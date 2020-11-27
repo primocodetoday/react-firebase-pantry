@@ -11,6 +11,7 @@ export const InputWrapper = styled.div`
 `;
 
 export const SCInput = styled.input`
+  width: 100%;
   font-family: 'Montserrat', sans-serif;
   padding: 10px 10px;
   font-size: ${({ theme }) => theme.fontSize.normal};
@@ -55,7 +56,9 @@ export const SCInput = styled.input`
 `;
 
 export const SCLabel = styled.label`
+  width: 100%;
   color: ${({ theme }) => theme.secondary};
+  margin-right: 20px;
 `;
 
 SCInput.propTypes = {

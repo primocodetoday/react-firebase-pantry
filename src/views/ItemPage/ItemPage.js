@@ -12,20 +12,26 @@ const ItemPage = () => {
   useFirestoreConnect([{ collection: 'pantry' }, { collection: 'settings' }]);
 
   const item = useSelector((state) => {
-    const { pantry } = state.firestore.data;
-    return pantry ? pantry[id] : null;
+    if (state.firestore.data.pantry) {
+      const { pantry } = state.firestore.data;
+      return pantry[id];
+    }
+    return false;
   });
 
-  const units = useSelector((state) => {
-    const { settings } = state.firestore.ordered;
-    return settings ? settings[0].units : null;
+  const unitsList = useSelector((state) => {
+    if (state.firestore.ordered.settings) {
+      const { units } = state.firestore.ordered.settings[0];
+      return units;
+    }
+    return [];
   });
 
   return (
     <UserTemplate>
       {item ? (
         <Section wrap>
-          <ItemTemplate item={item} id={id} units={units} />
+          <ItemTemplate item={item} id={id} units={unitsList} />
           <InfoTemplate item={item} />
         </Section>
       ) : (
@@ -34,19 +40,5 @@ const ItemPage = () => {
     </UserTemplate>
   );
 };
-
-// const mapStateToProps = (state, ownProps) => {
-//   const { id } = ownProps.match.params;
-//   const { pantry } = state.firestore.data;
-//   const item = pantry ? pantry[id] : null;
-//   // extracting Select options
-//   const { settings } = state.firestore.ordered;
-//   const units = settings ? settings[0].units : null;
-
-//   return {
-//     item,
-//     units,
-//   };
-// };
 
 export default ItemPage;

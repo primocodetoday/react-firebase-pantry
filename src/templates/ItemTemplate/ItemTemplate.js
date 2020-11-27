@@ -31,8 +31,7 @@ const ItemTemplate = ({ id, item, units }) => {
     <Wrapper>
       <Header titleText={name} subTitleText={`category: ${category}`} />
       <Stock>
-        <label htmlFor="stock">Stock</label>
-        <Input id="stock" defaultValue={stockState} settings />
+        <Input label id="stock" name="stock " defaultValue={stockState} settings />
         <ChangeStockWrapper>
           <ButtonAdd icon="/assets/icons/plusIcon.svg" onClick={() => dispatch(addStock(id))} />
           <ButtonSub icon="/assets/icons/minusIcon.svg" onClick={() => dispatch(subStock(id))} />
@@ -56,6 +55,7 @@ const ItemTemplate = ({ id, item, units }) => {
               <Input
                 className="grid-settings-2"
                 settings
+                id="maxStock"
                 type="number"
                 name="maxStock"
                 onChange={handleChange}
@@ -69,6 +69,7 @@ const ItemTemplate = ({ id, item, units }) => {
                 className="grid-settings-4"
                 settings
                 type="number"
+                id="minStock"
                 name="minStock"
                 onChange={handleChange}
                 onBlur={handleBlur}

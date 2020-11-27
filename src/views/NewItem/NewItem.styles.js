@@ -7,10 +7,13 @@ export const StyledWrapper = styled(Section)`
 `;
 
 export const StyledForm = styled(Form)`
-  display: grid;
-  grid-template-columns: 1fr 80px 150px;
-  align-items: center;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
+  label {
+    color: white;
+  }
 
   .grid-label {
     grid-column: 1/2;

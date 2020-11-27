@@ -1,6 +1,6 @@
 ﻿import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Formik, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import { useHistory } from 'react-router-dom';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import { Input, Select, Button } from 'atoms';
@@ -54,77 +54,62 @@ const NewItem = () => {
         >
           {({ values, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
             <StyledForm onSubmit={handleSubmit}>
-              <label className="grid-label" htmlFor="name">
-                Name:
-              </label>
-              <ErrorMessage name="name" />
               <Input
-                className="grid-input"
+                label
+                // className="grid-input"
                 type="text"
                 name="name"
+                id="name"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.name}
               />
-              <label className="grid-label" htmlFor="category">
-                Category:
-              </label>
-              <ErrorMessage name="category" />
               <Select
-                className="grid-input"
+                // className="grid-input"
+                label
                 options={categories}
+                id="category"
                 name="category"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.category}
               />
-              <label className="grid-label" htmlFor="stock">
-                Stock:
-              </label>
-              <ErrorMessage name="stock" />
               <Input
-                className="grid-input"
+                label
+                // className="grid-input"
                 type="number"
                 name="stock"
+                id="stock"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.stock}
               />
-              <label className="grid-label" htmlFor="maxStock">
-                Max Stock:
-              </label>
-              <ErrorMessage name="maxStock" />
               <Input
-                className="grid-input"
+                label
+                // className="grid-input"
                 type="number"
                 name="maxStock"
-                placeholder="max"
+                id="maxStock"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.maxStock}
               />
-              <label className="grid-label" htmlFor="minStock">
-                Min Stock:
-              </label>
-              <ErrorMessage name="minStock" />
               <Input
-                className="grid-input"
+                label
+                // className="grid-input"
                 type="number"
                 name="minStock"
-                placeholder="min"
+                id="minStock"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.minStock}
               />
-              <label className="grid-label" htmlFor="unit">
-                Units:
-              </label>
-              <ErrorMessage name="unit" />
               <Select
-                className="grid-input"
-                placeholder="chose unit"
+                label
+                // className="grid-input"
                 options={units}
                 name="unit"
+                id="unit"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.unit}
