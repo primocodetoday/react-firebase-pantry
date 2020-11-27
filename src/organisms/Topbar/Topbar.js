@@ -5,7 +5,7 @@ import { ROUTES } from 'routes';
 import { Paragraph, Logo } from 'atoms';
 import { useDispatch } from 'react-redux';
 import { signOut } from 'redux/actions/authActions';
-import { menuItems } from '../../constants/menuItems';
+import { MENU_ITEMS } from '../../constants/menuItems';
 import { Wrapper, BurgerWrapper } from './Topbar.styles';
 
 const Topbar = () => {
@@ -16,7 +16,7 @@ const Topbar = () => {
       <Logo to={ROUTES.HOME} />
       <BurgerWrapper>
         <Menu right>
-          {menuItems.map((item) => (
+          {MENU_ITEMS.map((item) => (
             <NavLink to={item.route} key={item.name} activeclass="active">
               {item.name}
             </NavLink>

@@ -3,13 +3,13 @@ import { Logo, MenuIcon } from 'atoms';
 import { signOut } from 'redux/actions/authActions';
 import { ROUTES } from 'routes';
 import { useDispatch } from 'react-redux';
-import { menuItems } from '../../constants/menuItems';
+import { MENU_ITEMS } from '../../constants/menuItems';
 import { Wrapper } from './Sidebar.styles';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
 
-  const menu = menuItems.map(({ name, route, src, alt }) => {
+  const menu = MENU_ITEMS.map(({ name, route, src, alt }) => {
     return <MenuIcon key={name} to={route} src={src} alt={alt} />;
   });
 

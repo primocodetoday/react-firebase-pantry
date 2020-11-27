@@ -1,6 +1,6 @@
 ﻿import { ROUTES } from 'routes';
 
-export const menuItems = [
+export const MENU_ITEMS = [
   {
     name: 'Main',
     route: ROUTES.PANTRY,
